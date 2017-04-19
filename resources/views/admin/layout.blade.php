@@ -25,9 +25,9 @@
         </aside>
 
         <div class="content-wrapper">
-            @include('admin.include.content_top')
-
             <section class="content">
+                @include('admin.include.message')
+
                 @yield('content')
             </section>
         </div>

@@ -1,5 +1,5 @@
 <!-- Logo -->
-<a href="/" class="logo">
+<a href="/adminka/" class="logo">
     <span class="logo-mini"><b>C</b>MS</span>
     <span class="logo-lg"><b>Creative</b>CMS</span>
 </a>
@@ -15,10 +15,13 @@
     <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#"><i class="fa fa-gears"></i></a>
+                <a href="{{ action('Admin\AuthController@getProfile') }}"><i class="fa fa-gears"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sign-out"></i></a>
+                <a href="{{ action('Admin\AuthController@getProfile') }}"><i class="fa fa-user"></i></a>
+            </li>
+            <li>
+                <a href="{{ action('Admin\AuthController@getLogout') }}"><i class="fa fa-sign-out"></i></a>
             </li>
         </ul>
     </div>
