@@ -56,8 +56,20 @@
         </li>
 
         <li class="header">Справочники</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        <li>
+            <a href="{{ action('Admin\CityController@getIndex') }}">
+                <i class="fa fa-circle-o text-red"></i> <span>Города</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ action('Admin\AvgPriceController@getIndex') }}">
+                <i class="fa fa-circle-o text-yellow"></i> <span>Средний счет</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ action('Admin\ObjectCatController@getIndex') }}">
+                <i class="fa fa-circle-o text-aqua"></i> <span>Категории заведений</span>
+            </a>
+        </li>
     </ul>
 </section>
