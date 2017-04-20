@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Directory;
 
 use DB;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,6 @@ use App\Model\SysDirectoryName;
 class CityController extends DirectoryNameController{
     protected $title = 'Города';
     protected $parent_id = 1;
-    protected $action_class = 'Admin\CityController';
+    protected $action_class = 'Admin\Directory\CityController';
 
 }

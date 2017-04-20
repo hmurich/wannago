@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Directory;
 
 use DB;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,6 @@ use App\Model\SysDirectoryName;
 class AvgPriceController extends DirectoryNameController{
     protected $title = 'Средний счет';
     protected $parent_id = 2;
-    protected $action_class = 'Admin\AvgPriceController';
-    
+    protected $action_class = 'Admin\Directory\AvgPriceController';
+
 }

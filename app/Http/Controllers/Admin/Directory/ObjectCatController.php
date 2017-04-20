@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Directory;
 
 use DB;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,6 @@ use App\Model\SysDirectoryName;
 class ObjectCatController extends DirectoryNameController{
     protected $title = 'Категории заведений';
     protected $parent_id = 3;
-    protected $action_class = 'Admin\ObjectCatController';
+    protected $action_class = 'Admin\Directory\ObjectCatController';
 
 }

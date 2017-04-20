@@ -10,53 +10,61 @@ Route::post('adminka/login', 'Admin\AuthController@postLogin');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
+    //ModeratorController
+    Route::get('adminka/directory/moderator', 'Admin\Directory\ModeratorController@getIndex');
+    Route::get('adminka/directory/moderator/item/{id?}', 'Admin\Directory\ModeratorController@getEdit');
+    Route::post('adminka/directory/moderator/item/{id?}', 'Admin\Directory\ModeratorController@postEdit');
+    Route::get('adminka/directory/moderator/password/{id?}', 'Admin\Directory\ModeratorController@getPassword');
+    Route::post('adminka/directory/moderator/password/{id?}', 'Admin\Directory\ModeratorController@postPassword');
+    Route::get('adminka/directory/moderator/delete/{id}', 'Admin\Directory\ModeratorController@getDelete');
+
     //CityController
-    Route::get('adminka/directory/city', 'Admin\CityController@getIndex');
-    Route::get('adminka/directory/city/item/{id?}', 'Admin\CityController@getEdit');
-    Route::post('adminka/directory/city/item/{id?}', 'Admin\CityController@postEdit');
-    Route::get('adminka/directory/city/delete/{id}', 'Admin\CityController@getDelete');
+    Route::get('adminka/directory/city', 'Admin\Directory\CityController@getIndex');
+    Route::get('adminka/directory/city/item/{id?}', 'Admin\Directory\CityController@getEdit');
+    Route::post('adminka/directory/city/item/{id?}', 'Admin\Directory\CityController@postEdit');
+    Route::get('adminka/directory/city/delete/{id}', 'Admin\Directory\CityController@getDelete');
 
     //AvgPriceController
-    Route::get('adminka/directory/avg-price', 'Admin\AvgPriceController@getIndex');
-    Route::get('adminka/directory/avg-price/item/{id?}', 'Admin\AvgPriceController@getEdit');
-    Route::post('adminka/directory/avg-price/item/{id?}', 'Admin\AvgPriceController@postEdit');
-    Route::get('adminka/directory/avg-price/delete/{id}', 'Admin\AvgPriceController@getDelete');
+    Route::get('adminka/directory/avg-price', 'Admin\Directory\AvgPriceController@getIndex');
+    Route::get('adminka/directory/avg-price/item/{id?}', 'Admin\Directory\AvgPriceController@getEdit');
+    Route::post('adminka/directory/avg-price/item/{id?}', 'Admin\Directory\AvgPriceController@postEdit');
+    Route::get('adminka/directory/avg-price/delete/{id}', 'Admin\Directory\AvgPriceController@getDelete');
 
     //ObjectCatController
-    Route::get('adminka/directory/object-cat', 'Admin\ObjectCatController@getIndex');
-    Route::get('adminka/directory/object-cat/item/{id?}', 'Admin\ObjectCatController@getEdit');
-    Route::post('adminka/directory/object-cat/item/{id?}', 'Admin\ObjectCatController@postEdit');
-    Route::get('adminka/directory/object-cat/delete/{id}', 'Admin\ObjectCatController@getDelete');
+    Route::get('adminka/directory/object-cat', 'Admin\Directory\ObjectCatController@getIndex');
+    Route::get('adminka/directory/object-cat/item/{id?}', 'Admin\Directory\ObjectCatController@getEdit');
+    Route::post('adminka/directory/object-cat/item/{id?}', 'Admin\Directory\ObjectCatController@postEdit');
+    Route::get('adminka/directory/object-cat/delete/{id}', 'Admin\Directory\ObjectCatController@getDelete');
 
     //PubTypeController
-    Route::get('adminka/directory/pub-type', 'Admin\PubTypeController@getIndex');
-    Route::get('adminka/directory/pub-type/item/{id?}', 'Admin\PubTypeController@getEdit');
-    Route::post('adminka/directory/pub-type/item/{id?}', 'Admin\PubTypeController@postEdit');
-    Route::get('adminka/directory/pub-type/delete/{id}', 'Admin\PubTypeController@getDelete');
+    Route::get('adminka/directory/pub-type', 'Admin\Directory\PubTypeController@getIndex');
+    Route::get('adminka/directory/pub-type/item/{id?}', 'Admin\Directory\PubTypeController@getEdit');
+    Route::post('adminka/directory/pub-type/item/{id?}', 'Admin\Directory\PubTypeController@postEdit');
+    Route::get('adminka/directory/pub-type/delete/{id}', 'Admin\Directory\PubTypeController@getDelete');
 
     //KaraokeTypeController
-    Route::get('adminka/directory/karaoke-type', 'Admin\KaraokeTypeController@getIndex');
-    Route::get('adminka/directory/karaoke-type/item/{id?}', 'Admin\KaraokeTypeController@getEdit');
-    Route::post('adminka/directory/karaoke-type/item/{id?}', 'Admin\KaraokeTypeController@postEdit');
-    Route::get('adminka/directory/karaoke-type/delete/{id}', 'Admin\KaraokeTypeController@getDelete');
+    Route::get('adminka/directory/karaoke-type', 'Admin\Directory\KaraokeTypeController@getIndex');
+    Route::get('adminka/directory/karaoke-type/item/{id?}', 'Admin\Directory\KaraokeTypeController@getEdit');
+    Route::post('adminka/directory/karaoke-type/item/{id?}', 'Admin\Directory\KaraokeTypeController@postEdit');
+    Route::get('adminka/directory/karaoke-type/delete/{id}', 'Admin\Directory\KaraokeTypeController@getDelete');
 
     //KitchenController
-    Route::get('adminka/directory/kitchen', 'Admin\KitchenController@getIndex');
-    Route::get('adminka/directory/kitchen/item/{id?}', 'Admin\KitchenController@getEdit');
-    Route::post('adminka/directory/kitchen/item/{id?}', 'Admin\KitchenController@postEdit');
-    Route::get('adminka/directory/kitchen/delete/{id}', 'Admin\KitchenController@getDelete');
+    Route::get('adminka/directory/kitchen', 'Admin\Directory\KitchenController@getIndex');
+    Route::get('adminka/directory/kitchen/item/{id?}', 'Admin\Directory\KitchenController@getEdit');
+    Route::post('adminka/directory/kitchen/item/{id?}', 'Admin\Directory\KitchenController@postEdit');
+    Route::get('adminka/directory/kitchen/delete/{id}', 'Admin\Directory\KitchenController@getDelete');
 
     //MusicController
-    Route::get('adminka/directory/music', 'Admin\MusicController@getIndex');
-    Route::get('adminka/directory/music/item/{id?}', 'Admin\MusicController@getEdit');
-    Route::post('adminka/directory/music/item/{id?}', 'Admin\MusicController@postEdit');
-    Route::get('adminka/directory/music/delete/{id}', 'Admin\MusicController@getDelete');
+    Route::get('adminka/directory/music', 'Admin\Directory\MusicController@getIndex');
+    Route::get('adminka/directory/music/item/{id?}', 'Admin\Directory\MusicController@getEdit');
+    Route::post('adminka/directory/music/item/{id?}', 'Admin\Directory\MusicController@postEdit');
+    Route::get('adminka/directory/music/delete/{id}', 'Admin\Directory\MusicController@getDelete');
 
     //WhereGoController
-    Route::get('adminka/directory/where-go', 'Admin\WhereGoController@getIndex');
-    Route::get('adminka/directory/where-go/item/{id?}', 'Admin\WhereGoController@getEdit');
-    Route::post('adminka/directory/where-go/item/{id?}', 'Admin\WhereGoController@postEdit');
-    Route::get('adminka/directory/where-go/delete/{id}', 'Admin\WhereGoController@getDelete');
+    Route::get('adminka/directory/where-go', 'Admin\Directory\WhereGoController@getIndex');
+    Route::get('adminka/directory/where-go/item/{id?}', 'Admin\Directory\WhereGoController@getEdit');
+    Route::post('adminka/directory/where-go/item/{id?}', 'Admin\Directory\WhereGoController@postEdit');
+    Route::get('adminka/directory/where-go/delete/{id}', 'Admin\Directory\WhereGoController@getDelete');
 
     //special options
     //PubController

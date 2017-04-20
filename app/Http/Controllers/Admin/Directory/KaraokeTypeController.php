@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Directory;
 
 use DB;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,6 @@ use App\Model\SysDirectoryName;
 class KaraokeTypeController extends DirectoryNameController{
     protected $title = 'Типы размешения караоке';
     protected $parent_id = 5;
-    protected $action_class = 'Admin\KaraokeTypeController';
+    protected $action_class = 'Admin\Directory\KaraokeTypeController';
 
 }

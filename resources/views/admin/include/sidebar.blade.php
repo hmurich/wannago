@@ -1,28 +1,71 @@
 <section class="sidebar">
     <ul class="sidebar-menu">
-        <li class="header">Главное меню</li>
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <i class="fa fa-users "></i> <span>Организации</span>
                 <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-question"></i> <span>На модерации</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-check"></i> <span>Действующие</span>
+                    </a>
+                </li>
             </ul>
         </li>
-        <li>
-            <a href="../widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-bullhorn "></i> <span>События</span>
                 <span class="pull-right-container">
-                    <small class="label pull-right bg-green">new</small>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-question"></i> <span>На модерации</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-check"></i> <span>Действующие</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-thumbs-o-up"></i> <span>Куда Сходить</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @foreach (App\Model\SysDirectoryName::where('parent_id', 8)->pluck('name', 'id') as $id=>$name)
+                    <li>
+                        <a href="#{{ $id }}">
+                            <i class="fa fa-thumbs-o-up"></i> <span>{{ $name }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </li>
 
+
         <li class="header">Справочники</li>
+
+        <li>
+            <a href="{{ action('Admin\Directory\ModeratorController@getIndex') }}">
+                <i class="fa fa-circle-o text-red"></i> <span>Модераторы</span>
+            </a>
+        </li>
 
         <li class="treeview">
             <a href="#">
@@ -135,42 +178,42 @@
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a href="{{ action('Admin\CityController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\CityController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Города</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\AvgPriceController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\AvgPriceController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Средний счет</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\ObjectCatController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\ObjectCatController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Категории заведений</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\PubTypeController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\PubTypeController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Типы пабов</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\KaraokeTypeController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\KaraokeTypeController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Типы размешения караоке</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\KitchenController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\KitchenController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Кухни</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\MusicController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\MusicController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Музыка</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ action('Admin\WhereGoController@getIndex') }}">
+                    <a href="{{ action('Admin\Directory\WhereGoController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Куда Сходить</span>
                     </a>
                 </li>
