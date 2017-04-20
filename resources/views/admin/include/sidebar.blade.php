@@ -50,7 +50,7 @@
             <ul class="treeview-menu">
                 @foreach (App\Model\SysDirectoryName::where('parent_id', 8)->pluck('name', 'id') as $id=>$name)
                     <li>
-                        <a href="#{{ $id }}">
+                        <a href="{{ action('Admin\WhereGoController@getIndex', $id) }}">
                             <i class="fa fa-thumbs-o-up"></i> <span>{{ $name }}</span>
                         </a>
                     </li>

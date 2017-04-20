@@ -10,6 +10,12 @@ Route::post('adminka/login', 'Admin\AuthController@postLogin');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
+    //WhereGoController
+    Route::get('adminka/where-go/{id}', 'Admin\WhereGoController@getIndex');
+    Route::post('adminka/where-go/add/{id}', 'Admin\WhereGoController@postAdd');
+    Route::get('adminka/where-go/delete/{id}/{object_id}', 'Admin\WhereGoController@getDelete');
+
+
     //ModeratorController
     Route::get('adminka/directory/moderator', 'Admin\Directory\ModeratorController@getIndex');
     Route::get('adminka/directory/moderator/item/{id?}', 'Admin\Directory\ModeratorController@getEdit');
