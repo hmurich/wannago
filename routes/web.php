@@ -28,6 +28,134 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::post('adminka/directory/object-cat/item/{id?}', 'Admin\ObjectCatController@postEdit');
     Route::get('adminka/directory/object-cat/delete/{id}', 'Admin\ObjectCatController@getDelete');
 
+    //PubTypeController
+    Route::get('adminka/directory/pub-type', 'Admin\PubTypeController@getIndex');
+    Route::get('adminka/directory/pub-type/item/{id?}', 'Admin\PubTypeController@getEdit');
+    Route::post('adminka/directory/pub-type/item/{id?}', 'Admin\PubTypeController@postEdit');
+    Route::get('adminka/directory/pub-type/delete/{id}', 'Admin\PubTypeController@getDelete');
+
+    //KaraokeTypeController
+    Route::get('adminka/directory/karaoke-type', 'Admin\KaraokeTypeController@getIndex');
+    Route::get('adminka/directory/karaoke-type/item/{id?}', 'Admin\KaraokeTypeController@getEdit');
+    Route::post('adminka/directory/karaoke-type/item/{id?}', 'Admin\KaraokeTypeController@postEdit');
+    Route::get('adminka/directory/karaoke-type/delete/{id}', 'Admin\KaraokeTypeController@getDelete');
+
+    //KitchenController
+    Route::get('adminka/directory/kitchen', 'Admin\KitchenController@getIndex');
+    Route::get('adminka/directory/kitchen/item/{id?}', 'Admin\KitchenController@getEdit');
+    Route::post('adminka/directory/kitchen/item/{id?}', 'Admin\KitchenController@postEdit');
+    Route::get('adminka/directory/kitchen/delete/{id}', 'Admin\KitchenController@getDelete');
+
+    //MusicController
+    Route::get('adminka/directory/music', 'Admin\MusicController@getIndex');
+    Route::get('adminka/directory/music/item/{id?}', 'Admin\MusicController@getEdit');
+    Route::post('adminka/directory/music/item/{id?}', 'Admin\MusicController@postEdit');
+    Route::get('adminka/directory/music/delete/{id}', 'Admin\MusicController@getDelete');
+
+    //WhereGoController
+    Route::get('adminka/directory/where-go', 'Admin\WhereGoController@getIndex');
+    Route::get('adminka/directory/where-go/item/{id?}', 'Admin\WhereGoController@getEdit');
+    Route::post('adminka/directory/where-go/item/{id?}', 'Admin\WhereGoController@postEdit');
+    Route::get('adminka/directory/where-go/delete/{id}', 'Admin\WhereGoController@getDelete');
+
+    //special options
+    //PubController
+    Route::get('adminka/special-option/pub', 'Admin\SpecailOption\PubController@getIndex');
+    Route::get('adminka/special-option/pub/item/{id?}', 'Admin\SpecailOption\PubController@getEdit');
+    Route::post('adminka/special-option/pub/item/{id?}', 'Admin\SpecailOption\PubController@postEdit');
+    Route::get('adminka/special-option/pub/delete/{id}', 'Admin\SpecailOption\PubController@getDelete');
+
+    //KaraokeControlller
+    Route::get('adminka/special-option/karaoke', 'Admin\SpecailOption\KaraokeControlller@getIndex');
+    Route::get('adminka/special-option/karaoke/item/{id?}', 'Admin\SpecailOption\KaraokeControlller@getEdit');
+    Route::post('adminka/special-option/karaoke/item/{id?}', 'Admin\SpecailOption\KaraokeControlller@postEdit');
+    Route::get('adminka/special-option/karaoke/delete/{id}', 'Admin\SpecailOption\KaraokeControlller@getDelete');
+
+    //KofeController
+    Route::get('adminka/special-option/kofe', 'Admin\SpecailOption\KofeController@getIndex');
+    Route::get('adminka/special-option/kofe/item/{id?}', 'Admin\SpecailOption\KofeController@getEdit');
+    Route::post('adminka/special-option/kofe/item/{id?}', 'Admin\SpecailOption\KofeController@postEdit');
+    Route::get('adminka/special-option/kofe/delete/{id}', 'Admin\SpecailOption\KofeController@getDelete');
+
+    //CafeController
+    Route::get('adminka/special-option/cafe', 'Admin\SpecailOption\CafeController@getIndex');
+    Route::get('adminka/special-option/cafe/item/{id?}', 'Admin\SpecailOption\CafeController@getEdit');
+    Route::post('adminka/special-option/cafe/item/{id?}', 'Admin\SpecailOption\CafeController@postEdit');
+    Route::get('adminka/special-option/cafe/delete/{id}', 'Admin\SpecailOption\CafeController@getDelete');
+
+    //RestoranController
+    Route::get('adminka/special-option/restoran', 'Admin\SpecailOption\RestoranController@getIndex');
+    Route::get('adminka/special-option/restoran/item/{id?}', 'Admin\SpecailOption\RestoranController@getEdit');
+    Route::post('adminka/special-option/restoran/item/{id?}', 'Admin\SpecailOption\RestoranController@postEdit');
+    Route::get('adminka/special-option/restoran/delete/{id}', 'Admin\SpecailOption\RestoranController@getDelete');
+
+    //BanketController
+    Route::get('adminka/special-option/banket', 'Admin\SpecailOption\BanketController@getIndex');
+    Route::get('adminka/special-option/banket/item/{id?}', 'Admin\SpecailOption\BanketController@getEdit');
+    Route::post('adminka/special-option/banket/item/{id?}', 'Admin\SpecailOption\BanketController@postEdit');
+    Route::get('adminka/special-option/banket/delete/{id}', 'Admin\SpecailOption\BanketController@getDelete');
+
+    //ClubController
+    Route::get('adminka/special-option/club', 'Admin\SpecailOption\ClubController@getIndex');
+    Route::get('adminka/special-option/club/item/{id?}', 'Admin\SpecailOption\ClubController@getEdit');
+    Route::post('adminka/special-option/club/item/{id?}', 'Admin\SpecailOption\ClubController@postEdit');
+    Route::get('adminka/special-option/club/delete/{id}', 'Admin\SpecailOption\ClubController@getDelete');
+
+    //SummerResController
+    Route::get('adminka/special-option/summer-res', 'Admin\SpecailOption\SummerResController@getIndex');
+    Route::get('adminka/special-option/summer-res/item/{id?}', 'Admin\SpecailOption\SummerResController@getEdit');
+    Route::post('adminka/special-option/summer-res/item/{id?}', 'Admin\SpecailOption\SummerResController@postEdit');
+    Route::get('adminka/special-option/summer-res/delete/{id}', 'Admin\SpecailOption\SummerResController@getDelete');
+
+    //dop options
+    //PubController
+    Route::get('adminka/dop-option/pub', 'Admin\DopOption\PubController@getIndex');
+    Route::get('adminka/dop-option/pub/item/{id?}', 'Admin\DopOption\PubController@getEdit');
+    Route::post('adminka/dop-option/pub/item/{id?}', 'Admin\DopOption\PubController@postEdit');
+    Route::get('adminka/dop-option/pub/delete/{id}', 'Admin\DopOption\PubController@getDelete');
+
+    //KaraokeControlller
+    Route::get('adminka/dop-option/karaoke', 'Admin\DopOption\KaraokeControlller@getIndex');
+    Route::get('adminka/dop-option/karaoke/item/{id?}', 'Admin\DopOption\KaraokeControlller@getEdit');
+    Route::post('adminka/dop-option/karaoke/item/{id?}', 'Admin\DopOption\KaraokeControlller@postEdit');
+    Route::get('adminka/dop-option/karaoke/delete/{id}', 'Admin\DopOption\KaraokeControlller@getDelete');
+
+    //KofeController
+    Route::get('adminka/dop-option/kofe', 'Admin\DopOption\KofeController@getIndex');
+    Route::get('adminka/dop-option/kofe/item/{id?}', 'Admin\DopOption\KofeController@getEdit');
+    Route::post('adminka/dop-option/kofe/item/{id?}', 'Admin\DopOption\KofeController@postEdit');
+    Route::get('adminka/dop-option/kofe/delete/{id}', 'Admin\DopOption\KofeController@getDelete');
+
+    //CafeController
+    Route::get('adminka/dop-option/cafe', 'Admin\DopOption\CafeController@getIndex');
+    Route::get('adminka/dop-option/cafe/item/{id?}', 'Admin\DopOption\CafeController@getEdit');
+    Route::post('adminka/dop-option/cafe/item/{id?}', 'Admin\DopOption\CafeController@postEdit');
+    Route::get('adminka/dop-option/cafe/delete/{id}', 'Admin\DopOption\CafeController@getDelete');
+
+    //RestoranController
+    Route::get('adminka/dop-option/restoran', 'Admin\DopOption\RestoranController@getIndex');
+    Route::get('adminka/dop-option/restoran/item/{id?}', 'Admin\DopOption\RestoranController@getEdit');
+    Route::post('adminka/dop-option/restoran/item/{id?}', 'Admin\DopOption\RestoranController@postEdit');
+    Route::get('adminka/dop-option/restoran/delete/{id}', 'Admin\DopOption\RestoranController@getDelete');
+
+    //BanketController
+    Route::get('adminka/dop-option/banket', 'Admin\DopOption\BanketController@getIndex');
+    Route::get('adminka/dop-option/banket/item/{id?}', 'Admin\DopOption\BanketController@getEdit');
+    Route::post('adminka/dop-option/banket/item/{id?}', 'Admin\DopOption\BanketController@postEdit');
+    Route::get('adminka/dop-option/banket/delete/{id}', 'Admin\DopOption\BanketController@getDelete');
+
+    //ClubController
+    Route::get('adminka/dop-option/club', 'Admin\DopOption\ClubController@getIndex');
+    Route::get('adminka/dop-option/club/item/{id?}', 'Admin\DopOption\ClubController@getEdit');
+    Route::post('adminka/dop-option/club/item/{id?}', 'Admin\DopOption\ClubController@postEdit');
+    Route::get('adminka/dop-option/club/delete/{id}', 'Admin\DopOption\ClubController@getDelete');
+
+    //SummerResController
+    Route::get('adminka/dop-option/summer-res', 'Admin\DopOption\SummerResController@getIndex');
+    Route::get('adminka/dop-option/summer-res/item/{id?}', 'Admin\DopOption\SummerResController@getEdit');
+    Route::post('adminka/dop-option/summer-res/item/{id?}', 'Admin\DopOption\SummerResController@postEdit');
+    Route::get('adminka/dop-option/summer-res/delete/{id}', 'Admin\DopOption\SummerResController@getDelete');
+
     Route::get('adminka/profile', 'Admin\AuthController@getProfile');
     Route::post('adminka/profile', 'Admin\AuthController@postProfile');
     Route::get('adminka/logout', 'Admin\AuthController@getLogout');
