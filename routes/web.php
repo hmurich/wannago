@@ -10,11 +10,25 @@ Route::post('adminka/login', 'Admin\AuthController@postLogin');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
+    //company routes
+    Route::get('adminka/company/', 'Admin\Company\ListController@getIndex');
+    Route::get('adminka/company/delete/{id}', 'Admin\Company\ListController@getDelete');
+    Route::get('adminka/company/item/{id?}', 'Admin\Company\EditController@getIndex');
+    Route::post('adminka/company/item/{id?}', 'Admin\Company\EditController@postSave');
+
+    //moderate ObjectController
+    Route::get('adminka/modarate/object/{id}', 'Admin\Moderate\ObjectController@getIndex');
+    Route::get('adminka/modarate/object/vip/{id}', 'Admin\Moderate\ObjectController@getVip');
+    Route::get('adminka/modarate/object/specail/{id}', 'Admin\Moderate\ObjectController@getSpecial');
+    Route::get('adminka/modarate/object/moderate/{id}', 'Admin\Moderate\ObjectController@getModerate');
+    Route::get('adminka/modarate/object/new/{id}', 'Admin\Moderate\ObjectController@getNew');
+    Route::get('adminka/modarate/object/delete/{id}', 'Admin\Moderate\ObjectController@getDelete');
+
+
     //WhereGoController
     Route::get('adminka/where-go/{id}', 'Admin\WhereGoController@getIndex');
     Route::post('adminka/where-go/add/{id}', 'Admin\WhereGoController@postAdd');
     Route::get('adminka/where-go/delete/{id}/{object_id}', 'Admin\WhereGoController@getDelete');
-
 
     //ModeratorController
     Route::get('adminka/directory/moderator', 'Admin\Directory\ModeratorController@getIndex');

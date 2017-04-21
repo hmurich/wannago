@@ -1,5 +1,10 @@
 <section class="sidebar">
     <ul class="sidebar-menu">
+        <li >
+            <a href="{{ action('Admin\Company\ListController@getIndex') }}">
+                <i class="fa fa-users "></i> <span>Владельцы заведений</span>
+            </a>
+        </li>
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-users "></i> <span>Организации</span>
