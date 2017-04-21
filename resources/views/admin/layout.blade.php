@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/plugins/select2/select2.min.css') }}" >
-
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/dist/css/AdminLTE.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/dist/css/skins/_all-skins.min.css') }}" >
 
@@ -39,17 +39,22 @@
         </footer>
     </div>
 
+    <script type="text/javascript" src="{{ URL::asset('//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/plugins/jQuery/jquery-2.2.3.min.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/bootstrap/js/bootstrap.min.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/plugins/select2/select2.full.min.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/plugins/slimScroll/jquery.slimscroll.min.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/plugins/fastclick/fastclick.js') }}" ></script>
+    <script type="text/javascript" src="{{ URL::asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}" ></script>
+
     <script type="text/javascript" src="{{ URL::asset('admin/dist/js/app.min.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('admin/dist/js/demo.js') }}" ></script>
+    <script type="text/javascript" src="{{ URL::asset('admin/my/map.js') }}" ></script>
     <script>
         $(function () {
             //Initialize Select2 Elements
             $(".select2").select2();
+            $(".wysihtml5").wysihtml5();
         });
     </script>
 </body>

@@ -16,6 +16,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/company/item/{id?}', 'Admin\Company\EditController@getIndex');
     Route::post('adminka/company/item/{id?}', 'Admin\Company\EditController@postSave');
 
+    //add objects
+    Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
+    Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
+    
+
+
     //moderate ObjectController
     Route::get('adminka/modarate/object/{id}', 'Admin\Moderate\ObjectController@getIndex');
     Route::get('adminka/modarate/object/vip/{id}', 'Admin\Moderate\ObjectController@getVip');

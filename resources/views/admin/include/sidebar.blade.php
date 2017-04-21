@@ -1,13 +1,13 @@
 <section class="sidebar">
     <ul class="sidebar-menu">
-        <li >
+        <li>
             <a href="{{ action('Admin\Company\ListController@getIndex') }}">
                 <i class="fa fa-users "></i> <span>Владельцы заведений</span>
             </a>
         </li>
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-users "></i> <span>Организации</span>
+                <i class="fa fa-bank "></i> <span>Организации</span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -62,7 +62,24 @@
                 @endforeach
             </ul>
         </li>
-
+        <li class="header">Организации</li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-plus"></i> <span>Добавить</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @foreach (App\Model\SysDirectoryName::where('parent_id', 3)->pluck('name', 'id') as $id=>$name)
+                    <li>
+                        <a href="{{ action('Admin\Object\AddController@getIndex', $id) }}">
+                            <i class="fa fa-plus"></i> <span>{{ $name }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
 
         <li class="header">Справочники</li>
 
