@@ -47,6 +47,7 @@ class WhereGoController extends Controller{
         $option->object_id = $object->id;
         $option->option_id = $cat->id;
         $option->sys_key = $cat->sys_key;
+        $option->name = $cat->name;
         $option->save();
 
         DB::commit();
