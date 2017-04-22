@@ -19,7 +19,6 @@ Route::group(['middleware' => ['auth.admin']], function () {
     //add objects
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
-    
 
 
     //moderate ObjectController
