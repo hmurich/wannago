@@ -17,7 +17,7 @@ class Object extends Model{
         return $this->belongsTo('App\User', 'user_id');
     }
 
-    function getRatingViewAttribute(){
-        return 4.3;
+    function getRaitingViewAttribute(){
+        return round($this->raiting, 2);
     }
 }

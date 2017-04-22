@@ -80,6 +80,23 @@
                 @endforeach
             </ul>
         </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-list-ul"></i> <span>Список</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @foreach (App\Model\SysDirectoryName::where('parent_id', 3)->pluck('name', 'id') as $id=>$name)
+                    <li>
+                        <a href="{{ action('Admin\Object\ListController@getIndex', $id) }}">
+                            <i class="fa fa-list-ul"></i> <span>{{ $name }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
 
         <li class="header">Справочники</li>
 

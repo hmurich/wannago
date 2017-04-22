@@ -18,18 +18,28 @@ use App\Model\ObjectLocation;
 use App\Model\ObjectHashTag;
 use App\Model\ObjectDopOption;
 
-class AddController extends Controller{
-    function getIndex ($type_id){
-        $cat = SysDirectoryName::where('parent_id', 3)->where('id', $type_id)->first();
+class EditController extends Controller{
+    function getIndex ($object_id){
+        $object = Object::findOrFail($object_id);
+
+        $cat = SysDirectoryName::where('parent_id', 3)->where('id', $object->cat_id)->first();
         if (!$cat)
             abort(404);
 
         $ar = array();
-        $ar['title'] = 'Форма новой организации в "'.$cat->name.'"';
+        $ar['title'] = 'Изменение "'.$object->name.'"';
         $ar['cat'] = $cat;
-        $ar['action'] = action('Admin\Object\AddController@postSave', $type_id);
+        $ar['action'] = action('Admin\Object\EditController@postSave', $object->id);
 
         $ar['ar_company'] = Company::pluck('name', 'id');
+
+        $ar['object'] = $object;
+        $ar['standart_data'] = ObjectStandartData::where('object_id', $object->id)->first();
+        $ar['main_option'] = ObjectMainOption::where('object_id', $object->id)->pluck('option_id');
+        $ar['dop_option'] = ObjectDopOption::where('object_id', $object->id)->pluck('option_value', 'option_id');
+        $ar['special_option'] = ObjectSpecialOption::where('object_id', $object->id)->pluck('option_id');
+        $ar['location'] = ObjectLocation::where('object_id', $object->id)->first();
+        $ar['tag'] = ObjectHashTag::where('object_id', $object->id)->first();
 
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
         $ar['ar_avg_pice'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
@@ -41,10 +51,10 @@ class AddController extends Controller{
         $ar['ar_spec_option'] = $cat->getSpecialOption();
         $ar['ar_dop_option'] = $cat->getDopOption();
 
-        return view('admin.object.add', $ar);
+        return view('admin.object.edit', $ar);
     }
 
-    function postSave(Request $request, $type_id){
+    function postSave(Request $request, $object_id){
         $cat = SysDirectoryName::where('parent_id', 3)->where('id', $type_id)->first();
         if (!$cat)
             abort(404);

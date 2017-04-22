@@ -20,15 +20,17 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
 
+    //list of objects
+    Route::get('adminka/object/list/{id}', 'Admin\Object\ListController@getIndex');
+    Route::get('adminka/object/list/vip/{id}', 'Admin\Object\ListController@getVip');
+    Route::get('adminka/object/list/specail/{id}', 'Admin\Object\ListController@getSpecial');
+    Route::get('adminka/object/list/moderate/{id}', 'Admin\Object\ListController@getModerate');
+    Route::get('adminka/object/list/new/{id}', 'Admin\Object\ListController@getNew');
+    Route::get('adminka/object/list/delete/{id}', 'Admin\Object\ListController@getDelete');
 
-    //moderate ObjectController
-    Route::get('adminka/modarate/object/{id}', 'Admin\Moderate\ObjectController@getIndex');
-    Route::get('adminka/modarate/object/vip/{id}', 'Admin\Moderate\ObjectController@getVip');
-    Route::get('adminka/modarate/object/specail/{id}', 'Admin\Moderate\ObjectController@getSpecial');
-    Route::get('adminka/modarate/object/moderate/{id}', 'Admin\Moderate\ObjectController@getModerate');
-    Route::get('adminka/modarate/object/new/{id}', 'Admin\Moderate\ObjectController@getNew');
-    Route::get('adminka/modarate/object/delete/{id}', 'Admin\Moderate\ObjectController@getDelete');
-
+    //add objects
+    Route::get('adminka/object/edit/{id}', 'Admin\Object\EditController@getIndex');
+    Route::post('adminka/object/edit/{id}', 'Admin\Object\EditController@postSave');
 
     //WhereGoController
     Route::get('adminka/where-go/{id}', 'Admin\WhereGoController@getIndex');

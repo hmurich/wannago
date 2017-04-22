@@ -40,6 +40,10 @@
                         <input type="text" class="form-control" name='address' placeholder="Адресс"  required="">
                     </div>
                     <div class="form-group">
+                        <label for="address" >Время работы:</label>
+                        <input type="text" class="form-control" name='work_time' placeholder="Время работы"  required="">
+                    </div>
+                    <div class="form-group">
                         <label for="name" >Средний счет:</label>
                         <select class="form-control select2" style="width: 100%;" name='avg_price_id' required="">
                             @foreach ($ar_avg_pice as $id=>$name)
@@ -172,6 +176,9 @@
                 </div>
                 <div class="box-body">
                     <textarea name='tags' style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" placeholder="Тэги, через заяпятую"></textarea>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
                 </div>
             </div>
         </div>
