@@ -16,6 +16,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/company/item/{id?}', 'Admin\Company\EditController@getIndex');
     Route::post('adminka/company/item/{id?}', 'Admin\Company\EditController@postSave');
 
+    //event routes
+    Route::get('adminka/event/{id}', 'Admin\EventController@getIndex');
+    Route::get('adminka/event/active/{id}', 'Admin\EventController@getActive');
+    Route::get('adminka/event/hot/{id}', 'Admin\EventController@getHot');
+    Route::get('adminka/event/delete/{id}', 'Admin\EventController@getDelete');
+
     //add objects
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');

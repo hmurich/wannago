@@ -14,12 +14,12 @@
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a href="#">
+                    <a href="{{ action('Admin\EventController@getIndex', 0) }}">
                         <i class="fa fa-question"></i> <span>На модерации</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ action('Admin\EventController@getIndex', 1) }}">
                         <i class="fa fa-check"></i> <span>Действующие</span>
                     </a>
                 </li>
