@@ -7,27 +7,7 @@
         </li>
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-bank "></i> <span>Организации</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-question"></i> <span>На модерации</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-check"></i> <span>Действующие</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-bullhorn "></i> <span>События</span>
+                <i class="fa fa-bullhorn"></i> <span>События</span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
