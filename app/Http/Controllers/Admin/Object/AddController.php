@@ -37,6 +37,6 @@ class AddController extends Controller{
     }
 
     function postSave(Request $request, $type_id){
-
+        
     }
 }

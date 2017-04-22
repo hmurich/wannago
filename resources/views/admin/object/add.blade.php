@@ -13,7 +13,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="name" >Владелец:</label>
-                        <select class="form-control select2" style="width: 100%;" name='object_id' required="">
+                        <select class="form-control select2" style="width: 100%;" name='company_id' required="">
                             @foreach ($ar_company as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
                             @endforeach
@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name" >Город:</label>
-                        <select class="form-control select2" style="width: 100%;" name='object_id' required="">
+                        <select class="form-control select2" style="width: 100%;" name='city_id' required="">
                             @foreach ($ar_city as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
                             @endforeach
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name" >Средний счет:</label>
-                        <select class="form-control select2" style="width: 100%;" name='object_id' required="">
+                        <select class="form-control select2" style="width: 100%;" name='avg_price_id' required="">
                             @foreach ($ar_avg_pice as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
                             @endforeach
@@ -50,7 +50,8 @@
                     @if ($cat->id == 9)
                         <div class="form-group">
                             <label for="name" >Тип заведения:</label>
-                            <select class="form-control select2" multiple="multiple" data-placeholder="Тип заведения" style="width: 100%;" name='object_id' required="">
+                            <select class="form-control select2" name='main_option[]'
+                                    multiple="multiple" data-placeholder="Тип заведения" style="width: 100%;" required="">
                                 @foreach ($ar_pub_type as $id=>$name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
@@ -59,7 +60,8 @@
                     @elseif ($cat->id == 23)
                         <div class="form-group">
                             <label for="name" >Тип размещения:</label>
-                            <select class="form-control select2" multiple="multiple" data-placeholder="Тип размещения" style="width: 100%;" name='object_id' required="">
+                            <select class="form-control select2" name='main_option[]'
+                                    multiple="multiple" data-placeholder="Тип размещения" style="width: 100%;" required="">
                                 @foreach ($ar_karaoke_type as $id=>$name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
@@ -67,12 +69,13 @@
                         </div>
                         <div class="form-group">
                             <label for="name" >Цена за час:</label>
-                            <input type="number" class="form-control" name='phone' placeholder="Цена за час"  required="">
+                            <input type="number" class="form-control" name='price_for_hout' placeholder="Цена за час"  required="">
                         </div>
                     @elseif ($cat->id == 28)
                         <div class="form-group">
                             <label for="name" >Музыка:</label>
-                            <select class="form-control select2" multiple="multiple" data-placeholder="Музыка" style="width: 100%;" name='object_id' required="">
+                            <select class="form-control select2" name='main_option[]'
+                                    multiple="multiple" data-placeholder="Музыка" style="width: 100%;" required="">
                                 @foreach ($ar_music_type as $id=>$name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
@@ -81,7 +84,8 @@
                     @else
                         <div class="form-group">
                             <label for="name" >Кухня:</label>
-                            <select class="form-control select2" multiple="multiple" data-placeholder="Кухня" style="width: 100%;" name='object_id' required="">
+                            <select class="form-control select2" name='main_option[]'
+                                    multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
                                 @foreach ($ar_kitchen as $id=>$name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
@@ -156,7 +160,8 @@
                     <h3 class="box-title">Описание</h3>
                 </div>
                 <div class="box-body">
-                    <textarea class="wysihtml5" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea name='note' class="wysihtml5"
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
             </div>
         </div>
@@ -166,11 +171,10 @@
                     <h3 class="box-title">Тэги</h3>
                 </div>
                 <div class="box-body">
-                    <textarea  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" placeholder="Тэги, через заяпятую"></textarea>
+                    <textarea name='tags' style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" placeholder="Тэги, через заяпятую"></textarea>
                 </div>
             </div>
         </div>
-
     </div>
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
