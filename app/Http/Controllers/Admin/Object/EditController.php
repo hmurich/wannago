@@ -35,9 +35,9 @@ class EditController extends Controller{
 
         $ar['object'] = $object;
         $ar['standart_data'] = ObjectStandartData::where('object_id', $object->id)->first();
-        $ar['main_option'] = ObjectMainOption::where('object_id', $object->id)->pluck('option_id');
+        $ar['main_option'] = ObjectMainOption::where('object_id', $object->id)->pluck('option_id', 'option_id');
         $ar['dop_option'] = ObjectDopOption::where('object_id', $object->id)->pluck('option_value', 'option_id');
-        $ar['special_option'] = ObjectSpecialOption::where('object_id', $object->id)->pluck('option_id');
+        $ar['special_option'] = ObjectSpecialOption::where('object_id', $object->id)->pluck('option_id', 'option_id');
         $ar['location'] = ObjectLocation::where('object_id', $object->id)->first();
         $ar['tag'] = ObjectHashTag::where('object_id', $object->id)->first();
 
@@ -51,33 +51,26 @@ class EditController extends Controller{
         $ar['ar_spec_option'] = $cat->getSpecialOption();
         $ar['ar_dop_option'] = $cat->getDopOption();
 
+        //echo '<pre>'; print_r($ar['main_option']); echo '</pre>'; exit();
+
         return view('admin.object.edit', $ar);
     }
 
     function postSave(Request $request, $object_id){
-        $cat = SysDirectoryName::where('parent_id', 3)->where('id', $type_id)->first();
+        $object = Object::findOrFail($object_id);
+
+        $cat = SysDirectoryName::where('parent_id', 3)->where('id', $object->cat_id)->first();
         if (!$cat)
             abort(404);
-
-        $company = Company::findOrFail($request->input('company_id'));
-
-        //echo '<pre>'; print_r($request->all()); echo '</pre>'; exit();
         DB::beginTransaction();
 
         // save object
-        $object = new Object();
-        $object->cat_id         = $cat->id;
-        $object->user_id        = $company->user_id;
-        $object->company_id     = $company->id;
-        $object->view_total     = 0;
-        $object->is_moderate    = 1;
         $object->name           = $request->input('name');
         $object->city_id        = $request->input('city_id');
         $object->save();
 
         //save standart_data
-        $standart_data = new ObjectStandartData();
-        $standart_data->object_id       = $object->id;
+        $standart_data = ObjectStandartData::where('object_id', $object->id)->first();
         $standart_data->address         = $request->input('address');
         $standart_data->phone           = $request->input('phone');
         $standart_data->note            = $request->input('note');
@@ -88,6 +81,8 @@ class EditController extends Controller{
         $standart_data->save();
 
         //save main option
+        $ar_where_go = SysDirectoryName::where('parent_id', 8)->pluck('id');
+        ObjectMainOption::where('object_id', $object->id)->whereNotIn('id', $ar_where_go)->delete();
         if ($request->has('main_option') && count($request->input('main_option')) > 0){
             $main_options = SysDirectoryName::whereIn('id', $request->input('main_option'))->get();
             foreach ($main_options as $o){
@@ -101,6 +96,7 @@ class EditController extends Controller{
         }
 
         //save dop_option
+        ObjectDopOption::where('object_id', $object->id)->delete();
         if ($request->has('dop_option') && count($request->input('dop_option')) > 0){
             $dop_option_values = $request->input('dop_option');
             $dop_options = SysDirectoryName::whereIn('id', array_keys($dop_option_values))->get();
@@ -117,6 +113,7 @@ class EditController extends Controller{
         }
 
         //save specail_option
+        ObjectSpecialOption::where('object_id', $object->id)->delete();
         if ($request->has('specail_option') && count($request->input('specail_option')) > 0){
             $specail_options = SysDirectoryName::whereIn('id', $request->input('specail_option'))->get();
             foreach ($specail_options as $o) {
@@ -129,26 +126,19 @@ class EditController extends Controller{
             }
         }
 
-        // save score
-        $score = new ObjectScore();
-        $score->object_id = $object->id;
-        $score->save();
-
         //score location
-        $location = new ObjectLocation();
-        $location->object_id = $object->id;
-        $location->lng       = $request->input('lng');
-        $location->lat       = $request->input('lat');
+        $location = ObjectLocation::where('object_id', $object->id)->first();
+        $location->lng = $request->input('lng');
+        $location->lat = $request->input('lat');
         $location->save();
 
         //hash tag
-        $tag = new ObjectHashTag();
-        $tag->object_id = $object->id;
-        $tag->note      = $request->input('tags');
+        $tag = ObjectHashTag::where('object_id', $object->id)->first();
+        $tag->note = $request->input('tags');
         $tag->save();
 
         DB::commit();
 
-        return redirect()->back()->with('success', 'Сохранено');
+        return redirect()->action('Admin\Object\ListController@getIndex', $object->cat_id)->with('success', 'Сохранено');
     }
 }

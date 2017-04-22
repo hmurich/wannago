@@ -26,6 +26,13 @@ Route::get('get-ar-directory-elem/{id?}', function ($id = 0) {
     echo $elems;
 });
 
+Route::get('get-ar-object', function ($id = 0) {
+    $items = Object::where('id', '>', 0)->with('relMainOptions', 'relStandartData',
+                                                'relDopOption', 'relTag', 'relLocation', 'relScore',
+                                                'relSpecialOption', 'relUser')->get()->toJson();
+    echo $items;
+});
+
 Route::post('post-add-reserver', function(Request $request){
     if (!$request->has('object_id') || !$request->has('name') || !$request->has('phone') || !$request->has('email') || !$request->has('enter_date'))
         abort(400);
