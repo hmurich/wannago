@@ -15,7 +15,7 @@
     <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
             <li>
-                <a href="{{ action('Admin\AuthController@getProfile') }}"><i class="fa fa-gears"></i></a>
+                <a href="{{ action('Admin\SiteSettingController@getIndex') }}"><i class="fa fa-gears"></i></a>
             </li>
             <li>
                 <a href="{{ action('Admin\AuthController@getProfile') }}"><i class="fa fa-user"></i></a>

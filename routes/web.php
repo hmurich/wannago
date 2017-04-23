@@ -26,6 +26,10 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
 
+    //site setting
+    Route::get('adminka/site-setting/', 'Admin\SiteSettingController@getIndex');
+    Route::post('adminka/site-setting/save/', 'Admin\SiteSettingController@postSave');
+
     //list of objects
     Route::get('adminka/object/list/{id}', 'Admin\Object\ListController@getIndex');
     Route::get('adminka/object/list/vip/{id}', 'Admin\Object\ListController@getVip');
