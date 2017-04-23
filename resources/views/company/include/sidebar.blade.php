@@ -29,6 +29,11 @@
                 <i class="fa fa-pencil-square-o"></i> <span>Новости</span>
             </a>
         </li>
+        <li>
+            <a href="{{ action('Company\EventController@getIndex') }}">
+                <i class="fa fa-pencil-square-o"></i> <span>События</span>
+            </a>
+        </li>
 
     </ul>
 </section>

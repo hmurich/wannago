@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Model\Object;
-use App\Model\News;
+use App\Model\Event;
 
-class NewsController extends Controller{
+class EventController extends Controller{
     function getIndex(Request $request){
         $user = $request->user();
 
@@ -21,13 +21,13 @@ class NewsController extends Controller{
         if (!$object)
             abort(404);
 
-        $items = News::where('object_id', $object->id);
+        $items = Event::where('object_id', $object->id);
 
         $ar = array();
-        $ar['title'] = 'Новости "'.$object->name.'"';
+        $ar['title'] = 'События "'.$object->name.'"';
         $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
 
-        return view('company.news.index', $ar);
+        return view('company.event.index', $ar);
     }
 
     function getItem(Request $request, $id = 0){
@@ -42,21 +42,21 @@ class NewsController extends Controller{
         if (!$object)
             abort(404);
 
-        $item = News::where('id', $id)->where('object_id', $object->id)->first();
+        $item = Event::where('id', $id)->where('object_id', $object->id)->first();
 
         $ar = array();
         if (!$item){
-            $ar['title'] = 'Добавить новость';
-            $ar['action'] = action('Company\NewsController@postItem');
+            $ar['title'] = 'Добавить событие';
+            $ar['action'] = action('Company\EventController@postItem');
         }
         else {
-            $ar['title'] = 'Редактировать новость';
-            $ar['action'] = action('Company\NewsController@postItem', $item->id);
+            $ar['title'] = 'Редактировать событие';
+            $ar['action'] = action('Company\EventController@postItem', $item->id);
             $ar['item'] = $item;
         }
 
 
-        return view('company.news.item', $ar);
+        return view('company.event.item', $ar);
     }
 
     function postItem(Request $request, $id = 0){
@@ -71,16 +71,19 @@ class NewsController extends Controller{
         if (!$object)
             abort(404);
 
-        $item = News::where('id', $id)->where('object_id', $object->id)->first();
+        $item = Event::where('id', $id)->where('object_id', $object->id)->first();
         if (!$item){
-            $item = new News();
+            $item = new Event();
             $item->object_id = $object->id;
         }
         $item->title = $request->input('title');
         $item->note = $request->input('note');
+        $item->date_event = $request->input('date_event');
+        $item->time_event = $request->input('time_event');
+        $item->duration = $request->input('duration');
         $item->save();
 
-        return redirect()->action('Company\NewsController@getIndex')->with('success', 'Сохранено');
+        return redirect()->action('Company\EventController@getIndex')->with('success', 'Сохранено');
     }
 
     function getDelete(Request $request, $id){
@@ -95,7 +98,7 @@ class NewsController extends Controller{
         if (!$object)
             abort(404);
 
-        $item = News::where('id', $id)->where('object_id', $object->id)->first();
+        $item = Event::where('id', $id)->where('object_id', $object->id)->first();
         if (!$item)
             abort(404);
         $item->delete();
