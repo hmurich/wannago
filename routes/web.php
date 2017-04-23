@@ -10,10 +10,23 @@ Route::post('company/login', 'Company\AuthController@postLogin');
 Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company', 'Company\IndexController@getIndex');
 
+    //change object
+    Route::post('company/change-object', 'Company\AuthController@postChangeObject');
+
     // new NewObjectController
     Route::get('company/new-object', 'Company\NewObjectController@getIndex');
     Route::get('company/new-object/item', 'Company\NewObjectController@getItem');
     Route::post('company/new-object/item', 'Company\NewObjectController@postItem');
+
+    //edit objects
+    Route::get('company/edit', 'Company\EditController@getIndex');
+    Route::post('company/edit', 'Company\EditController@postSave');
+
+    //news controller
+    Route::get('company/news', 'Company\NewsController@getIndex');
+    Route::get('company/news/item/{id?}', 'Company\NewsController@getItem');
+    Route::post('company/news/item/{id?}', 'Company\NewsController@postItem');
+    Route::get('company/news/delete/{id}', 'Company\NewsController@getDelete');
 
     Route::get('company/profile', 'Company\AuthController@getProfile');
     Route::post('company/profile', 'Company\AuthController@postProfile');

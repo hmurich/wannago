@@ -55,6 +55,10 @@
             //Initialize Select2 Elements
             $(".select2").select2();
             $(".wysihtml5").wysihtml5();
+
+            $('.js_change_object').change(function(){
+                $(this).parent().submit();
+            });
         });
     </script>
 </body>

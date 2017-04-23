@@ -5,6 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 class Object extends Model{
     protected $table = 'objetcs';
 
+    function relCat(){
+        return $this->belongsTo('App\Model\SysDirectoryName', 'cat_id');
+    }
+
     function relMainOptions(){
         return $this->hasMany('App\Model\ObjectMainOption', 'object_id');
     }

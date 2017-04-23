@@ -18,6 +18,12 @@ class AuthController extends Controller{
         return view('company.auth', $ar);
     }
 
+    function postChangeObject(Request $request){
+        session()->put('object_id', $request->input('object_id'));
+
+        return redirect()->back();
+    }
+
     function postLogin(Request $request){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
             return back()->with('error', 'Не правильный email/пароль');
