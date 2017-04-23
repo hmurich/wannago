@@ -39,7 +39,7 @@ class EventController extends Controller{
         return redirect()->back()->with('success', 'Сохранено');
     }
 
-    function getDelete( $cat_id, $object_id){
+    function getDelete( $event_id){
         $event = Event::findOrFail($event_id);
         $event->delete();
 

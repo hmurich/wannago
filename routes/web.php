@@ -55,6 +55,11 @@ Route::post('adminka/login', 'Admin\AuthController@postLogin');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
+    //new object routes
+    Route::get('adminka/new-object/', 'Admin\NewObjectController@getIndex');
+    Route::get('adminka/new-object/active/{id}/{status_id}', 'Admin\NewObjectController@getActive');
+    Route::get('adminka/new-object/delete/{id}', 'Admin\NewObjectController@getDelete');
+
     //company routes
     Route::get('adminka/company/', 'Admin\Company\ListController@getIndex');
     Route::get('adminka/company/delete/{id}', 'Admin\Company\ListController@getDelete');
