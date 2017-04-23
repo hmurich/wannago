@@ -2,7 +2,7 @@
     <ul class="sidebar-menu">
         <li>
             <a href="{{ action('Company\NewObjectController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>Заявки </span>
+                <i class="fa fa-plus"></i> <span>Заявки </span>
             </a>
         </li>
         <li>
@@ -21,27 +21,27 @@
         </li>
         <li>
             <a href="{{ action('Company\EditController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>Описание</span>
+                <i class="fa fa-keyboard-o"></i> <span>Описание</span>
             </a>
         </li>
         <li>
             <a href="{{ action('Company\NewsController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>Новости</span>
+                <i class="fa fa-newspaper-o"></i> <span>Новости</span>
             </a>
         </li>
         <li>
             <a href="{{ action('Company\EventController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>События</span>
+                <i class="fa fa-bullhorn"></i> <span>События</span>
             </a>
         </li>
         <li>
             <a href="{{ action('Company\CommentController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>Отзывы</span>
+                <i class="fa fa-reply-all"></i> <span>Отзывы</span>
             </a>
         </li>
         <li>
             <a href="{{ action('Company\ReserveController@getIndex') }}">
-                <i class="fa fa-pencil-square-o"></i> <span>Бронирование</span>
+                <i class="fa fa-calendar-check-o"></i> <span>Бронирование</span>
             </a>
         </li>
 
