@@ -39,6 +39,10 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::post('company/event/item/{id?}', 'Company\EventController@postItem');
     Route::get('company/event/delete/{id}', 'Company\EventController@getDelete');
 
+    //reserve controller
+    Route::get('company/reserve', 'Company\ReserveController@getIndex');
+    Route::get('company/reserve/accept/{id?}', 'Company\ReserveController@getAccept');
+
     Route::get('company/profile', 'Company\AuthController@getProfile');
     Route::post('company/profile', 'Company\AuthController@postProfile');
     Route::get('company/logout', 'Company\AuthController@getLogout');

@@ -39,6 +39,11 @@
                 <i class="fa fa-pencil-square-o"></i> <span>Отзывы</span>
             </a>
         </li>
+        <li>
+            <a href="{{ action('Company\ReserveController@getIndex') }}">
+                <i class="fa fa-pencil-square-o"></i> <span>Бронирование</span>
+            </a>
+        </li>
 
     </ul>
 </section>
