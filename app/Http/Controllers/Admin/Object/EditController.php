@@ -82,7 +82,7 @@ class EditController extends Controller{
 
         //save main option
         $ar_where_go = SysDirectoryName::where('parent_id', 8)->pluck('id');
-        ObjectMainOption::where('object_id', $object->id)->whereNotIn('id', $ar_where_go)->delete();
+        ObjectMainOption::where('object_id', $object->id)->whereNotIn('option_id', $ar_where_go)->delete();
         if ($request->has('main_option') && count($request->input('main_option')) > 0){
             $main_options = SysDirectoryName::whereIn('id', $request->input('main_option'))->get();
             foreach ($main_options as $o){

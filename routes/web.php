@@ -3,9 +3,21 @@ Route::get('/', function () {
     return view('admin.example');
 });
 
+// company controller
+Route::get('company/login', 'Company\AuthController@getLogin');
+Route::post('company/login', 'Company\AuthController@postLogin');
+
+Route::group(['middleware' => ['auth.company']], function () {
+    Route::get('company', 'Company\IndexController@getIndex');
+
+    Route::get('company/profile', 'Company\AuthController@getProfile');
+    Route::post('company/profile', 'Company\AuthController@postProfile');
+    Route::get('company/logout', 'Company\AuthController@getLogout');
+});
+
+// admin controllers
 Route::get('adminka/login', 'Admin\AuthController@getLogin');
 Route::post('adminka/login', 'Admin\AuthController@postLogin');
-
 
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
