@@ -1,5 +1,5 @@
 <!-- Logo -->
-<a href="/adminka/" class="logo">
+<a href="/company/" class="logo">
     <span class="logo-mini"><b>C</b>MS</span>
     <span class="logo-lg"><b>Creative</b>CMS</span>
 </a>

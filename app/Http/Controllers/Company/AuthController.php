@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Model\Company;
 use Hash;
 use Auth;
+use DB;
 
 class AuthController extends Controller{
     function getLogin (){
@@ -25,10 +27,14 @@ class AuthController extends Controller{
 
     function getProfile(Request $request){
         $user = $request->user();
+        $item = Company::where('user_id', $user->id)->first();
+        if (!$item)
+            abort(404);
 
         $ar = array();
         $ar['title'] = 'Профиль';
         $ar['user'] = $user;
+        $ar['item'] = $item;
         $ar['action'] = action('Company\AuthController@postProfile');
 
         return view('company.cabinet', $ar);
@@ -36,13 +42,26 @@ class AuthController extends Controller{
 
     function postProfile(Request $request){
         $user = $request->user();
+        $item = Company::where('user_id', $user->id)->first();
+        if (!$item)
+            abort(404);
 
         if (User::where('email', $request->input('email'))->where('id', '<>', $user->id)->count() > 0)
             return back()->with('error', 'Указанный email уже существует');
 
+        DB::beginTransaction();
+
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();
+
+        $item->name =  $request->input('name');
+        $item->phone =  $request->input('phone');
+        $item->address =  $request->input('address');
+        $item->note = $request->input('note');
+        $item->save();
+
+        DB::commit();
 
         return redirect()->back()->with('success', 'Сохранено');
     }

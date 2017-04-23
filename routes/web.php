@@ -10,6 +10,11 @@ Route::post('company/login', 'Company\AuthController@postLogin');
 Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company', 'Company\IndexController@getIndex');
 
+    // new NewObjectController
+    Route::get('company/new-object', 'Company\NewObjectController@getIndex');
+    Route::get('company/new-object/item', 'Company\NewObjectController@getItem');
+    Route::post('company/new-object/item', 'Company\NewObjectController@postItem');
+
     Route::get('company/profile', 'Company\AuthController@getProfile');
     Route::post('company/profile', 'Company\AuthController@postProfile');
     Route::get('company/logout', 'Company\AuthController@getLogout');
