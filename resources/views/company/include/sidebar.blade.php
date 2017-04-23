@@ -34,6 +34,11 @@
                 <i class="fa fa-pencil-square-o"></i> <span>События</span>
             </a>
         </li>
+        <li>
+            <a href="{{ action('Company\CommentController@getIndex') }}">
+                <i class="fa fa-pencil-square-o"></i> <span>Отзывы</span>
+            </a>
+        </li>
 
     </ul>
 </section>
