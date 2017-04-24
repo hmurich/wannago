@@ -22,6 +22,11 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company/edit', 'Company\EditController@getIndex');
     Route::post('company/edit', 'Company\EditController@postSave');
 
+    //gallery routes
+    Route::get('company/galerea/', 'Company\GaleryController@getIndex');
+    Route::post('company/galerea/save', 'Company\GaleryController@postItem');
+    Route::get('company/galerea/delete/{id}', 'Company\GaleryController@getDelete');
+
     //news controller
     Route::get('company/news', 'Company\NewsController@getIndex');
     Route::get('company/news/item/{id?}', 'Company\NewsController@getItem');

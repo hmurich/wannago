@@ -25,6 +25,11 @@
             </a>
         </li>
         <li>
+            <a href="{{ action('Company\GaleryController@getIndex') }}">
+                <i class="fa fa-file-photo-o "></i> <span>Галерея</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ action('Company\NewsController@getIndex') }}">
                 <i class="fa fa-newspaper-o"></i> <span>Новости</span>
             </a>
