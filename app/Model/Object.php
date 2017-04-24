@@ -5,6 +5,22 @@ use Illuminate\Database\Eloquent\Model;
 class Object extends Model{
     protected $table = 'objetcs';
 
+    function relNews(){
+        return $this->hasMany('App\Model\News', 'object_id');
+    }
+
+    function relComment(){
+        return $this->hasMany('App\Model\Comment', 'object_id');
+    }
+
+    function relEvent(){
+        return $this->hasMany('App\Model\Event', 'object_id');
+    }
+
+    function relGelerea(){
+        return $this->hasMany('App\Model\ObjectGallery', 'object_id');
+    }
+
     function relCat(){
         return $this->belongsTo('App\Model\SysDirectoryName', 'cat_id');
     }

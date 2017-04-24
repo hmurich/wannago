@@ -33,6 +33,34 @@ Route::get('get-ar-object', function ($id = 0) {
     echo $items;
 });
 
+Route::get('get-object-news/{id}', function ($id) {
+    $object = Object::findOrFail($id);
+    $news = $object->relNews()->get()->toJson();
+
+    echo $news;
+});
+
+Route::get('get-object-comment/{id}', function ($id) {
+    $object = Object::findOrFail($id);
+    $news = $object->relComment()->get()->toJson();
+
+    echo $news;
+});
+
+Route::get('get-object-event/{id}', function ($id) {
+    $object = Object::findOrFail($id);
+    $news = $object->relEvent()->get()->toJson();
+
+    echo $news;
+});
+
+Route::get('get-object-galerea/{id}', function ($id) {
+    $object = Object::findOrFail($id);
+    $news = $object->relGelerea()->get()->toJson();
+
+    echo $news;
+});
+
 Route::post('post-add-reserver', function(Request $request){
     if (!$request->has('object_id') || !$request->has('name') || !$request->has('phone') || !$request->has('email') || !$request->has('enter_date'))
         abort(400);
