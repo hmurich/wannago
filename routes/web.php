@@ -1,7 +1,6 @@
 <?php
-Route::get('/', function () {
-    return view('admin.example');
-});
+// front routes
+Route::get('/', 'Front\IndexController@getIndex');
 
 // company controller
 Route::get('company/login', 'Company\AuthController@getLogin');
@@ -21,6 +20,11 @@ Route::group(['middleware' => ['auth.company']], function () {
     //edit objects
     Route::get('company/edit', 'Company\EditController@getIndex');
     Route::post('company/edit', 'Company\EditController@postSave');
+
+    //slider routes
+    Route::get('company/slider/', 'Company\SliderController@getIndex');
+    Route::post('company/slider/save', 'Company\SliderController@postItem');
+    Route::get('company/slider/delete/{id}', 'Company\SliderController@getDelete');
 
     //gallery routes
     Route::get('company/galerea/', 'Company\GaleryController@getIndex');

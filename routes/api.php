@@ -4,6 +4,7 @@ use App\Model\SysDirectory;
 use App\Model\SysDirectoryName;
 use App\Model\Reserve;
 use App\Model\Object;
+use App\Model\Event;
 
 
 Route::get('get-city-ar', function () {
@@ -30,6 +31,12 @@ Route::get('get-ar-object', function ($id = 0) {
     $items = Object::where('id', '>', 0)->with('relMainOptions', 'relStandartData',
                                                 'relDopOption', 'relTag', 'relLocation', 'relScore',
                                                 'relSpecialOption', 'relUser')->get()->toJson();
+    echo $items;
+});
+
+Route::get('get-object-event', function () {
+    $items = Event::where('is_active', 1)->get()->toJson();
+
     echo $items;
 });
 

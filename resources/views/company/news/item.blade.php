@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('company.layout')
 
 @section('title', $title)
 
