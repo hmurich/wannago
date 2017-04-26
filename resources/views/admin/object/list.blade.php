@@ -58,8 +58,13 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ action('Admin\Object\ListController@getRecomeded', $i->id) }}">
+                                            {{ ($i->is_recomded ? 'Отключить Рекомендовано' : 'Рекомендовано') }}
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ action('Admin\Object\ListController@getModerate', $i->id) }}">
-                                            {{ ($i->is_moderate ? 'Открыть' : 'Приостановить') }}
+                                            {{ ($i->is_moderate ? 'Возобновить' : 'Приостановить') }}
                                         </a>
                                     </li>
                                     <li class="divider"></li>

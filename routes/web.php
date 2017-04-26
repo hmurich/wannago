@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/list/specail/{id}', 'Admin\Object\ListController@getSpecial');
     Route::get('adminka/object/list/moderate/{id}', 'Admin\Object\ListController@getModerate');
     Route::get('adminka/object/list/new/{id}', 'Admin\Object\ListController@getNew');
+    Route::get('adminka/object/list/recomded/{id}', 'Admin\Object\ListController@getRecomeded');
     Route::get('adminka/object/list/delete/{id}', 'Admin\Object\ListController@getDelete');
 
     //edit objects
