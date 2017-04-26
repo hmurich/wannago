@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-<form action='{{ $action }}' method='post'>
+<form action='{{ $action }}' method='post' enctype="multipart/form-data">
     <div class="row">
         <div class='col-md-6'>
             <div class="box box-primary">
@@ -93,6 +93,24 @@
         </div>
 
         <div class='col-md-6'>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Логитип</h3>
+                </div>
+                <div class="box-body">
+                    @if ($standart_data->logo)
+                        <div class="form-group">
+                            <label for="name" >Логотип</label> <br />
+                            <img src="{{ $standart_data->logo }}"  class="img-thumbnail"><br />
+                            <a href="{{ action('Company\EditController@getDeleteLogo') }}" class="btn  btn-danger">Удалить</a>
+                        </div>
+                    @endif
+                    <div class="form-group">
+                        <label for="name" >Загрузить лого</label>
+                        <input type="file" name='logo' class='form-control' />
+                    </div>
+                </div>
+            </div>
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Дополнительные свойтсва</h3>

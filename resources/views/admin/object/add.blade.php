@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-<form action='{{ $action }}' method='post'>
+<form action='{{ $action }}' method='post' enctype="multipart/form-data">
     <div class="row">
         <div class='col-md-6'>
             <div class="box box-primary">
@@ -101,6 +101,17 @@
         </div>
 
         <div class='col-md-6'>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Логитип</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="name" >Загрузить лого</label>
+                        <input type="file" name='logo' class='form-control' required=""/>
+                    </div>
+                </div>
+            </div>
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Дополнительные свойтсва</h3>

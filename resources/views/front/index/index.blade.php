@@ -38,7 +38,7 @@
                     @include('front.index.block.reccoments')
                 </div>
 				<div class="about-des">
-                    @include('front.index.about-des')
+                    @include('front.include.about-des')
 				</div>
 			</div>
 		</main>

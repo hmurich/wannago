@@ -17,6 +17,7 @@ use App\Model\ObjectMainOption;
 use App\Model\ObjectLocation;
 use App\Model\ObjectHashTag;
 use App\Model\ObjectDopOption;
+use App\Model\Generators\ModelSnipet;
 
 class AddController extends Controller{
     function getIndex ($type_id){
@@ -73,6 +74,8 @@ class AddController extends Controller{
         $standart_data->note            = $request->input('note');
         $standart_data->work_time       = $request->input('work_time');
         $standart_data->avg_price_id    = $request->input('avg_price_id');
+        if ($request->hasFile('logo'))
+            $standart_data->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 131, 131);
         if ($request->has('price_for_hout'))
             $standart_data->price_for_hout  = $request->input('price_for_hout');
         $standart_data->save();

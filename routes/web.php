@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth.company']], function () {
     //edit objects
     Route::get('company/edit', 'Company\EditController@getIndex');
     Route::post('company/edit', 'Company\EditController@postSave');
+    Route::get('company/delete/logo', 'Company\EditController@getDeleteLogo');
 
     //slider routes
     Route::get('company/slider/', 'Company\SliderController@getIndex');
@@ -97,9 +98,10 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/list/new/{id}', 'Admin\Object\ListController@getNew');
     Route::get('adminka/object/list/delete/{id}', 'Admin\Object\ListController@getDelete');
 
-    //add objects
+    //edit objects
     Route::get('adminka/object/edit/{id}', 'Admin\Object\EditController@getIndex');
     Route::post('adminka/object/edit/{id}', 'Admin\Object\EditController@postSave');
+    Route::get('adminka/object/delete-logo/{id}', 'Admin\Object\EditController@getDeleteLogo');
 
     //WhereGoController
     Route::get('adminka/where-go/{id}', 'Admin\WhereGoController@getIndex');
