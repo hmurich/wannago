@@ -29,11 +29,15 @@
                     </div>
                     <div class="form-group">
                         <label for="p_name" >Дата:</label>
-                        <input type="text" class="form-control" name='date_event' placeholder="Дата" value='{{ isset($item) ? $item->date_event : null }}' required="">
+                        <input type="date" class="form-control" name='date_event' placeholder="Дата" value='{{ isset($item) ? $item->date_event : null }}' required="">
                     </div>
                     <div class="form-group">
                         <label for="p_name" >Время:</label>
-                        <input type="text" class="form-control" name='time_event' placeholder="Время" value='{{ isset($item) ? $item->time_event : null }}' required="">
+                        <input type="time" class="form-control" name='time_event' placeholder="Время" value='{{ isset($item) ? $item->time_event : null }}' required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="p_name" >Время окончания:</label>
+                        <input type="time" class="form-control" name='time_end' placeholder="Время" value='{{ isset($item) ? $item->time_end : null }}' required="">
                     </div>
                     <div class="form-group">
                         <label for="p_name" >Продолжительность:</label>

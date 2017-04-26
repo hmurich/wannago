@@ -2,6 +2,8 @@
 // front routes
 Route::get('/', 'Front\IndexController@getIndex');
 
+Route::get('change-city/{id}', 'Front\IndexController@getChangeCity');
+
 // company controller
 Route::get('company/login', 'Company\AuthController@getLogin');
 Route::post('company/login', 'Company\AuthController@postLogin');

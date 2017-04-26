@@ -106,7 +106,9 @@ class EventController extends Controller{
         $item->note = $request->input('note');
         $item->date_event = $request->input('date_event');
         $item->time_event = $request->input('time_event');
+        $item->time_end = $request->input('time_end');
         $item->duration = $request->input('duration');
+        $item->city_id = $object->city_id;
         $item->save();
 
         return redirect()->action('Company\EventController@getIndex')->with('success', 'Сохранено');
