@@ -9,8 +9,20 @@
             <div class="box-header with-border">
                 <h3 class="box-title">{{ $title }}</h3>
             </div>
-            <form action='{{ $action }}' method='post'>
+            <form action='{{ $action }}' method='post' enctype="multipart/form-data">
                 <div class="box-body">
+                    @if (isset($item) && $item->image)
+                        <div class="form-group">
+                            <label for="name" >Фото</label> <br />
+                            <img src="{{ $item->image }}"  class="img-thumbnail"><br />
+                            <a href="{{ action('Company\EventController@getDeleteImage', $item->id) }}" class="btn  btn-danger">Удалить</a>
+                        </div>
+                    @endif
+                    <div class="form-group">
+                        <label for="name" >Загрузить фото</label>
+                        <input type="file" name='image' class='form-control' />
+                    </div>
+
                     <div class="form-group">
                         <label for="p_name" >Заголовок:</label>
                         <input type="text" class="form-control" name='title' placeholder="Заголовок" value='{{ isset($item) ? $item->title : null }}' required="">

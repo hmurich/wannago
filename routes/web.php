@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company/news/item/{id?}', 'Company\NewsController@getItem');
     Route::post('company/news/item/{id?}', 'Company\NewsController@postItem');
     Route::get('company/news/delete/{id}', 'Company\NewsController@getDelete');
+    Route::get('company/news/delete-image/{id}', 'Company\NewsController@getDeleteImage');
 
     //comment controller
     Route::get('company/comment', 'Company\CommentController@getIndex');
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company/event/item/{id?}', 'Company\EventController@getItem');
     Route::post('company/event/item/{id?}', 'Company\EventController@postItem');
     Route::get('company/event/delete/{id}', 'Company\EventController@getDelete');
+    Route::get('company/event/delete-image/{id}', 'Company\EventController@getDeleteImage');
 
     //reserve controller
     Route::get('company/reserve', 'Company\ReserveController@getIndex');
@@ -81,6 +83,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/event/active/{id}', 'Admin\EventController@getActive');
     Route::get('adminka/event/hot/{id}', 'Admin\EventController@getHot');
     Route::get('adminka/event/delete/{id}', 'Admin\EventController@getDelete');
+
 
     //add objects
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
