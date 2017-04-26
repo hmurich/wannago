@@ -22,6 +22,18 @@
                         <label for="name" >Загрузить фото</label>
                         <input type="file" name='image' class='form-control' />
                     </div>
+                    @if (isset($item) && $item->catalog_image)
+                        <div class="form-group">
+                            <label for="name" >Фото в каталоге</label> <br />
+                            <img src="{{ $item->catalog_image }}"  class="img-thumbnail"><br />
+                            <a href="{{ action('Company\EventController@getDeleteCatalogImage', $item->id) }}" class="btn  btn-danger">Удалить</a>
+                        </div>
+                    @endif
+                    <div class="form-group">
+                        <label for="name" >Загрузить фото в каталоге</label>
+                        <input type="file" name='catalog_image' class='form-control' />
+                    </div>
+
 
                     <div class="form-group">
                         <label for="p_name" >Заголовок:</label>

@@ -1,9 +1,17 @@
 <?php
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Generators\ModelSnipet;
 
 class Object extends Model{
     protected $table = 'objetcs';
+
+    function setNameAttribute($value) {
+		$this->attributes['name'] = $value;
+        if (!$this->alias){
+            $this->alias = rand(100000, 999999).'-'.ModelSnipet::translitString($value);
+        }
+  	}
 
     function relNews(){
         return $this->hasMany('App\Model\News', 'object_id');
@@ -19,6 +27,10 @@ class Object extends Model{
 
     function relGelerea(){
         return $this->hasMany('App\Model\ObjectGallery', 'object_id');
+    }
+
+    function relSlider(){
+        return $this->hasMany('App\Model\ObjectSlider', 'object_id');
     }
 
     function relCat(){
@@ -59,5 +71,9 @@ class Object extends Model{
 
     function getRaitingViewAttribute(){
         return round($this->raiting, 2);
+    }
+
+    function getRaitingFullRoundAttribute(){
+        return round($this->raiting, 0);
     }
 }

@@ -2,7 +2,7 @@
     <div class="f-row">
         <span class="f-row__heading">Портал</span>
         <div class="f-ul">
-            <a>Вход в личный кабинет</a>
+            <a href="/company/">Вход в личный кабинет</a>
             <a>Добавить заведение</a>
             <a>Лицензионное соглашение</a>
         </div>

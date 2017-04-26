@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::post('company/event/item/{id?}', 'Company\EventController@postItem');
     Route::get('company/event/delete/{id}', 'Company\EventController@getDelete');
     Route::get('company/event/delete-image/{id}', 'Company\EventController@getDeleteImage');
+    Route::get('company/event/delete-catalog-image/{id}', 'Company\EventController@getDeleteCatalogImage');
 
     //reserve controller
     Route::get('company/reserve', 'Company\ReserveController@getIndex');

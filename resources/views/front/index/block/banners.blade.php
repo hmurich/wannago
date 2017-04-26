@@ -1,8 +1,7 @@
 <div class="banner-area">
-    <a class="banner" href="#">
-        <img src="/front/img/banner1.jpg">
-    </a>
-    <a class="banner" href="#">
-        <img src="/front/img/banner2.jpg">
-    </a>
+    @foreach ($banners as $b)
+        <a class="banner" href="{{ $b->href }}">
+            <img src="{{ $b->image }}">
+        </a>
+    @endforeach
 </div>

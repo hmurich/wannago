@@ -2,6 +2,25 @@
 namespace App\Model\Generators;
 
 class ModelSnipet {
+    static function modifyDateToStr($date){
+        if (!$date)
+            return null;
+
+        $unixtime = strtotime($date);
+        if (!$unixtime)
+            return null;
+
+        $day = date('d', $unixtime);
+        $month = date('m', $unixtime);
+
+        $ar_month = array(
+            '01' => 'января', '02' => 'января', '03' => 'января', '04' => 'января', '05' => 'января', '06' => 'января',
+            '07' => 'января', '08' => 'января', '09' => 'января', '10' => 'января', '11' => 'января', '12' => 'января'
+        );
+
+        return $day.' '.$ar_month[$month];
+    }
+
     function distance($lat1, $lng1, $lat2, $lng2){
         // Convert degrees to radians.
         $lat1=deg2rad($lat1);
@@ -118,6 +137,8 @@ class ModelSnipet {
 	}
 
 	public static function setImage ($file, $path = 'images', $image_wight = false, $image_height = false) { // функция по до
+        $cirle = false;
+
         $path = 'upload/'.$path;
 
 		$file_extension = $file->getClientOriginalExtension();
@@ -136,6 +157,14 @@ class ModelSnipet {
             $img->resize($image_wight, $image_height);
             $img->save();
         }
+
+        if ($cirle && $image_wight && $image_height){
+            $img->circle($image_wight/2, $image_wight/2, $image_wight/2, function ($draw) {
+                    $draw->background('#0000ff');
+            });
+            $img->save();
+        }
+
 
 		return  '/'.$path.'/'.$file_name;
 	}

@@ -6,75 +6,25 @@
 </div>
 <div class="events">
     <ul class="event-ul">
-        <li>
-            <a href="#" class="mini-event">
-                <div class="mini-event__img">
-                    <img src="img/event.png">
-                </div>
-                <span class="mini-event__heading">
-                    Музыкальные вечер: Nоthing but the best!
-                </span>
-                <div class="event-date">
-                    <span class="event-date__time">21:30</span>
-                    <span class="event-date__text">12 Апреля</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="mini-event">
-                <div class="mini-event__img">
-                    <img src="img/event.png">
-                </div>
-                <span class="mini-event__heading">
-                    Музыкальные вечер: Nоthing but the best!
-                </span>
-                <div class="event-date">
-                    <span class="event-date__time">21:30</span>
-                    <span class="event-date__text">12 Апреля</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="mini-event">
-                <div class="mini-event__img">
-                    <img src="img/event.png">
-                </div>
-                <span class="mini-event__heading">
-                    Музыкальные вечер: Nоthing but the best!
-                </span>
-                <div class="event-date">
-                    <span class="event-date__time">21:30</span>
-                    <span class="event-date__text">12 Апреля</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="mini-event">
-                <div class="mini-event__img">
-                    <img src="img/event.png">
-                </div>
-                <span class="mini-event__heading">
-                    Музыкальные вечер: Nоthing but the best!
-                </span>
-                <div class="event-date">
-                    <span class="event-date__time">21:30</span>
-                    <span class="event-date__text">12 Апреля</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="mini-event">
-                <div class="mini-event__img">
-                    <img src="img/event.png">
-                </div>
-                <span class="mini-event__heading">
-                    Музыкальные вечер: Nоthing but the best!
-                </span>
-                <div class="event-date">
-                    <span class="event-date__time">21:30</span>
-                    <span class="event-date__text">12 Апреля</span>
-                </div>
-            </a>
-        </li>
+        @foreach ($events as $e)
+            <li>
+                <a href="#" class="mini-event">
+                    <div class="mini-event__img">
+                        @if ($e->catalog_image)
+                            <img src="{{ $e->catalog_image }}" style="max-width: 112px;" />
+                        @else
+                            <img src="/front/img/event.png" />
+                        @endif
+                    </div>
+                    <span class="mini-event__heading">
+                        {{ $e->title }}
+                    </span>
+                    <div class="event-date">
+                        <span class="event-date__time">{{ $e->time_str}}</span>
+                        <span class="event-date__text">{{ $e->date_str }}</span>
+                    </div>
+                </a>
+            </li>
+        @endforeach
     </ul>
 </div>
