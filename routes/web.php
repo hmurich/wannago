@@ -112,6 +112,11 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::post('adminka/where-go/add/{id}', 'Admin\WhereGoController@postAdd');
     Route::get('adminka/where-go/delete/{id}/{object_id}', 'Admin\WhereGoController@getDelete');
 
+    // banners routes
+    Route::get('adminka/banner/', 'Admin\BannerController@getIndex');
+    Route::post('adminka/banner/add/', 'Admin\BannerController@postSave');
+    Route::get('adminka/banner/delete/{id}', 'Admin\BannerController@getDelete');
+
     //ModeratorController
     Route::get('adminka/directory/moderator', 'Admin\Directory\ModeratorController@getIndex');
     Route::get('adminka/directory/moderator/item/{id?}', 'Admin\Directory\ModeratorController@getEdit');

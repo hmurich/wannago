@@ -48,6 +48,12 @@
                 @endforeach
             </ul>
         </li>
+        <li>
+            <a href="{{ action('Admin\BannerController@getIndex') }}">
+                <i class="fa fa-dollar "></i> <span>Баннеры(реклама)</span>
+            </a>
+        </li>
+
         <li class="header">Организации</li>
         <li class="treeview">
             <a href="#">
