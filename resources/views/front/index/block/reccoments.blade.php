@@ -7,7 +7,7 @@
 <ul class="new-ul">
     @foreach ($recomended as $r)
         <li>
-            <a href="#" class="new-zaved">
+            <a href="{{ action('Front\Object\ShowController@getIndex', $r->alias) }}" class="new-zaved">
                 <div class="new-zaved__img">
                     @if ($r->relSlider()->first())
                         <img src="{{ $r->relSlider()->first()->image }}">
