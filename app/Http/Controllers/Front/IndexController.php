@@ -31,6 +31,7 @@ class IndexController extends Controller{
         $ar['ar_karaoke_type'] = SysDirectoryName::where('parent_id', 5)->pluck('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 6)->pluck('name', 'id');
         $ar['ar_music_type'] = SysDirectoryName::where('parent_id', 7)->pluck('name', 'id');
+        $ar['city_id'] = $city_id;
 
         return view('front.index.index', $ar);
     }

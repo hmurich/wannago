@@ -1,11 +1,15 @@
 <div class="city-select">
 	<div class="city-select__left">Город:</div>
 	<div class="city-select__part">
-		<span>Астана</span>
+		<span>{{ (isset($ar_city[$city_id]) ? $ar_city[$city_id] : 'Астана') }}</span>
 		<ul class="city-lines">
-			<li>
-				<a href="#">Алматы</a>
-			</li>
+			@foreach ($ar_city as $k=>$name)
+				@if ($k != $city_id)
+					<li>
+						<a href="{{ action('Front\IndexController@getChangeCity', $k) }}">{{ $name }}</a>
+					</li>
+				@endif
+			@endforeach
 		</ul>
 	</div>
 </div>
