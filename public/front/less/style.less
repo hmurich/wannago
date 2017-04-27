@@ -14,10 +14,14 @@ a, button, input, textarea, .js-svg {
 	background-repeat:no-repeat;
 }
 .header{
-	height:40px;
-	overflow:hidden;
+	height:40px;	
 	&--second{
 		background-color:#3a3b3d;
+	}
+	&:after{
+		content:"";
+		clear:both;
+		display:block;
 	}
 }
 .under-header{
@@ -35,13 +39,21 @@ a, button, input, textarea, .js-svg {
 	margin-top:38px;
 	&__li{
 		float:left;
-		margin-right:25px;
+		margin-right:15px;
 		&:hover a{
 			text-decoration:underline;
 		}
 		& a{
 			color:#7b7b7b;
 			font-size:16px;
+			padding: 5px 8px;
+		}
+		&--active a{
+			background-color:#3a3b3d;
+			color:#fff;
+		}
+		&--active:hover a{
+			text-decoration:none;
 		}
 	}
 	&:after{
@@ -106,9 +118,46 @@ a, button, input, textarea, .js-svg {
 	float:left;
 	color:#fff;
 	margin-top:10px;
-	& span{
-		text-decoration:underline;
+	cursor:pointer;
+	&__left{
+		float:left;
 	}
+	&__part{
+		float:right;
+		margin-left:6px;
+		position:relative;
+		&:after{
+		  content: "";
+		  position: absolute;
+		  top: 7px;
+		  right: -15px;
+		  display: inline-block;
+		  width: 0;
+		  height: 0;
+		  border-style: solid;
+		  border-width: 5px 5px 0 5px;
+		  border-color: #fff transparent transparent transparent;
+		}
+		& span{
+			text-decoration:underline;
+		}
+	}
+	&--active .city-lines{
+		height:20px;
+		background-color:#fff;
+		opacity:1;
+	}
+}
+.city-lines{
+  opacity: 0;
+  height: 0px;
+  position: absolute;
+  top: 24px;
+  padding: 2px 10px;
+  left: -7px;
+  & a{
+  	color:#000;
+  }
 }
 .top-part{
 	height:250px;
@@ -185,11 +234,9 @@ a, button, input, textarea, .js-svg {
 			border-color: #fff transparent transparent transparent;					
 	}
 	& a{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
     color: #000;
-    opacity: 0;
-    margin-bottom: 13px;
     display: block;
 	}
 	& .active{
@@ -201,17 +248,38 @@ a, button, input, textarea, .js-svg {
     opacity:1;
     margin-bottom:15px;
 	}
-	&--active{
-		box-shadow: 2px 2px 1px -1px rgba(0, 0, 0, 0.27);
-		max-height:150px;
-		background-color:#fff;
-		z-index:2;
-		& a{
-			opacity:1;
-			&:hover{
-				text-decoration:underline;
-			}
-		}
+	&--active .city-list{
+		opacity:1;
+	}
+}
+.city-list {
+  position: absolute;
+  top: 50px;
+  left: 35px;
+  opacity:0;
+  padding: 15px;
+  z-index: 3;
+  background-color: #fff;
+  & li{
+  	margin-bottom:10px;
+  }
+  & li:last-child{
+  	margin-bottom:0;
+  }
+  & li a:hover{
+  	text-decoration:underline;
+  }
+	&:after{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #ffffff transparent;
 	}
 }
 .filtr{
@@ -469,6 +537,7 @@ a, button, input, textarea, .js-svg {
 }
 .events{
 	border: 1px solid #e0e7ee;
+	border-right:1px solid transparent;
 	height:560px;
 	overflow:auto;
 }
@@ -493,8 +562,12 @@ a, button, input, textarea, .js-svg {
 		float:left;
 		width:30%;
 		& img{
-			display:block;
-		}
+			display: block;
+    	border-radius: 50%;
+    	width: 112px;
+    	height: 112px;
+    	overflow: hidden;
+    }	
 	}
 	&__heading{
     float: left;
@@ -1053,6 +1126,41 @@ a, button, input, textarea, .js-svg {
 }
 /*Конец заведении*/
 
+.adding-part{
+	display:block;
+	padding:10px 14px;
+	&__heading{
+		margin-bottom:22px;
+		text-align:center;
+		text-transform:uppercase;
+		font-size:16px;
+	}
+	&__input{
+		width:100%;
+		border:none;
+		height:35px;
+		border:1px solid #ccc;
+		margin-bottom:14px;
+		box-sizing:border-box;
+		padding:0 10px;
+	}
+	&__submit{
+    background-color: #f11923;
+    color: #fff;
+    height: 34px;
+    border: none;
+    width: 180px;
+    display: block;
+    margin: 10px auto 0 auto;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor:pointer;
+    &:hover{
+    	background-color: #e31b24;
+    }
+	}
+}
 
 /*Футер*/
 .footer{

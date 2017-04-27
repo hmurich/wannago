@@ -4,7 +4,7 @@
     </div>
     <a class="link link--event" href="#">Все события</a>
 </div>
-<div class="events">
+<div class="events scroll-pane">
     <ul class="event-ul">
         @foreach ($events as $e)
             <li>

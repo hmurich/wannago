@@ -71,6 +71,26 @@ $(document).ready(function(){
 			}
 			    return false;
 		});
+		$(document).click(function (e)
+	  	{
+			    var container3 = $(".city-select__partx");
+			    if (container3.has(e.target).length === 0)
+			    {
+			       $('.city-select').removeClass('city-select--active');	
+			    }
+			});
+
+			$('.city-select').click(function(e) 
+			{
+			if($(this).hasClass('city-select--active')){
+		 				$(this).removeClass('city-select--active');	
+					 event.stopPropagation();
+			}
+			else{
+					$(this).addClass('city-select--active');				
+			}
+			    return false;
+		});			
 		$('.big-slider').slick({
 		  slidesToShow: 1,
 		  speed: 800,
