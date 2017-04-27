@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Model\Generators\City;
 use App\Model\SysDirectoryName;
+use App\Model\ObjectMainOption;
 use App\Model\Object;
 use App\Model\Event;
 
@@ -30,15 +31,31 @@ class ShowController extends Controller{
 
         $events = Event::where('object_id', $object->id)->where('date_event' , '>', date('Y-m-d'))->orderBy('date_event', 'asc')->take(4)->get();
 
+        $ar_pub_id = SysDirectoryName::where('parent_id', 4)->pluck('id');
+        $ar_karaoke_id = SysDirectoryName::where('parent_id', 5)->pluck('id');
+        $ar_kitchen_id = SysDirectoryName::where('parent_id', 6)->pluck('id');
+        $ar_music_id = SysDirectoryName::where('parent_id', 7)->pluck('id');
+
         $ar = array();
         $ar['title'] = $object->name;
         $ar['city_id'] = $city_id;
         $ar['object'] = $object;
         $ar['events'] = $events;
+
+        $ar['main_pub'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_pub_id)->pluck('name');
+        $ar['main_karaoke'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_karaoke_id)->pluck('name');
+        $ar['main_kitchen'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_kitchen_id)->pluck('name');
+        $ar['main_musik'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_music_id)->pluck('name');
+
+        $ar['ar_avg_price'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
+
         $ar['simular_object'] = Object::whereIn('id', $ar_simular)->orderBy('raiting', 'desc')->get();
         $ar['ar_company_object'] = Object::where('company_id', $object->company_id)->pluck('cat_id', 'alias');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
+
+        echo count($ar['main_pub']);
+        echo '<pre>'; print_r($ar['main_pub']); echo '</pre>'; exit();
 
         return view('front.object.show', $ar);
     }

@@ -5,16 +5,16 @@
 <main>
 	<div class="inner">
 		<ul class="breadcrumbs">
-            @include('front.include.breadcrumbs')
+            @include('front.object.include.breadcrumbs')
 		</ul>
 		<div class="zaved-part">
 			<div class="zaved-up">
-                @include('front.include.zaved_up')
+                @include('front.object.include.zaved_up')
 			</div>
 			<div class="zaved-menu">
-                @include('front.include.zaved_menu')
+                @include('front.object.include.zaved_menu')
 			</div>
-            
+
 			<div class="big-slider">
                 @foreach ($object->relSlider as $s)
                     <div>
@@ -30,54 +30,62 @@
                 @endforeach
 			</div>
 			<ul class="zaved-rows">
-				<li>
-					<div class="character">
-						<span class="character__heading">Кухня</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Предложения</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Кол-во залов</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Средний чек</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Оплата картой</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Предложения</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Кухня</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
-				<li>
-					<div class="character">
-						<span class="character__heading">Кухня</span>
-						<p class="character__text">Авторская, Итальянская, Средиземноморская</p>
-					</div>
-				</li>
+                @if (count($main_pub) > 0)
+    				<li>
+    					<div class="character">
+    						<span class="character__heading">Тип заведения</span>
+    						<p class="character__text">{{ implode(', ', $main_pub) }}</p>
+    					</div>
+    				</li>
+                @endif
+                @if (count($main_karaoke) > 0)
+    				<li>
+    					<div class="character">
+    						<span class="character__heading">Тип размещения</span>
+    						<p class="character__text">{{ implode(', ', $main_karaoke) }}</p>
+    					</div>
+    				</li>
+                @endif
+                @if (count($main_kitchen) > 0)
+    				<li>
+    					<div class="character">
+    						<span class="character__heading">Кухня</span>
+    						<p class="character__text">{{ implode(', ', $main_kitchen) }}</p>
+    					</div>
+    				</li>
+                @endif
+                @if (count($main_musik) > 0)
+    				<li>
+    					<div class="character">
+    						<span class="character__heading">Музыка</span>
+    						<p class="character__text">{{ implode(', ', $main_musik) }}</p>
+    					</div>
+    				</li>
+                @endif
+                @if (isset($ar_avg_price[$object->relStandartData->avg_price_id]))
+    				<li>
+    					<div class="character">
+    						<span class="character__heading">Средний счет</span>
+    						<p class="character__text">{{ $ar_avg_price[$object->relStandartData->avg_price_id] }}</p>
+    					</div>
+    				</li>
+                @endif
+                @if ($object->relStandartData->price_for_hout > 0)
+                    <li>
+                        <div class="character">
+                            <span class="character__heading">Цена за час</span>
+                            <p class="character__text">{{ $object->relStandartData->price_for_hout }}</p>
+                        </div>
+                    </li>
+                @endif
+                @foreach ($object->relDopOption as $o)
+                    <li>
+                        <div class="character">
+                            <span class="character__heading">{{ $o->option_name }}</span>
+                            <p class="character__text">{{ $o->option_value }}</p>
+                        </div>
+                    </li>
+                @endforeach
 			</ul>
 			<div class="zav-events">
 				<div class="zav-up">
