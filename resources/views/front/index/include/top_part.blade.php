@@ -6,14 +6,15 @@
 	<div class="main-text__info">
 		<div class="main-text__heading">Найди своё заведение </div>
 		<div class="city">
-			<span class="active" href="#">В Астане</span>
+			<span class="active" href="#">{{ (isset($ar_city[$city_id]) ? $ar_city[$city_id] : 'Астана') }}</span>
 			<ul class="city-list">
-				<li>
-					<a href="#">Алматы</a>
-				</li>
-				<li>
-					<a href="#">Атырау</a>
-				</li>
+				@foreach ($ar_city as $k=>$name)
+					@if ($k != $city_id)
+						<li>
+							<a href="{{ action('Front\IndexController@getChangeCity', $k) }}">{{ $name }}</a>
+						</li>
+					@endif
+				@endforeach
 			</ul>
 	  </div>
   </div>
