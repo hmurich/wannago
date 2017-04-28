@@ -4,9 +4,10 @@ Route::get('/', 'Front\IndexController@getIndex');
 Route::get('change-city/{id}', 'Front\IndexController@getChangeCity');
 Route::post('new-object', 'Front\NewObjectController@postSave');
 
+Route::get('news', 'Front\NewsController@getIndex');
+
 //show company controller
 Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
-
 
 
 // company controller

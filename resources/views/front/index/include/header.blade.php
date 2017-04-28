@@ -18,7 +18,7 @@
 		<a href="#">События</a>
 	</li>
 	<li class="menu__li">
-		<a href="#">Новости</a>
+		<a href="{{ action('Front\NewsController@getIndex') }}">Новости</a>
 	</li>
 	<li class="menu__li">
 		<a href="#">Подборки</a>

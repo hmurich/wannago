@@ -55,7 +55,7 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
                 $q = $q->whereIn('option_id', $request->input('main_option_id'));
             else
                 $q = $q->where('option_id', $request->input('main_option_id'));
-        }
+        });
     }
 
     if ($request->has('specail_option_id')){
@@ -64,7 +64,7 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
                 $q = $q->whereIn('option_id', $request->input('specail_option_id'));
             else
                 $q = $q->where('option_id', $request->input('specail_option_id'));
-        }
+        });
     }
 
     $items = $items->with('relMainOptions', 'relStandartData',
