@@ -6,6 +6,9 @@ Route::post('new-object', 'Front\NewObjectController@postSave');
 
 Route::get('news', 'Front\NewsController@getIndex');
 
+Route::get('where', 'Front\WhereGoController@getIndex');
+Route::get('where/list/{id}', 'Front\WhereGoController@getList');
+
 //show company controller
 Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
 

@@ -21,7 +21,7 @@
 		<a href="{{ action('Front\NewsController@getIndex') }}">Новости</a>
 	</li>
 	<li class="menu__li">
-		<a href="#">Подборки</a>
+		<a href="{{ action('Front\WhereGoController@getIndex') }}">Подборки</a>
 	</li>
 	<li class="menu__li">
 		<a class="fancybox" href="#adding">Добавить заведение</a>

@@ -9,16 +9,16 @@
 			<li><span>куда сходить?</span></li>
 		</ul>
 		<h1 class="search-heading">Куда сходить?</h1>
-			<ul class="where-ul">
-                @foreach($where_go as $w)
-                    <li>
-                        <a href="#" class="podborka">
-                            <img class="podborka__img" src="img/podborka.jpg">
-                            <span class="podborka__text">Пойти потанцевать</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+		<ul class="where-ul">
+            @foreach($where_go as $w)
+                <li>
+                    <a href="{{ action("Front\WhereGoController@getList", $w->id) }}" class="podborka">
+                        <img class="podborka__img" src="img/podborka.jpg">
+                        <span class="podborka__text">Пойти потанцевать</span>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
 		<div class="about-des">
 			@include('front.include.about-des', ['sys_key' => 'about_where'])
 		</div>
