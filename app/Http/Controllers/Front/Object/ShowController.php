@@ -55,7 +55,9 @@ class ShowController extends Controller{
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
 
         echo count($ar['main_pub']);
-        echo '<pre>'; print_r($ar['main_pub']); echo '</pre>'; exit();
+        echo '<pre>'; print_r($ar['main_pub']); echo '</pre>';
+        //echo 
+        exit();
 
         return view('front.object.show', $ar);
     }

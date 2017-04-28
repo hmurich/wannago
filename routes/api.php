@@ -32,6 +32,7 @@ Route::get('get-ar-object/{id?}', function ($id = 0) {
         $items = Object::where('id', $id);
     else
         $items = Object::where('id', '>', 0);
+        
     $items = $items->with('relMainOptions', 'relStandartData',
                                                 'relDopOption', 'relTag', 'relLocation', 'relScore',
                                                 'relSpecialOption', 'relUser')->get()->toJson();
