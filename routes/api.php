@@ -27,12 +27,46 @@ Route::get('get-ar-directory-elem/{id?}', function ($id = 0) {
     echo $elems;
 });
 
-Route::get('get-ar-object/{id?}', function ($id = 0) {
+Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
     if ($id)
         $items = Object::where('id', $id);
     else
         $items = Object::where('id', '>', 0);
-        
+
+    if ($request->has('cat_id'))
+        $items = $items->where('cat_id', $request->input('cat_id'));
+
+        if ($request->has('city_id'))
+            $items = $items->where('city_id', $request->input('city_id'));
+
+    if ($request->has('avg_price_id') || $request->has('price_for_hout')){
+        $items = $items->whereHas('relStandartData', function($q) use ($request) {
+            if ($request->has('avg_price_id'))
+                $q = $q->where('avg_price_id', $request->input('avg_price_id'));
+
+            if ($request->has('price_for_hout'))
+                $q = $q->where('price_for_hout', $request->input('price_for_hout'));
+        });
+    }
+
+    if ($request->has('main_option_id')){
+        $items = $items->whereHas('relMainOptions', function($q) use ($request) {
+            if (is_array($request->input('specail_option_id')))
+                $q = $q->whereIn('option_id', $request->input('main_option_id'));
+            else
+                $q = $q->where('option_id', $request->input('main_option_id'));
+        }
+    }
+
+    if ($request->has('specail_option_id')){
+        $items = $items->whereHas('relSpecialOption', function($q) use ($request) {
+            if (is_array($request->input('specail_option_id')))
+                $q = $q->whereIn('option_id', $request->input('specail_option_id'));
+            else
+                $q = $q->where('option_id', $request->input('specail_option_id'));
+        }
+    }
+
     $items = $items->with('relMainOptions', 'relStandartData',
                                                 'relDopOption', 'relTag', 'relLocation', 'relScore',
                                                 'relSpecialOption', 'relUser')->get()->toJson();
