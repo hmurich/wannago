@@ -8,7 +8,8 @@ Route::get('news', 'Front\NewsController@getIndex');
 
 //show company controller
 Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
-
+Route::get('zaved/show/{alias}/news', 'Front\Object\NewsController@getList');
+Route::get('zaved/show/{alias}/news/{id}', 'Front\Object\NewsController@getShow');
 
 // company controller
 Route::get('company/login', 'Company\AuthController@getLogin');

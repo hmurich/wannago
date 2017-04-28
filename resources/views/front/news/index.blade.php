@@ -14,7 +14,7 @@
             @foreach ($items as $i)
 				<li>
 					<div class="news-mini">
-						<a href="#" class="news-mini__img">
+						<a href="{{ action('Front\Object\NewsController@getShow', array($i->relObject->alias, $i->id)) }}" class="news-mini__img">
                             @if ($i->image)
                                 <img alt="{{ $i->title }}" src="{{ $i->image }}">
                             @else
@@ -25,7 +25,7 @@
 							<span class="news-text__date">
 								{{ $i->created }}
 							</span>
-							<a href="#" class="news-text__heading">
+							<a href="{{ action('Front\Object\NewsController@getShow', array($i->relObject->alias, $i->id)) }}" class="news-text__heading">
                                 {{ $i->title }}
                             </a>
                             {!! $i->note !!}

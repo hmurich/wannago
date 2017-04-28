@@ -48,7 +48,7 @@ class SliderController extends Controller{
         $item = new ObjectSlider();
         $item->object_id = $object->id;
         if ($request->hasFile('image'))
-            $item->image = ModelSnipet::setImage($request->file('image'), 'galerea', 800, 600);
+            $item->image = ModelSnipet::setImage($request->file('image'), 'galerea', 800, 350);
 
         $item->save();
 

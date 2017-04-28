@@ -100,7 +100,7 @@ class NewsController extends Controller{
             $item->object_id = $object->id;
         }
         if ($request->hasFile('image'))
-            $item->image = ModelSnipet::setImage($request->file('image'), 'image-news', 800, 600);
+            $item->image = ModelSnipet::setImage($request->file('image'), 'image-news', 800, 350);
         $item->title = $request->input('title');
         $item->note = $request->input('note');
         $item->city_id = $object->city_id;

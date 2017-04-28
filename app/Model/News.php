@@ -10,6 +10,10 @@ class News extends Model{
         return $this->hasMany('App\Model\NewsComment', 'news_id');
     }
 
+    function relObject(){
+        return $this->belongsTo('App\Model\Object', 'object_id');
+    }
+
     function getCreatedAttribute(){
         return ModelSnipet::formatDate($this->created_at, 'd.m.Y');
     }
