@@ -32,7 +32,7 @@ class NewsController extends Controller{
             $ar_simular = $ar_simular + $ar_simular_down;
         }
 
-        $news = News::where(array())->first();
+        $news = News::where(array('object_id'=>$object->id, 'id'=>$news_id))->first();
         if (!$news)
             abort(404);
 
