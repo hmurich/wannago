@@ -11,12 +11,6 @@
 			<li><span>{{ $where_go->name }}</span></li>
 		</ul>
 		<h1 class="search-heading">{{ $title }}</h1>
-		<div class="search-type">
-			<a class="search-type__item search-type__item--active" href="">По рейтингу</a>
-			<a class="search-type__item" href="">Новые заведения</a>
-			<a class="search-type__item" href="">По Стоимости</a>
-			<a class="search-type__item search-type__item--map" href="">На карте</a>
-		</div>
 
 		<ul class="zaved-ul">
             @foreach ($items as $i)
@@ -43,20 +37,48 @@
     					</div>
     				</div>
     				<div class="mini-info">
+                        @if ($i->relMainOptions()->whereIn('option_id', $ar_pub_id)->count())
+                            <div class="mini-info__row">
+                                <span>Тип заведения:</span>{{ $i->relMainOptions()->whereIn('option_id', $ar_pub_id)->select('name')->get()->implode('name', ', ') }}
+                            </div>
+                        @endif
+                        @if ($i->relMainOptions()->whereIn('option_id', $ar_karaoke_id)->count())
+                            <div class="mini-info__row">
+                                <span>Тип размещения:</span>{{ $i->relMainOptions()->whereIn('option_id', $ar_karaoke_id)->select('name')->get()->implode('name', ', ') }}
+                            </div>
+                        @endif
+                        @if ($i->relMainOptions()->whereIn('option_id', $ar_kitchen_id)->count())
+                            <div class="mini-info__row">
+                                <span>Кухня:</span>{{ $i->relMainOptions()->whereIn('option_id', $ar_kitchen_id)->select('name')->get()->implode('name', ', ') }}
+                            </div>
+                        @endif
+                        @if ($i->relMainOptions()->whereIn('option_id', $ar_music_id)->count())
+                            <div class="mini-info__row">
+                                <span>Музыка:</span>{{ $i->relMainOptions()->whereIn('option_id', $ar_music_id)->select('name')->get()->implode('name', ', ') }}
+                            </div>
+                        @endif
+
+
+                        @if ($i->relStandartData->price_for_hout > 0)
+                            <div class="mini-info__row">
+                                <span>Цена за час:</span>{{ $i->relStandartData->price_for_hout }}
+                            </div>
+                        @endif
+                        @if (isset($ar_avg_price[$i->relStandartData->avg_price_id]))
+        					<div class="mini-info__row">
+        						<span>Средний счет:</span>{{ $ar_avg_price[$i->relStandartData->avg_price_id] }}
+        					</div>
+                        @endif
+                        @if ($i->relStandartData->work_time	)
+        					<div class="mini-info__row">
+        						<span>Время работы:</span>{{ $i->relStandartData->work_time }}
+        					</div>
+                        @endif
     					<div class="mini-info__row">
-    						<span>Кухня:</span>Авторская, Восточная, Европейская
+    						<span>Телефон:</span>{{ $i->relStandartData->phone }}
     					</div>
     					<div class="mini-info__row">
-    						<span>Время работы:</span>Круглостуточно
-    					</div>
-    					<div class="mini-info__row">
-    						<span>Телефон:</span>+7(7172) 40 39 16
-    					</div>
-    					<div class="mini-info__row">
-    						<span>Адрес:</span>москва, ул. Покровка, д.19 М Китай-город, Чистые пруды
-    					</div>
-    					<div class="mini-info__row">
-    						<span>Кол-во залов:</span> 1 этаж - 2 зала - 68 мест; 0 этаж - 2 зала -20 метс
+    						<span>Адрес:</span>{{ $i->relStandartData->address }}
     					</div>
     					<div class="feauture">
 

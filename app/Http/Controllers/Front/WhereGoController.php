@@ -42,6 +42,15 @@ class WhereGoController extends Controller{
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
 
+        $ar['ar_avg_price'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
+
+        $ar['ar_pub_id'] = SysDirectoryName::where('parent_id', 4)->pluck('id');
+        $ar['ar_karaoke_id'] = SysDirectoryName::where('parent_id', 5)->pluck('id');
+        $ar['ar_kitchen_id'] = SysDirectoryName::where('parent_id', 6)->pluck('id');
+        $ar['ar_music_id'] = SysDirectoryName::where('parent_id', 7)->pluck('id');
+
+        //echo '<pre>'; print_r($ar['ar_avg_pice']); echo '</pre>'; exit();
+
         return view('front.where_go.list', $ar);
     }
 }
