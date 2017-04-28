@@ -42,10 +42,10 @@ class ShowController extends Controller{
         $ar['object'] = $object;
         $ar['events'] = $events;
 
-        $ar['main_pub'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_pub_id)->pluck('name');
-        $ar['main_karaoke'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_karaoke_id)->pluck('name');
-        $ar['main_kitchen'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_kitchen_id)->pluck('name');
-        $ar['main_musik'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_music_id)->pluck('name');
+        $ar['main_pub'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_pub_id)->select('name')->get()->implode('name', ', ');
+        $ar['main_karaoke'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_karaoke_id)->select('name')->get()->implode('name', ', ');
+        $ar['main_kitchen'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_kitchen_id)->select('name')->get()->implode('name', ', ');
+        $ar['main_musik'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_music_id)->select('name')->get()->implode('name', ', ');
 
         $ar['ar_avg_price'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
 
@@ -54,10 +54,6 @@ class ShowController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
 
-        echo count($ar['main_pub']);
-        echo '<pre>'; print_r($ar['main_pub']); echo '</pre>';
-        //echo 
-        exit();
 
         return view('front.object.show', $ar);
     }

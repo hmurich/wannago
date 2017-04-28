@@ -30,35 +30,35 @@
                 @endforeach
 			</div>
 			<ul class="zaved-rows">
-                @if (count($main_pub) > 0)
+                @if ($main_pub)
     				<li>
     					<div class="character">
     						<span class="character__heading">Тип заведения</span>
-    						<p class="character__text">{{ implode(', ', $main_pub) }}</p>
+    						<p class="character__text">{{ $main_pub }}</p>
     					</div>
     				</li>
                 @endif
-                @if (count($main_karaoke) > 0)
+                @if ($main_karaoke)
     				<li>
     					<div class="character">
     						<span class="character__heading">Тип размещения</span>
-    						<p class="character__text">{{ implode(', ', $main_karaoke) }}</p>
+    						<p class="character__text">{{ $main_karaoke }}</p>
     					</div>
     				</li>
                 @endif
-                @if (count($main_kitchen) > 0)
+                @if ($main_kitchen)
     				<li>
     					<div class="character">
     						<span class="character__heading">Кухня</span>
-    						<p class="character__text">{{ implode(', ', $main_kitchen) }}</p>
+    						<p class="character__text">{{ $main_kitchen }}</p>
     					</div>
     				</li>
                 @endif
-                @if (count($main_musik) > 0)
+                @if ($main_musik)
     				<li>
     					<div class="character">
     						<span class="character__heading">Музыка</span>
-    						<p class="character__text">{{ implode(', ', $main_musik) }}</p>
+    						<p class="character__text">{{ $main_musik }}</p>
     					</div>
     				</li>
                 @endif
