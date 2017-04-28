@@ -95,7 +95,7 @@
 				<ul class="event-list">
                     @foreach ($events as $e)
                         <li>
-                             <a href="#" class="mini-event">
+                             <a href="{{ action('Front\Object\EventController@getShow', array($object->alias, $e->id)) }}" class="mini-event">
                                 <div class="mini-event__img">
                                     @if ($e->catalog_image)
                                         <img src="{{ $e->catalog_image }}" style="max-width: 112px;" />

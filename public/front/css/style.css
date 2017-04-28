@@ -1010,7 +1010,7 @@ textarea,
   font-weight: bold;
   font-size: 24px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 22px;
 }
 .search-type {
   overflow: hidden;
@@ -1239,22 +1239,21 @@ textarea,
 }
 .pagination li {
   display: inline-block;
-  margin: 0 5px;
+  margin-right: 2px;
 }
 .pagination li a {
   color: #4c4b4c;
-  font-size: 24px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 4px 8px;
+}
+.pagination li:hover a {
   text-decoration: underline;
 }
 .pagination li.active a {
   color: #9e9d9d;
-  text-decoration: none;
-}
-.pagination li:hover a {
-  color: #ed2026;
-}
-.pagination li.active a {
-  color: #9e9d9d;
+  background-color: #3a3b3d;
+  color: #fff;
 }
 .mini-info {
   float: left;
@@ -1735,6 +1734,8 @@ textarea,
 .news-list {
   overflow: hidden;
   font-size: 0;
+  margin-bottom: 20px;
+  margin-right: -15px;
 }
 .news-list li {
   display: inline-block;
@@ -1744,7 +1745,7 @@ textarea,
 .news-mini {
   margin-right: 15px;
   margin-bottom: 15px;
-  border: 1px solid #ef3c29;
+  border: 1px solid #ebebeb;
 }
 .news-mini__img {
   display: block;
@@ -1775,6 +1776,9 @@ textarea,
 .news-text__heading:hover {
   text-decoration: underline;
 }
+.news-text p {
+  font-size: 15px;
+}
 .news-comments {
   border-top: 1px solid #ebebeb;
   padding-top: 7px;
@@ -1793,6 +1797,35 @@ textarea,
   left: 0;
 }
 /*Конец новостей*/
+/*страница подборок*/
+.where-ul {
+  overflow: hidden;
+  font-size: 0;
+}
+.where-ul li {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+}
+.podborka {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e7ee;
+  display: block;
+  padding: 30px 10px;
+}
+.podborka__img {
+  display: block;
+  margin: 0 auto 15px auto;
+}
+.podborka__text {
+  color: #4a494a;
+  font-size: 15px;
+  display: block;
+  text-align: center;
+  height: 30px;
+}
+/*конец подборок*/
 /*Футер*/
 .footer {
   background-color: #282828;
