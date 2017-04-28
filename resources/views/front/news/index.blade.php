@@ -41,7 +41,7 @@
         {!! $items->render() !!}
 
         <div class="about-des">
-            @include('front.include.about-des')
+            @include('front.include.about-des', ['sys_key' => 'about_news'])
         </div>
 	</div>
 </main>

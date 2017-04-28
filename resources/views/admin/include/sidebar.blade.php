@@ -53,6 +53,11 @@
                 <i class="fa fa-dollar "></i> <span>Баннеры(реклама)</span>
             </a>
         </li>
+        <li>
+            <a href="{{ action('Admin\PageController@getIndex') }}">
+                <i class="fa fa-file-text-o "></i> <span>Страницы</span>
+            </a>
+        </li>
 
         <li class="header">Организации</li>
         <li class="treeview">

@@ -20,7 +20,7 @@
                 @endforeach
             </ul>
 		<div class="about-des">
-			@include('front.include.about-des')
+			@include('front.include.about-des', ['sys_key' => 'about_where'])
 		</div>
 	</div>
 </main>

@@ -104,7 +104,6 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/event/hot/{id}', 'Admin\EventController@getHot');
     Route::get('adminka/event/delete/{id}', 'Admin\EventController@getDelete');
 
-
     //add objects
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
@@ -136,6 +135,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/banner/', 'Admin\BannerController@getIndex');
     Route::post('adminka/banner/add/', 'Admin\BannerController@postSave');
     Route::get('adminka/banner/delete/{id}', 'Admin\BannerController@getDelete');
+
+    // page routes
+    Route::get('adminka/page/', 'Admin\PageController@getIndex');
+    Route::get('adminka/page/item/{id?}', 'Admin\PageController@getItem');
+    Route::post('adminka/page/item/{id?}', 'Admin\PageController@postItem');
+    Route::get('adminka/page/delete/{id}', 'Admin\PageController@getDelete');
 
     //ModeratorController
     Route::get('adminka/directory/moderator', 'Admin\Directory\ModeratorController@getIndex');

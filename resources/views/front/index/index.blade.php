@@ -40,7 +40,7 @@
                     @include('front.index.block.reccoments')
                 </div>
 				<div class="about-des">
-                    @include('front.include.about-des')
+                    @include('front.include.about-des', ['sys_key' => 'about_main'])
 				</div>
 			</div>
 		</main>
