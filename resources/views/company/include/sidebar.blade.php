@@ -25,6 +25,12 @@
             </a>
         </li>
         <li>
+            <a href="{{ action('Company\MenuController@getIndex') }}">
+                <i class="fa fa-coffee "></i> <span>Меню</span>
+            </a>
+        </li>
+
+        <li>
             <a href="{{ action('Company\SliderController@getIndex') }}">
                 <i class="fa fa-file-photo-o "></i> <span>Слайдер</span>
             </a>

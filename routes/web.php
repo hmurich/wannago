@@ -46,6 +46,11 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::post('company/slider/save', 'Company\SliderController@postItem');
     Route::get('company/slider/delete/{id}', 'Company\SliderController@getDelete');
 
+    //menu routes
+    Route::get('company/menu/', 'Company\MenuController@getIndex');
+    Route::post('company/menu/save', 'Company\MenuController@postItem');
+    Route::get('company/menu/delete/{id}', 'Company\MenuController@getDelete');
+
     //gallery routes
     Route::get('company/galerea/', 'Company\GaleryController@getIndex');
     Route::post('company/galerea/save', 'Company\GaleryController@postItem');
