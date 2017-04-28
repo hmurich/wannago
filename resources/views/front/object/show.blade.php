@@ -126,7 +126,7 @@
 					<h3 class="zav-up__heading">Найти нас <span>на карте</span></h3>
 				</div>
 				<div class="map">
-					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/	js/?um=constructor%3Af4afd07c5147822fa0e66a89c9820495f032220438c6863be4226f4417367372&amp;lang=ru_RU&amp;scroll=false"></script>
+					<div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 400px;"></div>
 				</div>
 			</div>
 		</div>

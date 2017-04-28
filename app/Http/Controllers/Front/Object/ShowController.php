@@ -38,9 +38,11 @@ class ShowController extends Controller{
 
         $ar = array();
         $ar['title'] = $object->name;
-        $ar['city_id'] = $city_id;
         $ar['object'] = $object;
+        $ar['standart_data'] = $object->relStandartData;
         $ar['events'] = $events;
+
+        $ar['active_menu'] = 'note';
 
         $ar['main_pub'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_pub_id)->select('name')->get()->implode('name', ', ');
         $ar['main_karaoke'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_karaoke_id)->select('name')->get()->implode('name', ', ');
@@ -49,6 +51,7 @@ class ShowController extends Controller{
 
         $ar['ar_avg_price'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
 
+        $ar['city_id'] = $city_id;
         $ar['simular_object'] = Object::whereIn('id', $ar_simular)->orderBy('raiting', 'desc')->get();
         $ar['ar_company_object'] = Object::where('company_id', $object->company_id)->pluck('cat_id', 'alias');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
