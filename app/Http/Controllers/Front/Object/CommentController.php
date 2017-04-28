@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller{
-    function getIndex (Request $request){
+    function getList (Request $request, $alias){
 
     }
 }
