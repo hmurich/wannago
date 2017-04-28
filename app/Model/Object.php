@@ -13,6 +13,10 @@ class Object extends Model{
         }
   	}
 
+    function relMenu(){
+        return $this->hasMany('App\Model\ObjectMenu', 'object_id');
+    }
+
     function relNews(){
         return $this->hasMany('App\Model\News', 'object_id');
     }

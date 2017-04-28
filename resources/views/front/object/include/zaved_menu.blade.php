@@ -5,7 +5,7 @@
     <li class="nav-zaved__li {{ ($active_menu == 'note' ? 'nav-zaved__li--active' : null) }}">
         <a href="{{ action('Front\Object\ShowController@getIndex', $object->alias) }}">Описание</a>
     </li>
-    @if ($standart_data->menu_file)
+    @if ($object->relMenu()->count())
         <li class="nav-zaved__li {{ ($active_menu == 'menu' ? 'nav-zaved__li--active' : null) }}">
             <a href="{{ action('Front\Object\MenuController@getIndex', $object->alias) }}">Меню</a>
         </li>
