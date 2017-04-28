@@ -39,7 +39,10 @@ class NewsController extends Controller{
         $ar = array();
         $ar['title'] = $news->title;
         $ar['object'] = $object;
+        $ar['standart_data'] = $object->relStandartData;
         $ar['news'] = $news;
+
+        $ar['active_menu'] = 'news';
 
         $ar['city_id'] = $city_id;
         $ar['simular_object'] = Object::whereIn('id', $ar_simular)->orderBy('raiting', 'desc')->get();

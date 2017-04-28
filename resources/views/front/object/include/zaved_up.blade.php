@@ -1,31 +1,35 @@
 <div class="zaved-up__logo">
-    <img src="img/zaved-logo.png">
+    @if ($standart_data->logo)
+        <img alt="{{ $object->name }}" src="{{ $standart_data->logo }}">
+    @else
+        <img alt="{{ $object->name }}" src="/front/img/zaved-logo.png">
+    @endif
 </div>
 <div class="zaved-up__info">
     <div class="upzaved-text">
         <h1 class="upzaved-text__heading">
-            Chechil pub
+            {{ $object->name }}
         </h1>
         <ul class="upzaved-ul">
-            <li class="upzaved-ul__li upzaved-ul__li--adress">г. Астана, ул. Абая 67/2</li>
-            <li class="upzaved-ul__li upzaved-ul__li--number">+7 (7172) 40 39 16</li>
-            <li class="upzaved-ul__li upzaved-ul__li--click">19:00 - 21:00</li>
+            <li class="upzaved-ul__li upzaved-ul__li--adress">г. {{ $ar_city[$object->city_id] }}, {{ $standart_data->address }}</li>
+            <li class="upzaved-ul__li upzaved-ul__li--number">{{ $standart_data->phone }}</li>
+            <li class="upzaved-ul__li upzaved-ul__li--click">{{ $standart_data->work_time }}</li>
         </ul>
         <div class="zaved-book">
             <a class="zaved-book__button btn" href="#">Забронировать столик</a>
-            <a class="zaved-book__map">Посмотреть на карте</a>
+            <a class="zaved-book__map" href="#map">Посмотреть на карте</a>
         </div>
     </div>
     <div class="zaved-rating">
-        <div class="stars 5-star"></div>
+        <div class="stars {{ $object->raiting_full_round }}-star"></div>
         <div class="zaved-rating__ocenka">
-            <span>Рейтинг: 4</span>
+            <span>Рейтинг: {{ $object->raiting_view }}</span>
         </div>
         <div class="zaved-rating__numbers">
-            <span>27 оценок</span>
+            <span>{{ $object->relScore()->count() }} оценок</span>
         </div>
         <div class="zaved-rating__otzyv">
-            <span>33 отзыва</span>
+            <span>{{ $object->relComment()->count() }} отзыва</span>
         </div>
     </div>
 </div>
