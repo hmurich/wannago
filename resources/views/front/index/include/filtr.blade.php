@@ -18,12 +18,12 @@
             </li>
             <li>
                 <div class="others">
-                        <span>Другие</span>
-                        <div class="others-zaved">
-                            <a href="#">Ночные клубы</a>
-                            <a href="#">Банкетные залы</a>
-                            <a href="#">Летние площадки</a>
-                        </div>
+                    <span>Другие</span>
+                    <div class="others-zaved">
+                        <a href="{{ action("Front\CatalogController@getIndex", 28) }}">Ночные клубы</a>
+                        <a href="{{ action("Front\CatalogController@getIndex", 27) }}">Банкетные залы</a>
+                        <a href="{{ action("Front\CatalogController@getIndex", 29) }}">Летние площадки</a>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -32,181 +32,166 @@
         </div>
     </div>
     <div class="filtr-area">
-    <div id="pab" class="filtr-part">
-        <div class="filtr-select">
-            Тип заведения
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите тип заведения:</div>
-                <a class="filtr-option__item" href="#">Паб</a>
-                <a class="filtr-option__item" href="#">Бар</a>
-                <a class="filtr-option__item" href="#">Лаундж бар</a>
-                <a class="filtr-option__item" href="#">Спорт бар</a>
-                <a class="filtr-option__item" href="#">Суши бар</a>
-            </div>
+        <div id="pab" class="filtr-part">
+            <form action='{{ action("Front\CatalogController@getIndex", 9) }}' method="get">
+                <div class="filtr-select">
+                    Тип заведения
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите тип заведения:</div>
+                        @foreach ($ar_pub_type as $k=>$v)
+                            <a class="filtr-option__item" href="#pub_type" data-id='{{ $k }}' data-type='pub_type'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Особенности
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите особенности:</div>
+                        @foreach ($spec_option[9] as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='spec_option'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Средний счет
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите средний счет:</div>
+                        @foreach ($ar_avg_pice as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <button class="filtr-search">Искать по каталогу</button>
+            </form>
         </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
-            </div>
+        <div id="karaoke" class="filtr-part">
+            <form action='{{ action("Front\CatalogController@getIndex", 23) }}' method="get">
+                <div class="filtr-select">
+                    Тип размещения
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите тип размещения:</div>
+                        @foreach ($ar_karaoke_type as $k=>$v)
+                            <a class="filtr-option__item" href="#pub_type" data-id='{{ $k }}' data-type='karaoke_type'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Особенности
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите особенности:</div>
+                        @foreach ($spec_option[23] as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='spec_option'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Цена за час
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите цену за час:</div>
+                        @foreach ($ar_avg_pice as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <button class="filtr-search">Искать по каталогу</button>
+            </form>
         </div>
-        <div class="filtr-select">
-            Средний счет
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите средний счет:</div>
-                <a class="filtr-option__item" href="#">до 2000 тг</a>
-                <a class="filtr-option__item" href="#">2000 - 3000 тг</a>
-                <a class="filtr-option__item" href="#">3000 - 5000 тг</a>
-                <a class="filtr-option__item" href="#">5000 - 10000 тг</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">более 10000 тг</a>
-            </div>
+        <div id="kofeiny" class="filtr-part">
+            <form action='{{ action("Front\CatalogController@getIndex", 24) }}' method="get">
+                <div class="filtr-select">
+                    Кухня
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите Кухню:</div>
+                        @foreach ($ar_kitchen as $k=>$v)
+                            <a class="filtr-option__item" href="#pub_type" data-id='{{ $k }}' data-type='kithen_type'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Особенности
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите особенности:</div>
+                        @foreach ($spec_option[24] as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='spec_option'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Средний счет
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите средний счет:</div>
+                        @foreach ($ar_avg_pice as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <button class="filtr-search">Искать по каталогу</button>
+            </form>
         </div>
-        <button class="filtr-search">Искать по каталогу</button>
-    </div>
-    <div id="karaoke" class="filtr-part">
-        <div class="filtr-select">
-            Тип размещения
-            <div class="filtr-option">
-            <div class="filtr-option__heading">Выберите тип размещения:</div>
-                <a class="filtr-option__item" href="#">Общий зал</a>
-                <a class="filtr-option__item" href="#">Кабинки</a>
-                <a class="filtr-option__item" href="#">Vip-залы</a>
-                <a class="filtr-option__item" href="#">Спорт бар</a>
-                <a class="filtr-option__item" href="#">Суши бар</a>
-            </div>
+        <div id="kafe" class="filtr-part">
+            <form action='{{ action("Front\CatalogController@getIndex", 25) }}' method="get">
+                <div class="filtr-select">
+                    Кухня
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите Кухню:</div>
+                        @foreach ($ar_kitchen as $k=>$v)
+                            <a class="filtr-option__item" href="#pub_type" data-id='{{ $k }}' data-type='kithen_type'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Особенности
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите особенности:</div>
+                        @foreach ($spec_option[25] as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='spec_option'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Средний счет
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите средний счет:</div>
+                        @foreach ($ar_avg_pice as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <button class="filtr-search">Искать по каталогу</button>
+            </form>
         </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
-            </div>
+        <div id="restoran" class="filtr-part">
+            <form action='{{ action("Front\CatalogController@getIndex", 26) }}' method="get">
+                <div class="filtr-select">
+                    Кухня
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите Кухню:</div>
+                        @foreach ($ar_kitchen as $k=>$v)
+                            <a class="filtr-option__item" href="#pub_type" data-id='{{ $k }}' data-type='kithen_type'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Особенности
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите особенности:</div>
+                        @foreach ($spec_option[26] as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='spec_option'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="filtr-select">
+                    Средний счет
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите средний счет:</div>
+                        @foreach ($ar_avg_pice as $k=>$v)
+                            <a class="filtr-option__item" href="#spec_option" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                <button class="filtr-search">Искать по каталогу</button>
+            </form>
         </div>
-        <div class="filtr-select">
-            Цена за час
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите цену за час:</div>
-                <a class="filtr-option__item" href="#">до 1000 тг</a>
-                <a class="filtr-option__item" href="#">1000 - 1500 тг</a>
-                <a class="filtr-option__item" href="#">cвыше 1500</a>
-            </div>
-        </div>
-        <button class="filtr-search">Искать по каталогу</button>
-    </div>
-    <div id="kofeiny" class="filtr-part">
-        <div class="filtr-select">
-            Кухня
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите Кухню:</div>
-                <a class="filtr-option__item" href="#">Азиатская</a>
-                <a class="filtr-option__item" href="#">Русская</a>
-                <a class="filtr-option__item" href="#">Китайская</a>
-                <a class="filtr-option__item" href="#">Корейская</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Средний счет
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите средний счет:</div>
-                <a class="filtr-option__item" href="#">до 2000 тг</a>
-                <a class="filtr-option__item" href="#">2000 - 3000 тг</a>
-                <a class="filtr-option__item" href="#">3000 - 5000 тг</a>
-                <a class="filtr-option__item" href="#">5000 - 10000 тг</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">более 10000 тг</a>
-            </div>
-        </div>
-        <button class="filtr-search">Искать по каталогу</button>
-    </div>
-    <div id="kafe" class="filtr-part">
-        <div class="filtr-select">
-            Кухня
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите Кухню:</div>
-                <a class="filtr-option__item" href="#">Азиатская</a>
-                <a class="filtr-option__item" href="#">Русская</a>
-                <a class="filtr-option__item" href="#">Китайская</a>
-                <a class="filtr-option__item" href="#">Корейская</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Средний счет
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите средний счет:</div>
-                <a class="filtr-option__item" href="#">до 2000 тг</a>
-                <a class="filtr-option__item" href="#">2000 - 3000 тг</a>
-                <a class="filtr-option__item" href="#">3000 - 5000 тг</a>
-                <a class="filtr-option__item" href="#">5000 - 10000 тг</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">более 10000 тг</a>
-            </div>
-        </div>
-        <button class="filtr-search">Искать по каталогу</button>
-    </div>
-    <div id="restoran" class="filtr-part">
-        <div class="filtr-select">
-            Кухня
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите Кухню:</div>
-                <a class="filtr-option__item" href="#">Азиатская</a>
-                <a class="filtr-option__item" href="#">Русская</a>
-                <a class="filtr-option__item" href="#">Китайская</a>
-                <a class="filtr-option__item" href="#">Корейская</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
-            </div>
-        </div>
-        <div class="filtr-select">
-            Средний счет
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите средний счет:</div>
-                <a class="filtr-option__item" href="#">до 2000 тг</a>
-                <a class="filtr-option__item" href="#">2000 - 3000 тг</a>
-                <a class="filtr-option__item" href="#">3000 - 5000 тг</a>
-                <a class="filtr-option__item" href="#">5000 - 10000 тг</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">более 10000 тг</a>
-            </div>
-        </div>
-        <button class="filtr-search">Искать по каталогу</button>
-    </div>
     </div>
 <!-- 				<div class="more-filtr">
     <span class="more-filtr__heading">
