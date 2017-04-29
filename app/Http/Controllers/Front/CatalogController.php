@@ -47,8 +47,6 @@ class CatalogController extends Controller{
                 $q->where('option_id', $request->input('kitchen'));
             });
 
-        $items = $items->with('relStandartData');
-
         if ($request->has('sort') && $request->input('sort') == 'new')
             $items = $items->orderBy('created_at', 'desc');
         else if ($request->has('sort') && $request->input('sort') == 'cost')
@@ -58,8 +56,14 @@ class CatalogController extends Controller{
 
         $ar = array();
         $ar['title'] = 'Каталог';
-        $ar['items'] = $items->paginate(12);
+
+        if ($request->has('on_map') && $request->input('on_map'))
+            $ar['items'] = $items->with('relLocation', 'relStandartData')->get();
+        else
+            $ar['items'] = $items->with('relStandartData')->paginate(12);
+
         $ar['cat'] = $cat;
+        $ar['menu_cat'] = $cat;
 
         $ar['city_id'] = $city_id;
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
@@ -72,6 +76,9 @@ class CatalogController extends Controller{
         $ar['ar_karaoke_type'] = SysDirectoryName::where('parent_id', 5)->pluck('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 6)->pluck('name', 'id');
         $ar['ar_music_type'] = SysDirectoryName::where('parent_id', 7)->pluck('name', 'id');
+
+        if ($request->has('on_map') && $request->input('on_map'))
+            return view('front.catalog.map', $ar);
 
         $ar['ar_pub_id'] = SysDirectoryName::where('parent_id', 4)->pluck('id');
         $ar['ar_karaoke_id'] = SysDirectoryName::where('parent_id', 5)->pluck('id');

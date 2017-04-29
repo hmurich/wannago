@@ -26,7 +26,7 @@
 					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'cost')) }}">
 				По Стоимости
 			</a>
-			<a class="search-type__item search-type__item--map" href="">На карте</a>
+			<a class="search-type__item search-type__item--map" href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('on_map'=>1)) }}">На карте</a>
 		</div>
 		<ul class="zaved-ul">
 			@foreach ($items as $i)

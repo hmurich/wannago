@@ -1,29 +1,29 @@
 <div class="inner">
-    <a class="logo" href='#'>
+    <a class="logo" href='/'>
         TopList.kz
     </a>
     <ul class="zaved-nav">
-        <li class="zaved-nav__li zaved-nav__li--active">
+        <li class="zaved-nav__li {{ (isset($menu_cat) && $menu_cat->id == 9 ? 'zaved-nav__li--active' : null) }}">
             <a href="{{ action("Front\CatalogController@getIndex", 9) }}">
                 Пабы,бары
             </a>
         </li>
-        <li class="zaved-nav__li">
+        <li class="zaved-nav__li {{ (isset($menu_cat) && $menu_cat->id == 23 ? 'zaved-nav__li--active' : null) }}">
             <a href="{{ action("Front\CatalogController@getIndex", 23) }}">
                 Караоке
             </a>
         </li>
-        <li class="zaved-nav__li">
+        <li class="zaved-nav__li {{ (isset($menu_cat) && $menu_cat->id == 24 ? 'zaved-nav__li--active' : null) }}">
             <a href="{{ action("Front\CatalogController@getIndex", 24) }}">
                 Кофейни
             </a>
         </li>
-        <li class="zaved-nav__li">
+        <li class="zaved-nav__li {{ (isset($menu_cat) && $menu_cat->id == 26 ? 'zaved-nav__li--active' : null) }}">
             <a href="{{ action("Front\CatalogController@getIndex", 26) }}">
                 Рестораны
             </a>
         </li>
-        <li class="zaved-nav__li">
+        <li class="zaved-nav__li {{ (isset($menu_cat) && $menu_cat->id == 25 ? 'zaved-nav__li--active' : null) }}">
             <a href="{{ action("Front\CatalogController@getIndex", 25) }}">
                 Кафе
             </a>
