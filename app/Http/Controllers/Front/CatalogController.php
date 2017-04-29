@@ -17,6 +17,11 @@ class CatalogController extends Controller{
 
         $items = Object::where('city_id', $city_id)->where('cat_id', $cat->id);
 
+        if ($request->has('spec_option') && count($request->input('spec_option')) > 0)
+            $items = $items->whereHas('', function($q) use ($request){
+
+            });
+
         $ar = array();
         $ar['title'] = 'Каталог';
         $ar['items'] = $items->orderBy('raiting', 'desc')->paginate(4);
@@ -27,6 +32,7 @@ class CatalogController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
 
         $ar['ar_avg_price'] = SysDirectoryName::where('parent_id', 2)->pluck('name', 'id');
+        $ar['ar_spec_option'] = $cat->getSpecialOption();
 
         $ar['ar_pub_id'] = SysDirectoryName::where('parent_id', 4)->pluck('id');
         $ar['ar_karaoke_id'] = SysDirectoryName::where('parent_id', 5)->pluck('id');

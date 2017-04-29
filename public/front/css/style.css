@@ -433,6 +433,7 @@ textarea,
   background-color: #ed2026;
   color: #fff;
   padding: 6px 15px;
+  display: inline-block;
 }
 .city {
   color: #fff;
@@ -560,6 +561,7 @@ textarea,
   position: relative;
   padding-right: 17px;
   overflow: hidden;
+  float: left;
 }
 .others span {
   color: #494949;
@@ -1201,7 +1203,7 @@ textarea,
 .catalog {
   margin-top: 15px;
 }
-.zaved-ul li {
+.zaved-ul > li {
   border-top: 1px solid #c2c2c1;
   padding-top: 15px;
   margin-bottom: 15px;
@@ -1271,11 +1273,22 @@ textarea,
   font-weight: bold;
   margin-right: 5px;
 }
-.feauture {
-  background-image: url(../img/feature.jpg);
+.feature {
+  overflow: hidden;
+  margin-top: 10px;
+}
+.feature li {
   height: 45px;
-  width: 393px;
-  margin-top: 15px;
+  width: 45px;
+  float: left;
+  margin-right: 10px;
+  background-image: url(../img/feature.jpg);
+}
+.feature__item--vip {
+  background-position: top 0px left -50px;
+}
+.feature__item--alc {
+  background-position: top 0px left -100px;
 }
 .slick-slider {
   position: relative;
@@ -1497,7 +1510,7 @@ textarea,
 .zaved-up {
   border-bottom: 1px solid #e0e7ee;
   padding-bottom: 25px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   overflow: hidden;
 }
 .zaved-up__logo {
@@ -1587,13 +1600,14 @@ textarea,
 }
 .zaved-menu {
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .zaved-select {
   float: left;
-  margin-right: 40px;
+  margin-right: 30px;
   padding: 6px 30px 6px 15px;
   font-weight: bold;
+  width: 90px;
   text-transform: uppercase;
   border: 1px solid #e0e7ee;
   position: relative;
@@ -1613,15 +1627,16 @@ textarea,
 .nav-zaved {
   overflow: hidden;
   float: left;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 .nav-zaved__li {
   float: left;
-  margin-right: 22px;
+  margin-right: 25px;
+  text-transform: uppercase;
 }
 .nav-zaved__li a {
-  color: #000;
-  text-decoration: underline;
+  font-size: 16px;
+  color: #565453;
 }
 .nav-zaved__li--active a {
   color: #ef3c29;
@@ -1630,8 +1645,9 @@ textarea,
 .big-slider {
   margin-bottom: 15px;
 }
-.zaved-rows {
-  overflow: hidden;
+.zaved-in {
+  border-bottom: 1px solid #e9e9e7;
+  padding-bottom: 20px;
   margin-bottom: 25px;
 }
 .mini-slider {
@@ -1639,11 +1655,8 @@ textarea,
 }
 .zaved-rows {
   overflow: hidden;
-  border-bottom: 1px solid #e9e9e7;
-  padding-bottom: 20px;
-  margin-bottom: 25px;
 }
-.zaved-rows li {
+.zaved-rows > li {
   float: left;
   width: 50%;
   margin-bottom: 10px;
@@ -1653,7 +1666,10 @@ textarea,
   font-weight: bold;
   font-size: 24px;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
+}
+.character .feature {
+  margin-top: 6px;
 }
 .zav-events {
   margin-bottom: 25px;
@@ -1692,9 +1708,64 @@ textarea,
   border-bottom: 1px solid #e0e7ee;
   margin-bottom: 25px;
 }
-.zav-des p {
-  margin-bottom: 8px;
+.zav-content {
+  max-height: 150px;
+  overflow: hidden;
   padding-bottom: 15px;
+}
+.zav-content p {
+  margin-bottom: 10px;
+}
+.nzav-ul {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.nzav-ul li {
+  float: left;
+  width: 50%;
+}
+.nzav-ul li:nth-child(2n) .news-inner {
+  margin-right: 0;
+  margin-left: 10px;
+}
+.nmini {
+  margin-left: 210px;
+}
+.nmini__heading {
+  color: #4e4d4b;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 22px;
+  display: block;
+  margin-bottom: 7px;
+}
+.nmini__date {
+  display: block;
+  color: #a5a4a2;
+  margin-bottom: 6px;
+}
+.nmini p {
+  color: #73726f;
+  height: 50px;
+  overflow: hidden;
+}
+.news-inner {
+  margin-right: 10px;
+  overflow: hidden;
+}
+.img-news {
+  float: left;
+  display: block;
+  width: 190px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+.img-news img {
+  display: block;
+  width: 100%;
+}
+.more-btn {
+  margin-top: 12px;
 }
 .map {
   width: 100%;
@@ -1916,6 +1987,8 @@ textarea,
   font-size: 15px;
 }
 /*события конец*/
+/*бронирование начало*/
+/*бронированеи конец*/
 /*Футер*/
 .footer {
   background-color: #282828;

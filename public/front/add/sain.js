@@ -164,5 +164,7 @@ $(document).ready(function() {
 		});
 	});
 
-
+	$('.others a').click(function () {
+		location.href = this.rel;
+	});
 });

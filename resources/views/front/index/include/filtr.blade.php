@@ -16,17 +16,15 @@
             <li>
                 <a href="#restoran">Рестораны</a>
             </li>
-            <li>
-                <div class="others">
-                    <span>Другие</span>
-                    <div class="others-zaved">
-                        <a href="{{ action("Front\CatalogController@getIndex", 28) }}">Ночные клубы</a>
-                        <a href="{{ action("Front\CatalogController@getIndex", 27) }}">Банкетные залы</a>
-                        <a href="{{ action("Front\CatalogController@getIndex", 29) }}">Летние площадки</a>
-                    </div>
-                </div>
-            </li>
         </ul>
+        <div class="others">
+            <span>Другие</span>
+            <div class="others-zaved">
+                <a href='#asd' rel="{{ action("Front\CatalogController@getIndex", 28) }}">Ночные клубы</a>
+                <a href='#asd' rel="{{ action("Front\CatalogController@getIndex", 27) }}">Банкетные залы</a>
+                <a href='#asd' rel="{{ action("Front\CatalogController@getIndex", 29) }}">Летние площадки</a>
+            </div>
+        </div>
         <div class="filtr-right">
             <input type="search" placeholder="название заведения">
         </div>
