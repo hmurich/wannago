@@ -78,6 +78,7 @@ class EditController extends Controller{
         // save object
         $object->name           = $request->input('name');
         $object->city_id        = $request->input('city_id');
+        $object->avg_price_id   = $request->input('avg_price_id');
         $object->save();
 
         //save standart_data

@@ -64,6 +64,7 @@ class AddController extends Controller{
         $object->is_moderate    = 1;
         $object->name           = $request->input('name');
         $object->city_id        = $request->input('city_id');
+        $object->avg_price_id   = $request->input('avg_price_id');
         $object->save();
 
         //save standart_data

@@ -89,7 +89,13 @@ class ModelSnipet {
         }
 
         foreach ($get as $param_key=>$param_val){
-            $res[] = $param_key.'='.$param_val;
+            if (is_array($param_val)){
+                foreach ($param_val as $name){
+                    $res[] = $param_key.'%5B%5D='.$name;
+                }
+            }
+            else
+                $res[] = $param_key.'='.$param_val;
         }
 
         $res = implode("&", $res);

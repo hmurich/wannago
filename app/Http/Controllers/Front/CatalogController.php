@@ -47,9 +47,18 @@ class CatalogController extends Controller{
                 $q->where('option_id', $request->input('kitchen'));
             });
 
+        $items = $items->with('relStandartData');
+
+        if ($request->has('sort') && $request->input('sort') == 'new')
+            $items = $items->orderBy('created_at', 'desc');
+        else if ($request->has('sort') && $request->input('sort') == 'cost')
+            $items = $items->orderBy('avg_price_id', 'desc');
+        else
+            $items = $items->orderBy('raiting', 'desc');
+
         $ar = array();
         $ar['title'] = 'Каталог';
-        $ar['items'] = $items->orderBy('raiting', 'desc')->paginate(12);
+        $ar['items'] = $items->paginate(12);
         $ar['cat'] = $cat;
 
         $ar['city_id'] = $city_id;
