@@ -12,7 +12,7 @@ class NewsController extends Controller{
     function getIndex (Request $request){
         $city_id = City::getCityID();
 
-        $items = News::where('id', '>', 0);
+        $items = News::where('city_id', $city_id);
 
         $ar = array();
         $ar['title'] = 'Новости';

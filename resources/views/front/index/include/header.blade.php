@@ -15,7 +15,7 @@
 </div>
 <ul class="menu">
 	<li class="menu__li">
-		<a href="#">События</a>
+		<a href="{{ action('Front\EventController@getIndex') }}">События</a>
 	</li>
 	<li class="menu__li">
 		<a href="{{ action('Front\NewsController@getIndex') }}">Новости</a>

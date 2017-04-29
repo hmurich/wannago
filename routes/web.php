@@ -4,6 +4,8 @@ Route::get('/', 'Front\IndexController@getIndex');
 Route::get('change-city/{id}', 'Front\IndexController@getChangeCity');
 Route::post('new-object', 'Front\NewObjectController@postSave');
 
+Route::get('events', 'Front\EventController@getIndex');
+
 Route::get('news', 'Front\NewsController@getIndex');
 
 Route::get('where', 'Front\WhereGoController@getIndex');

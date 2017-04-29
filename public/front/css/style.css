@@ -663,6 +663,7 @@ textarea,
 .filtr-select--active .filtr-option {
   max-height: 260px;
   opacity: 1;
+  z-index: 1;
   padding: 10px 20px;
   border: 1px solid #d2bbbb;
 }
@@ -1085,6 +1086,10 @@ textarea,
   content: "";
   clear: both;
   display: block;
+}
+.unfilter .filtr-select {
+  background-color: #fff;
+  color: #555;
 }
 .unfilter__item {
   border: 1px solid #cfd8dc;
@@ -1826,6 +1831,91 @@ textarea,
   height: 30px;
 }
 /*конец подборок*/
+/*события*/
+.events-filter {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.events-filter__item {
+  float: left;
+  margin-right: 15px;
+  color: #494848;
+  font-size: 16px;
+  border: 1px solid #ef3c29;
+  padding: 5px 15px;
+}
+.events-filter__item:hover {
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+.events-filter .right-search {
+  margin-top: 0;
+}
+.big-ul {
+  border: 1px solid #e0e7ee;
+  margin-bottom: 25px;
+}
+.big-ul li {
+  border-bottom: 1px solid #e0e7ee;
+}
+.big-ul li:last-child {
+  border-bottom: none;
+}
+.event-item {
+  padding: 14px 30px;
+  display: block;
+  overflow: hidden;
+  transition: background 0.2s linear;
+}
+.event-item__img {
+  float: left;
+  width: 15%;
+}
+.event-item__heading {
+  float: left;
+  display: block;
+  width: 24%;
+  margin-right: 4%;
+  font-size: 19px;
+  font-weight: bold;
+  color: #595959;
+  margin-top: 34px;
+  text-decoration: underline;
+}
+.event-item__zaved {
+  float: left;
+  width: 16%;
+  margin-right: 3%;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #3a3b3d;
+  font-weight: bold;
+  margin-top: 38px;
+}
+.event-item__adress {
+  float: right;
+  width: 15%;
+  margin-right: 1%;
+  color: #59595a;
+  font-weight: bold;
+  margin-top: 24px;
+}
+.item-date {
+  float: left;
+  width: 14%;
+  margin-right: 4%;
+  margin-top: 26px;
+}
+.item-date__time {
+  color: #f11923;
+  font-size: 33px;
+  display: block;
+}
+.item-date__text {
+  color: #f11923;
+  font-size: 15px;
+}
+/*события конец*/
 /*Футер*/
 .footer {
   background-color: #282828;
