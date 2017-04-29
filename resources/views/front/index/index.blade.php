@@ -58,6 +58,7 @@
 		<script type="text/javascript" src="{{ URL::asset('front/js/mousewheel.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/jquery.fancybox.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/sain.js') }}"></script>
+		<script type="text/javascript" src="{{ URL::asset('front/add/main.js') }}"></script>
 
 
 	</body>
