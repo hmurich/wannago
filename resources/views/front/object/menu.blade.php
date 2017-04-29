@@ -14,24 +14,18 @@
 			<div class="zaved-menu">
                 @include('front.object.include.zaved_menu')
 			</div>
-            <div class="big-slider">
-				<div>
-                    @if ($news->image)
-                        <img alt="{{ $news->title }}" src="{{ $news->image }}" style="width:100%">
-                    @else
-					   <img alt="{{ $news->title }}" src="/front/img/bigFoto.jpg">
-                    @endif
-				</div>
-			</div>
 			<div class="zav-des">
 				<div class="zav-up">
-					<h3 class="zav-up__heading">{{ $news->title }}</h3>
+					<h3 class="zav-up__heading">{{ $title }}</h3>
 				</div>
-                {!! $news->note !!}
+
+                @foreach ($items as $i)
+                    <img src="{{ $i->image }}" alt="{{ $title }}" style="width: 100%; padding-bottom: 15px;">
+                @endforeach
 			</div>
 			<div class="zav-map">
 				<div class="zav-up">
-					<h3 class="zav-up__heading">Новость <span>на карте</span></h3>
+					<h3 class="zav-up__heading">Событие <span>на карте</span></h3>
 				</div>
 				<div class="map">
                     <div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 400px;"></div>
@@ -39,7 +33,7 @@
 			</div>
         </div>
 		<div class="reccoments">
-			@include('front.object.include.simular_object')
+            @include('front.object.include.simular_object')
 		</div>
 	</div>
 </main>
