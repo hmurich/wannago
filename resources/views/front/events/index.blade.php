@@ -11,10 +11,18 @@
             <h1 class="search-heading">События</h1>
             <div class="events-filter">
                 <div class="events-filter__item">Календарь</div>
-                <a class="events-filter__item" href="#">Горячие события</a>
+                <a class="events-filter__item" href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('is_hot'=>$is_hot)) }}">Горячие события</a>
                 <div class="right-search">
-                    <input class="right-search__input" type="search" placeholder="название события">
-                    <input class="right-search__submit" type="submit">
+                    <form method="get" >
+                        <input class="right-search__input" type="search" name='title' placeholder="название события" value="{{ (isset($ar_input['title']) ? $ar_input['title'] : null) }}">
+                        <input class="right-search__submit" type="submit">
+                        @foreach ($ar_input as $k=>$v)
+                            @if ($k == 'page' || $k == 'title')
+                                <?php continue; ?>
+                            @endif
+                            <input type="hidden" name='{{ $k }}' value="{{ $v }}">
+                        @endforeach
+                    </form>
                 </div>
             </div>
             <ul class="big-ul">
@@ -22,15 +30,15 @@
                     <li>
                         <a href="{{ action('Front\Object\EventController@getShow', array($i->relObject->alias, $i->id)) }}" class="event-item">
                             <div class="event-item__img">
-                                @if ($i->image)
-                                    <img src="{{ $i->image }}" alt="{{ $i->title }}" />
+                                @if ($i->catalog_image)
+                                    <img src="{{ $i->catalog_image }}" alt="{{ $i->title }}" style="width: 100%;" />
                                 @else
                                     <img src="/front/img/event.png" alt="{{ $i->title }}" />
                                 @endif
                             </div>
                             <div class="item-date">
-                                <span class="item-date__time">{{ $e->time_str }}</span>
-                                <span class="item-date__text">{{ $e->date_str }}</span>
+                                <span class="item-date__time">{{ $i->time_str }}</span>
+                                <span class="item-date__text">{{ $i->date_str }}</span>
                             </div>
                             <span class="event-item__heading">
                                 {{ $i->title }}
