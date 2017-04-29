@@ -6,9 +6,9 @@
         @foreach ($news as $n)
             <li class="news-ul__li">
                 <span>Новости</span>
-                <a href="#">{{ $n->title }}</a>
+                <a href="{{ action('Front\Object\NewsController@getShow', array($n->relObject->alias, $n->id)) }}">{{ $n->title }}</a>
             </li>
         @endforeach
     </ul>
-    <a class="news-link" href="#">Смотреть все новости</a>
+    <a class="news-link" href="{{ action('Front\NewsController@getIndex') }}">Смотреть все новости</a>
 </div>

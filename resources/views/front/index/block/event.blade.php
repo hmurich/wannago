@@ -2,7 +2,7 @@
     <div class="heading">
         <h4 class="heading__text">Ближайшие события</h4>
     </div>
-    <a class="link link--event" href="#">Все события</a>
+    <a class="link link--event" href="{{ action('Front\EventController@getIndex') }}">Все события</a>
 </div>
 <div class="events scroll-pane">
     <ul class="event-ul">

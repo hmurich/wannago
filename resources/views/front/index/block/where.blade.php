@@ -3,7 +3,7 @@
             <span class="heading__mini">Календарь ближайших событий</span>
             <h4 class="heading__text">Куда сходить?</h4>
         </div>
-        <a class="link" href="#">Смотреть все подборки</a>
+        <a class="link" href="{{ action('Front\WhereGoController@getIndex') }}">Смотреть все подборки</a>
 </div>
 <div class="w-slider">
     @foreach ($where_go as $g)

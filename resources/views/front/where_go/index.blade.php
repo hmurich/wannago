@@ -14,7 +14,7 @@
                 <li>
                     <a href="{{ action("Front\WhereGoController@getList", $w->id) }}" class="podborka">
                         <img class="podborka__img" src="img/podborka.jpg">
-                        <span class="podborka__text">Пойти потанцевать</span>
+                        <span class="podborka__text">{{ $w->name }}</span>
                     </a>
                 </li>
             @endforeach
