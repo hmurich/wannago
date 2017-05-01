@@ -36,6 +36,14 @@
                         <input type="text" class="form-control" name='work_time' value='{{ $standart_data->work_time }}' placeholder="Время работы"  required="">
                     </div>
                     <div class="form-group">
+                        <label for="reserve_time_b" >Время начала брони:</label>
+                        <input type="time" class="form-control" name='reserve_time_b' value='{{ $standart_data->reserve_time_b }}' placeholder="Время начала брони"  required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="reserve_time_e" >Время окончания брони:</label>
+                        <input type="time" class="form-control" name='reserve_time_e' value='{{ $standart_data->reserve_time_e }}' placeholder="Время окончания брони"  required="">
+                    </div>
+                    <div class="form-group">
                         <label for="name" >Средний счет:</label>
                         <select class="form-control select2" style="width: 100%;" name='avg_price_id' required="">
                             @foreach ($ar_avg_pice as $id=>$name)

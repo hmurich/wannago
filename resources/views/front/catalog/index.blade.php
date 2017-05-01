@@ -49,7 +49,7 @@
                                 {{ $i->name }}
                             </a>
     						<div class="stars {{ $i->raiting_full_round }}-star"></div>
-    						<a class="btn book" href="#">Забронировать</a>
+    						<a class="btn book fancybox fancybox.ajax" href="{{ action('Front\Object\ReserveController@getForm', $i->id) }}"> Забронировать</a>
     					</div>
     				</div>
     				<div class="mini-info">

@@ -16,7 +16,7 @@
             <li class="upzaved-ul__li upzaved-ul__li--click">{{ $standart_data->work_time }}</li>
         </ul>
         <div class="zaved-book">
-            <a class="zaved-book__button btn" href="#">Забронировать столик</a>
+            <a class="zaved-book__button btn fancybox fancybox.ajax" href="{{ action('Front\Object\ReserveController@getForm', $object->id) }}">Забронировать столик</a>
             <a class="zaved-book__map" href="#map">Посмотреть на карте</a>
         </div>
     </div>

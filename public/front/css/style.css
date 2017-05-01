@@ -435,6 +435,9 @@ textarea,
   padding: 6px 15px;
   display: inline-block;
 }
+.btn:hover {
+  background-color: #e31b24;
+}
 .city {
   color: #fff;
   position: relative;
@@ -1640,7 +1643,6 @@ textarea,
 }
 .nav-zaved__li--active a {
   color: #ef3c29;
-  font-weight: bold;
 }
 .big-slider {
   margin-bottom: 15px;
@@ -1770,6 +1772,49 @@ textarea,
 .map {
   width: 100%;
   height: 400px;
+}
+.menu-img {
+  border-top: 1px solid #e0e7ee;
+  padding-top: 20px;
+}
+.zav-menu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.zav-menu__item {
+  display: inline-block;
+  border: 1px solid #e0e7ee;
+  padding: 6px 12px;
+  margin: 0 5px;
+}
+.zav-menu__item a {
+  color: #565453;
+  font-weight: bold;
+}
+.zav-menu__item:hover {
+  background-color: #f3f3f3;
+}
+.zav-menu__item--active {
+  background-color: #ed2026;
+  border: 1px solid #ed2026;
+  color: #fff;
+}
+.zav-menu__item--active a {
+  color: #fff;
+}
+.zav-menu__item--active:hover {
+  background-color: #ed2026;
+  border: 1px solid #ed2026;
+}
+.bluda-ul {
+  overflow: hidden;
+}
+.bluda-ul li {
+  margin-bottom: 15px;
+}
+.bluda-ul li img {
+  display: block;
+  width: 100%;
 }
 /*Конец заведении*/
 .adding-part {
@@ -1988,6 +2033,137 @@ textarea,
 }
 /*события конец*/
 /*бронирование начало*/
+.booking-part {
+  padding: 15px;
+}
+.book-up {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.book-up__heading {
+  float: left;
+  display: block;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.book-tel {
+  float: right;
+  position: relative;
+}
+.book-tel__text {
+  display: block;
+  color: #84827f;
+  margin-bottom: 2px;
+}
+.book-tel__number {
+  text-align: right;
+  display: block;
+  font-size: 16px;
+}
+.book-tel__number span {
+  color: #ef3c29;
+  font-weight: bold;
+  font-size: 18px;
+}
+.book-tel:before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -38px;
+  width: 30px;
+  height: 32px;
+  background-image: url(../img/phone.jpg);
+}
+.ov {
+  overflow: hidden;
+}
+.book-left {
+  float: left;
+  width: 56%;
+}
+.book-left__inner {
+  margin-right: 40px;
+}
+.book-left__input {
+  height: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  text-indent: 10px;
+  border: 1px solid #c4d4d9;
+}
+.book-row {
+  margin-bottom: 14px;
+}
+.book-row__text {
+  display: block;
+  margin-bottom: 4px;
+}
+.book-row__select {
+  border: 1px solid #c4d4d9;
+  height: 32px;
+  width: 80px;
+  text-indent: 10px;
+  text-align: center;
+}
+.book-right {
+  float: left;
+  width: 44%;
+}
+.book-time {
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+.book-time__item {
+  float: left;
+  display: inline-block;
+  position: relative;
+  background-color: #c4d4d9;
+  padding: 4px 6px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.book-time__item:nth-child(5n) {
+  margin-right: 0;
+}
+.book-time__item input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.book-time__item span {
+  font-size: 16px;
+  color: #5f5d5a;
+}
+.book-time__item--active {
+  background-color: #3a3b3d;
+}
+.book-time__item--active span {
+  color: #fff;
+}
+.book-comment {
+  width: 100%;
+  border: 1px solid #c4d4d9;
+  height: 50px;
+  resize: none;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+.booking-but {
+  display: block;
+  width: 180px;
+  border: none;
+  margin: 0 auto;
+}
 /*бронированеи конец*/
 /*Футер*/
 .footer {
