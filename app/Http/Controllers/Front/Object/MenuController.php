@@ -43,6 +43,10 @@ class MenuController extends Controller{
 
         $ar['active_menu'] = 'menu';
 
+        $cat = SysDirectoryName::find($object->cat_id);
+        if ($cat)
+            $ar['menu_cat'] = $cat;
+
         $ar['city_id'] = $city_id;
         $ar['simular_object'] = Object::whereIn('id', $ar_simular)->orderBy('raiting', 'desc')->get();
         $ar['ar_company_object'] = Object::where('company_id', $object->company_id)->pluck('cat_id', 'alias');

@@ -42,6 +42,10 @@ class ShowController extends Controller{
         $ar['standart_data'] = $object->relStandartData;
         $ar['events'] = $events;
 
+        $cat = SysDirectoryName::find($object->cat_id);
+        if ($cat)
+            $ar['menu_cat'] = $cat;
+
         $ar['active_menu'] = 'note';
 
         $ar['main_pub'] = ObjectMainOption::where('object_id', $object->id)->whereIn('option_id', $ar_pub_id)->select('name')->get()->implode('name', ', ');
