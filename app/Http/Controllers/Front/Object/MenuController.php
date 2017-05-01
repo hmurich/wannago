@@ -28,7 +28,12 @@ class MenuController extends Controller{
             $ar_simular = $ar_simular + $ar_simular_down;
         }
 
-        $items = ObjectMenu::where('object_id', $object->id);
+        if ($request->has('is_main'))
+            $is_main = $request->input('is_main');
+        else
+            $is_main = 0;
+
+        $items = ObjectMenu::where('object_id', $object->id)->where('is_main', $is_main);
 
         $ar = array();
         $ar['title'] = 'Меню "'.$object->name.'"';
@@ -43,6 +48,8 @@ class MenuController extends Controller{
         $ar['ar_company_object'] = Object::where('company_id', $object->company_id)->pluck('cat_id', 'alias');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
+
+        $ar['is_main'] = $is_main;
 
         return view('front.object.menu', $ar);
     }

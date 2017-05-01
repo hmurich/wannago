@@ -15,6 +15,14 @@
                         <label for="p_name" >Фото:</label>
                         <input type="file" name='image' class='form-control' required=""/>
                     </div>
+                    <div class="form-group">
+                        <label for="name" >Тип меню:</label>
+                        <select class="form-control select2" style="width: 100%;" name='is_main' required="">
+                            @foreach ($is_main as $id=>$name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-info pull-right">Сохранить</button>
@@ -35,6 +43,7 @@
                 <div class="row">
                     @foreach ($items as $i)
                         <div class='col-md-3' style="    padding-bottom: 10px">
+                            <span>{{ $is_main[$i->is_main] }}</span>
                             <img src="{{ $i->image }}"  class="img-thumbnail">
                             <a href="{{ action('Company\MenuController@getDelete', $i->id) }}" class="btn btn-block btn-danger">Удалить</a>
                         </div>

@@ -14,22 +14,23 @@
 			<div class="zaved-menu">
                 @include('front.object.include.zaved_menu')
 			</div>
-			<div class="zav-des">
-				<div class="zav-up">
-					<h3 class="zav-up__heading">{{ $title }}</h3>
-				</div>
 
-                @foreach ($items as $i)
-                    <img src="{{ $i->image }}" alt="{{ $title }}" style="width: 100%; padding-bottom: 15px;">
-                @endforeach
-			</div>
-			<div class="zav-map">
-				<div class="zav-up">
-					<h3 class="zav-up__heading">Событие <span>на карте</span></h3>
-				</div>
-				<div class="map">
-                    <div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 400px;"></div>
-				</div>
+			<div class="menu-img">
+				<ul class="zav-menu">
+					<li class="zav-menu__item {{ ($is_main  == 0 ? 'zav-menu__item--active' : null) }}">
+						<a href="?is_main=0">Основное меню</a>
+					</li>
+					<li class="zav-menu__item {{ ($is_main  == 1 ? 'zav-menu__item--active' : null) }}">
+						<a href="?is_main=1">Барное меню</a>
+					</li>
+				</ul>
+				<ul class="bluda-ul">
+					@foreach ($items as $i)
+						<li>
+							<img alt="{{ $title }}" src="{{ $i->image }}" style="width: 100%; padding-bottom: 15px;">
+						</li>
+					@endforeach
+				</ul>
 			</div>
         </div>
 		<div class="reccoments">

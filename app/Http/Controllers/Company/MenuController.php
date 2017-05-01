@@ -28,6 +28,7 @@ class MenuController extends Controller{
         $ar['title'] = 'Меню "'.$object->name.'"';
         $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
         $ar['action'] = action('Company\MenuController@postItem');
+        $ar['is_main'] = array(0=>'Основное меню', 1 => 'Барное меню');
 
         return view('company.menu.index', $ar);
     }
@@ -47,6 +48,7 @@ class MenuController extends Controller{
 
         $item = new ObjectMenu();
         $item->object_id = $object->id;
+        $item->is_main = $request->input('is_main');
         if ($request->hasFile('image'))
             $item->image = ModelSnipet::setImage($request->file('image'), 'galerea', 800, 350);
 
