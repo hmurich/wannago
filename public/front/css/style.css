@@ -2165,6 +2165,76 @@ textarea,
   margin: 0 auto;
 }
 /*бронированеи конец*/
+/*Отзывы начало*/
+.otzyv-part {
+  border-top: 1px solid #e0e7ee;
+  margin-top: 10px;
+  padding-top: 25px;
+}
+.otzyv-ul {
+  margin-bottom: 25px;
+}
+.otzyv-ul li {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9e9e7;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.otzyv-left {
+  float: left;
+  width: 150px;
+  margin-right: 15px;
+}
+.otzyv-left__login {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ef3c29;
+  display: block;
+  margin-bottom: 3px;
+}
+.otzyv-left__date {
+  color: #494848;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+.otzyv-right {
+  margin-left: 160px;
+}
+.otzyv-right p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.add-comment {
+  width: 350px;
+}
+.add-comment__heading {
+  color: #494848;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+  display: block;
+  margin-bottom: 15px;
+}
+.add-comment__input {
+  border: 1px solid #c4d4d9;
+  height: 34px;
+  padding: 0 10px;
+  width: 480px;
+  margin-bottom: 12px;
+}
+.add-comment__textarea {
+  border: 1px solid #c4d4d9;
+  height: 80px;
+  padding: 10px;
+  width: 480px;
+  resize: none;
+  margin-bottom: 12px;
+}
+.add-comment__btn {
+  border: none;
+}
+/*Отзывы конец*/
 /*Футер*/
 .footer {
   background-color: #282828;

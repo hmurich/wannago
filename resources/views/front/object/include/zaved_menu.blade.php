@@ -25,9 +25,7 @@
             <a href="{{ action('Front\Object\NewsController@getList', $object->alias) }}">Новости</a>
         </li>
     @endif
-    @if ($object->relComment()->count())
-        <li class="nav-zaved__li {{ ($active_menu == 'comment' ? 'nav-zaved__li--active' : null) }}">
-            <a href="{{ action('Front\Object\CommentController@getList', $object->alias) }}">Отзывы</a>
-        </li>
-    @endif
+    <li class="nav-zaved__li {{ ($active_menu == 'comment' ? 'nav-zaved__li--active' : null) }}">
+        <a href="{{ action('Front\Object\CommentController@getList', $object->alias) }}">Отзывы</a>
+    </li>
 </ul>

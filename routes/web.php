@@ -23,9 +23,14 @@ Route::get('zaved/show/{alias}/news', 'Front\Object\NewsController@getList');
 Route::get('zaved/show/{alias}/news/{id}', 'Front\Object\NewsController@getShow');
 
 Route::get('zaved/show/{alias}/comment', 'Front\Object\CommentController@getList');
+Route::post('zaved/show/{alias}/comment', 'Front\Object\CommentController@postList');
+Route::post('zaved/show/{alias}/comment/save', 'Front\Object\CommentController@postSave');
 
 Route::get('zaved/reserve/{id}', 'Front\Object\ReserveController@getForm');
-Route::post('zaved/reserve/{id}t', 'Front\Object\ReserveController@postForm');
+Route::post('zaved/reserve/{id}', 'Front\Object\ReserveController@postForm');
+
+Route::get('logout', 'Company\AuthController@getLogout');
+
 
 
 // company controller
