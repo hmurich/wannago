@@ -17,7 +17,7 @@ class CatalogController extends Controller{
 
         $items = Object::where('city_id', $city_id)->where('cat_id', $cat->id);
 
-        if ($request->has('spec_option') && count($request->input('spec_option')) > 0)
+        if ($request->has('spec_option') && count($request->input('spec_option')) > 0 && !in_array(0, $request->input('spec_option')))
             $items = $items->whereHas('relSpecialOption', function($q) use ($request){
                 $q->whereIn('option_id', $request->input('spec_option'));
             });

@@ -29,10 +29,21 @@
             </a>
         </li>
         <li class="zaved-nav__li">
-            <a href="#">
-                Другие
-            </a>
-        </li>
+			<div class="others others--zav">
+				<span>Другие</span>
+				<div class="others-zaved">
+					<a class="tab-links" href="{{ action("Front\CatalogController@getIndex", 28) }}">
+                        Ночные клубы
+                    </a>
+					<a href="{{ action("Front\CatalogController@getIndex", 27) }}">
+                        Банкетные залы
+                    </a>
+					<a href="{{ action("Front\CatalogController@getIndex", 29) }}">
+                        Летние площадки
+                    </a>
+				</div>
+			</div>
+		</li>
     </ul>
     <div class="right-search">
         <input class="right-search__input" type="search" placeholder="название заведения">
