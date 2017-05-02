@@ -14,19 +14,11 @@
 		</ul>
 		<h1 class="search-heading">{{ $cat->name }}</h1>
 		<div class="search-type">
-			<a class="search-type__item {{ (!isset($ar_input['sort']) || $ar_input['sort'] == 'raiting' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'raiting')) }}">
-				По рейтингу
-			</a>
-			<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'new' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'new')) }}">
-				Новые заведения
-			</a>
-			<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'cost' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'cost')) }}">
-				По Стоимости
-			</a>
 			<a class="search-type__item search-type__item--map" href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('on_map'=>0)) }}">На карте</a>
+		</div>
+
+		<div class="map">
+			<div id='total_map' style="width: 100%; height: 400px;"></div>
 		</div>
 
 		<div class="about-des">
@@ -34,6 +26,42 @@
 		</div>
 	</div>
 </main>
+
+@section('js')
+	@parent
+	<script>
+		var myMap;
+		ymaps.ready(init);
+
+		function init()
+		{
+			var city_center = "{{ $city->note }}";
+    		city_center = city_center.split(',');
+
+			myMap = new ymaps.Map("total_map",{
+				center: [city_center[0], city_center[1]],
+				zoom: 12,
+				behaviors: ["default", "scrollZoom"]
+			},
+			{
+				balloonMaxWidth: 300
+			});
+
+			@foreach ($items as $i)
+				@if ($i->relLocation && $i->relLocation->lng && $i->relLocation->lat)
+					myPlacemark = new ymaps.Placemark([{{ $i->relLocation->lng }}, {{ $i->relLocation->lat }}], {
+		               balloonContent: "{!! '<a href=\"'.action('Front\Object\ShowController@getIndex', $i->alias).'\">'.$i->name.'</a>' !!}"
+		            });
+					myMap.geoObjects.add(myPlacemark);
+				@endif
+			@endforeach
+
+			myMap.controls.add("zoomControl");
+			myMap.controls.add("mapTools");
+			myMap.controls.add("typeSelector");
+		}
+	</script>
+@endsection
 
 
 @endsection

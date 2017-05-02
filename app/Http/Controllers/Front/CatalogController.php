@@ -11,6 +11,10 @@ use App\Model\Object;
 class CatalogController extends Controller{
     function getIndex (Request $request, $cat_id){
         $city_id = City::getCityID();
+        $city = SysDirectoryName::where('parent_id', 1)->where('id', $city_id)->first();
+        if (!$city)
+            abort(404);
+
         $cat = SysDirectoryName::where('parent_id', 3)->where('id', $cat_id)->first();
         if (!$cat)
             abort(404);
@@ -66,6 +70,7 @@ class CatalogController extends Controller{
         $ar['menu_cat'] = $cat;
 
         $ar['city_id'] = $city_id;
+        $ar['city'] = $city;
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
         $ar['ar_input'] = $request->all();
