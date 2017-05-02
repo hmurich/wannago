@@ -1,28 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function(){ 	
    $(document).click(function (e)
 				{
-		    var container = $('.filtr-area');
-		    if (container.has(e.target).length === 0)
+		    var container = $('.filtr-select');
+		    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
 		    {
 		       $('.filtr-select').removeClass('filtr-select--active');
-		        $('.filtr-area').removeClass('filtr-area--active');
+		       $('.filtr-area').removeClass('filtr-area--active');
 		    }
 		});
-
-
-
+	
 		$('.filtr-select').click(function(e) {
-		if($(this).hasClass('filtr-select--active')){
-	 			$(this).removeClass('filtr-select--active');
-				 event.stopPropagation();
+		if($(this).hasClass('filtr-select--active')){	 				 		
+				 $(this).removeClass('filtr-select--active');
+				 event.stopPropagation();				
 		}
 		else{
-				$('.filtr-select').removeClass('filtr-select--acitve');
-				$('.filtr-area').removeClass('filtr-area--active');
+				$('.filtr-select').removeClass('filtr-select--active');
+				$('.filtr-area').addClass('filtr-area--active');
 				$(this).addClass('filtr-select--active');
-				$(this).addClass('filtr-area--active');
 		}
-
+		 
 		});
 
 		$('.w-slider').slick({
@@ -46,18 +44,18 @@ $(document).ready(function(){
 		    var container2 = $(".city");
 		    if (container2.has(e.target).length === 0)
 		    {
-		       $('.city').removeClass('city--active');
+		       $('.city').removeClass('city--active');	
 		    }
 		});
 
-		$('.city').click(function(e)
+		$('.city').click(function(e) 
 		{
 		if($(this).hasClass('city--active')){
-	 				$(this).removeClass('city--active');
-
+	 				$(this).removeClass('city--active');	
+				 
 		}
 		else{
-				$(this).addClass('city--active');
+				$(this).addClass('city--active');				
 		}
 		});
 		$(document).click(function (e)
@@ -65,18 +63,18 @@ $(document).ready(function(){
 			    var container3 = $(".others");
 			    if (container3.has(e.target).length === 0)
 			    {
-			       $('.others').removeClass('others--active');
+			       $('.others').removeClass('others--active');	
 			    }
 			});
 
-			$('.others').click(function(e)
+			$('.others').click(function(e) 
 			{
 			if($(this).hasClass('others--active')){
-		 				$(this).removeClass('others--active');
+		 				$(this).removeClass('others--active');	
 					 event.stopPropagation();
 			}
 			else{
-					$(this).addClass('others--active');
+					$(this).addClass('others--active');				
 			}
 			    return false;
 		});
@@ -85,28 +83,28 @@ $(document).ready(function(){
 			    var container3 = $(".city-select__part");
 			    if (container3.has(e.target).length === 0)
 			    {
-			       $('.city-select').removeClass('city-select--active');
+			       $('.city-select').removeClass('city-select--active');	
 			    }
 			});
 
-			$('.city-select').click(function(e)
+			$('.city-select').click(function(e) 
 			{
 			if($(this).hasClass('city-select--active')){
-		 				$(this).removeClass('city-select--active');
+		 				$(this).removeClass('city-select--active');	
 					 event.stopPropagation();
 			}
 			else{
-					$(this).addClass('city-select--active');
+					$(this).addClass('city-select--active');				
 			}
-
+			  
 		});
 		$('.checkbox').on('click', function () {
 		 	if($(this).hasClass('checkbox--active')){
-		 				$(this).removeClass('checkbox--active');
+		 				$(this).removeClass('checkbox--active');	
 			}
 			else{
-					$(this).addClass('checkbox--active');
-			}
+					$(this).addClass('checkbox--active');				
+			}	 
 		});
 		$('.others a').click(function () {
         location.href = this.rel;
@@ -126,14 +124,34 @@ $(document).ready(function(){
 		  arrows: true,
 		  focusOnSelect: true
 		});
-        
+		   $(document).click(function (e)
+				{
+		    var container = $('.zaved-select');
+		    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+		    {
+		       $('.zaved-select').removeClass('zaved-select--active');
+		    }
+		});
+	
+		$('.zaved-select').click(function(e) {
+		if($(this).hasClass('zaved-select--active')){	 				 		
+				 $(this).removeClass('zaved-select--active');
+				 event.stopPropagation();				
+		}
+		else{
+				$(this).addClass('zaved-select--active');
+		}
+		 
+		});
 		$('.book-time__item').on('click', function () {
 		 	if($(this).hasClass('book-time__item--active')){
-		 				$(this).removeClass('book-time__item--active');
+		 				$(this).removeClass('book-time__item--active');	
 			}
 			else{
 					$('.book-time__item').removeClass('book-time__item--active')
-					$(this).addClass('book-time__item--active');
-			}
-		});
+					$(this).addClass('book-time__item--active');				
+			}	 
+		});	
+
  });

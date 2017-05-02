@@ -6,6 +6,7 @@ Route::post('new-object', 'Front\NewObjectController@postSave');
 Route::get('events', 'Front\EventController@getIndex');
 Route::get('news', 'Front\NewsController@getIndex');
 Route::get('catalog/{id}', 'Front\CatalogController@getIndex');
+Route::get('search/{name?}', 'Front\SearchController@getIndex');
 Route::get('where', 'Front\WhereGoController@getIndex');
 Route::get('where/list/{id}', 'Front\WhereGoController@getList');
 

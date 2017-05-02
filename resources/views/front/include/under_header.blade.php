@@ -46,7 +46,9 @@
 		</li>
     </ul>
     <div class="right-search">
-        <input class="right-search__input" type="search" placeholder="название заведения">
-        <input class="right-search__submit" type="submit">
+        <form action="{{ action('Front\SearchController@getIndex') }}">
+            <input class="right-search__input" name='name' type="search" placeholder="название заведения">
+            <input class="right-search__submit" type="submit">
+        </form>
     </div>
 </div>
