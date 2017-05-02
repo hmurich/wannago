@@ -116,7 +116,7 @@ class EditController extends Controller{
         $standart_data->reserve_time_b  = $request->input('reserve_time_b');
         $standart_data->reserve_time_e  = $request->input('reserve_time_e');
         if ($request->hasFile('logo'))
-            $standart_data->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 500, 500);
+            $standart_data->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 800, 800);
         if ($request->has('price_for_hout'))
             $standart_data->price_for_hout  = $request->input('price_for_hout');
         $standart_data->save();
