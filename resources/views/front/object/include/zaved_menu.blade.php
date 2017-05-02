@@ -1,5 +1,12 @@
 <div class="zaved-select">
     {{ $ar_object_type[$object->cat_id] }}
+    <ul class="sel-zaved">
+        @foreach ($ar_company_object as $alias => $cat_id)
+    		<li>
+    			<a href="{{ action('Front\Object\ShowController@getIndex', $alias) }}">{{ $ar_object_type[$cat_id] }}</a>
+    		</li>
+		@endforeach
+	</ul>
 </div>
 <ul class="nav-zaved">
     <li class="nav-zaved__li {{ ($active_menu == 'note' ? 'nav-zaved__li--active' : null) }}">
