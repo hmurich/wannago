@@ -29,106 +29,149 @@
                     </div>
                 @endforeach
 			</div>
-			<ul class="zaved-rows">
-                @if ($main_pub)
-    				<li>
-    					<div class="character">
-    						<span class="character__heading">Тип заведения</span>
-    						<p class="character__text">{{ $main_pub }}</p>
-    					</div>
-    				</li>
-                @endif
-                @if ($main_karaoke)
-    				<li>
-    					<div class="character">
-    						<span class="character__heading">Тип размещения</span>
-    						<p class="character__text">{{ $main_karaoke }}</p>
-    					</div>
-    				</li>
-                @endif
-                @if ($main_kitchen)
-    				<li>
-    					<div class="character">
-    						<span class="character__heading">Кухня</span>
-    						<p class="character__text">{{ $main_kitchen }}</p>
-    					</div>
-    				</li>
-                @endif
-                @if ($main_musik)
-    				<li>
-    					<div class="character">
-    						<span class="character__heading">Музыка</span>
-    						<p class="character__text">{{ $main_musik }}</p>
-    					</div>
-    				</li>
-                @endif
-                @if (isset($ar_avg_price[$object->relStandartData->avg_price_id]))
-    				<li>
-    					<div class="character">
-    						<span class="character__heading">Средний счет</span>
-    						<p class="character__text">{{ $ar_avg_price[$object->relStandartData->avg_price_id] }}</p>
-    					</div>
-    				</li>
-                @endif
-                @if ($object->relStandartData->price_for_hout > 0)
-                    <li>
-                        <div class="character">
-                            <span class="character__heading">Цена за час</span>
-                            <p class="character__text">{{ $object->relStandartData->price_for_hout }}</p>
-                        </div>
-                    </li>
-                @endif
-                @foreach ($object->relDopOption as $o)
-                    <li>
-                        <div class="character">
-                            <span class="character__heading">{{ $o->option_name }}</span>
-                            <p class="character__text">{{ $o->option_value }}</p>
-                        </div>
-                    </li>
-                @endforeach
-			</ul>
-			<div class="zav-events">
-				<div class="zav-up">
-					<h3 class="zav-up__heading">Ближайшие события в <span>chechil pub</span></h3>
-					<a class="link" href="#">Все события</a>
-				</div>
-				<ul class="event-list">
-                    @foreach ($events as $e)
-                        <li>
-                             <a href="{{ action('Front\Object\EventController@getShow', array($object->alias, $e->id)) }}" class="mini-event">
-                                <div class="mini-event__img">
-                                    @if ($e->catalog_image)
-                                        <img src="{{ $e->catalog_image }}" style="max-width: 112px;" />
-                                    @else
-                                        <img src="/front/img/event.png" />
-                                    @endif
-                                </div>
-                                <span class="mini-event__heading">
-                                    {{ $e->title }}
-                                </span>
-                                <div class="event-date">
-                                    <span class="event-date__time">{{ $e->time_str}}</span>
-                                    <span class="event-date__text">{{ $e->date_str }}</span>
-                                </div>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
+			<div class="zaved-in">
+				<ul class="zaved-rows">
+	                @if ($main_pub)
+	    				<li>
+	    					<div class="character">
+	    						<span class="character__heading">Тип заведения</span>
+	    						<p class="character__text">{{ $main_pub }}</p>
+	    					</div>
+	    				</li>
+	                @endif
+	                @if ($main_karaoke)
+	    				<li>
+	    					<div class="character">
+	    						<span class="character__heading">Тип размещения</span>
+	    						<p class="character__text">{{ $main_karaoke }}</p>
+	    					</div>
+	    				</li>
+	                @endif
+	                @if ($main_kitchen)
+	    				<li>
+	    					<div class="character">
+	    						<span class="character__heading">Кухня</span>
+	    						<p class="character__text">{{ $main_kitchen }}</p>
+	    					</div>
+	    				</li>
+	                @endif
+	                @if ($main_musik)
+	    				<li>
+	    					<div class="character">
+	    						<span class="character__heading">Музыка</span>
+	    						<p class="character__text">{{ $main_musik }}</p>
+	    					</div>
+	    				</li>
+	                @endif
+	                @if (isset($ar_avg_price[$object->relStandartData->avg_price_id]))
+	    				<li>
+	    					<div class="character">
+	    						<span class="character__heading">Средний счет</span>
+	    						<p class="character__text">{{ $ar_avg_price[$object->relStandartData->avg_price_id] }}</p>
+	    					</div>
+	    				</li>
+	                @endif
+	                @if ($object->relStandartData->price_for_hout > 0)
+	                    <li>
+	                        <div class="character">
+	                            <span class="character__heading">Цена за час</span>
+	                            <p class="character__text">{{ $object->relStandartData->price_for_hout }}</p>
+	                        </div>
+	                    </li>
+	                @endif
+	                @foreach ($object->relDopOption as $o)
+	                    <li>
+	                        <div class="character">
+	                            <span class="character__heading">{{ $o->option_name }}</span>
+	                            <p class="character__text">{{ $o->option_value }}</p>
+	                        </div>
+	                    </li>
+	                @endforeach
+				</ul>
+				<span class="btn more-btn">Подробная информация</span>
 			</div>
+
+			@if ($events->count() > 0)
+				<div class="zav-events">
+					<div class="zav-up">
+						<h3 class="zav-up__heading">Ближайшие события в <span>{{ $object->name }}</span></h3>
+						<a class="link" href="#">Все события</a>
+					</div>
+					<ul class="event-list">
+	                    @foreach ($events as $e)
+	                        <li>
+	                             <a href="{{ action('Front\Object\EventController@getShow', array($object->alias, $e->id)) }}" class="mini-event">
+	                                <div class="mini-event__img">
+	                                    @if ($e->catalog_image)
+	                                        <img src="{{ $e->catalog_image }}" style="max-width: 112px;" />
+	                                    @else
+	                                        <img src="/front/img/event.png" />
+	                                    @endif
+	                                </div>
+	                                <span class="mini-event__heading">
+	                                    {{ $e->title }}
+	                                </span>
+	                                <div class="event-date">
+	                                    <span class="event-date__time">{{ $e->time_str}}</span>
+	                                    <span class="event-date__text">{{ $e->date_str }}</span>
+	                                </div>
+	                            </a>
+	                        </li>
+	                    @endforeach
+	                </ul>
+				</div>
+			@endif
+
 			<div class="zav-des">
 				<div class="zav-up">
 					<h3 class="zav-up__heading">{{ $object->name }}</span></h3>
 				</div>
-                {!! $object->relStandartData->note !!}
+				<div class="zav-content">
+                	{!! $object->relStandartData->note !!}
+				</div>
             </div>
-			<div class="zav-map">
-				<div class="zav-up">
-					<h3 class="zav-up__heading">Найти нас <span>на карте</span></h3>
+
+			@if ($news->count() > 0)
+				<div class="zav-news">
+					<div class="zav-up">
+						<h3 class="zav-up__heading">Новости</h3>
+						<a class="link" href="{{ action('Front\Object\NewsController@getList', $object->alias) }}">Все события</a>
+					</div>
+					<ul class="nzav-ul">
+						@foreach ($news as $n)
+							<li>
+								<div class="news-inner">
+									<a href="{{ action('Front\Object\NewsController@getShow', array($object->alias, $n->id)) }}" class="img-news">
+										@if ($n->image)
+											<img alt="{{ $n->title }}" src="{{ $n->image }}">
+										@else
+											<img alt="{{ $n->title }}" src="/front/img/news-zaved.jpg">
+										@endif
+									</a>
+									<div class="nmini">
+										<a class="nmini__heading" href="{{ action('Front\Object\NewsController@getShow', array($object->alias, $n->id)) }}">
+											{{ $n->title }}
+										</a>
+										<span class="nmini__date">{{ $n->created_at }}</span>
+										{!! $n->note !!}
+									</div>
+								</div>
+							</li>
+						@endforeach
+					</ul>
 				</div>
-				<div class="map">
-					<div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 400px;"></div>
+			@endif
+
+			@if ($object->relLocation && $object->relLocation->lng && $object->relLocation->lat)
+				<div class="zav-map">
+					<div class="zav-up">
+						<h3 class="zav-up__heading">Найти нас <span>на карте</span></h3>
+					</div>
+					<div class="map">
+						<div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 400px;"></div>
+					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 		<div class="reccoments">
 			@include('front.object.include.simular_object')

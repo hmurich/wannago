@@ -1,6 +1,6 @@
 <div class="zaved-up__logo">
     @if ($standart_data->logo)
-        <img alt="{{ $object->name }}" src="{{ $standart_data->logo }}">
+        <img alt="{{ $object->name }}" src="{{ $standart_data->logo }}" style="width: 100%;">
     @else
         <img alt="{{ $object->name }}" src="/front/img/zaved-logo.png">
     @endif
@@ -17,7 +17,9 @@
         </ul>
         <div class="zaved-book">
             <a class="zaved-book__button btn fancybox fancybox.ajax" href="{{ action('Front\Object\ReserveController@getForm', $object->id) }}">Забронировать столик</a>
-            <a class="zaved-book__map" href="#map">Посмотреть на карте</a>
+            @if ($object->relLocation && $object->relLocation->lng && $object->relLocation->lat)
+                <a class="zaved-book__map" href="#map">Посмотреть на карте</a>
+            @endif
         </div>
     </div>
     <div class="zaved-rating">

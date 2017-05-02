@@ -9,6 +9,7 @@ use App\Model\SysDirectoryName;
 use App\Model\ObjectMainOption;
 use App\Model\Object;
 use App\Model\Event;
+use App\Model\News;
 
 class ShowController extends Controller{
     function getIndex (Request $request, $alias){
@@ -30,6 +31,7 @@ class ShowController extends Controller{
         }
 
         $events = Event::where('object_id', $object->id)->where('date_event' , '>', date('Y-m-d'))->orderBy('date_event', 'asc')->take(4)->get();
+        $news = News::where('object_id', $object->id)->orderBy('id', 'asc')->take(2)->get();
 
         $ar_pub_id = SysDirectoryName::where('parent_id', 4)->pluck('id');
         $ar_karaoke_id = SysDirectoryName::where('parent_id', 5)->pluck('id');
@@ -41,6 +43,7 @@ class ShowController extends Controller{
         $ar['object'] = $object;
         $ar['standart_data'] = $object->relStandartData;
         $ar['events'] = $events;
+        $ar['news'] = $news;
 
         $cat = SysDirectoryName::find($object->cat_id);
         if ($cat)
