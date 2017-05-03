@@ -65,9 +65,14 @@ Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company/menu/delete/{id}', 'Company\MenuController@getDelete');
 
     //gallery routes
-    Route::get('company/galerea/', 'Company\GaleryController@getIndex');
-    Route::post('company/galerea/save', 'Company\GaleryController@postItem');
-    Route::get('company/galerea/delete/{id}', 'Company\GaleryController@getDelete');
+    Route::get('company/galerea-type/', 'Company\GaleryTypeController@getIndex');
+    Route::post('company/galerea-type/save', 'Company\GaleryTypeController@postItem');
+    Route::get('company/galerea-type/delete/{id}', 'Company\GaleryTypeController@getDelete');
+
+    //gallery routes
+    Route::get('company/galerea/{cat_id}', 'Company\GaleryController@getIndex');
+    Route::post('company/galerea/{cat_id}/save', 'Company\GaleryController@postItem');
+    Route::get('company/galerea/{cat_id}/delete/{id}', 'Company\GaleryController@getDelete');
 
     //news controller
     Route::get('company/news', 'Company\NewsController@getIndex');

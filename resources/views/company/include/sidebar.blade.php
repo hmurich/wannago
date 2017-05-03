@@ -36,7 +36,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ action('Company\GaleryController@getIndex') }}">
+            <a href="{{ action('Company\GaleryTypeController@getIndex') }}">
                 <i class="fa fa-file-photo-o "></i> <span>Галерея</span>
             </a>
         </li>

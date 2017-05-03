@@ -36,7 +36,7 @@
                     @foreach ($items as $i)
                         <div class='col-md-3' style="    padding-bottom: 10px">
                             <img src="{{ $i->image }}"  class="img-thumbnail">
-                            <a href="{{ action('Company\GaleryController@getDelete', $i->id) }}" class="btn btn-block btn-danger">Удалить</a>
+                            <a href="{{ action('Company\GaleryController@getDelete', array($i->type_id, $i->id)) }}" class="btn btn-block btn-danger">Удалить</a>
                         </div>
                     @endforeach
                 </div>
