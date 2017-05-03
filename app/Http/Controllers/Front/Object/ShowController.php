@@ -22,13 +22,14 @@ class ShowController extends Controller{
         $ar_simular = Object::where('id', '!=', $object->id)
                             ->where('cat_id', $object->cat_id)
                             ->where('raiting', '>=', $object->raiting)->take(4)->pluck('id');
-        if (count($ar_simular) < 4){
+        if (count($ar_simular) < 4 && count($ar_simular) > 0){
             $count_take = 4 - count($ar_simular_up);
             $ar_simular_down = Object::where('id', '!=', $object->id)
                                         ->where('cat_id', $object->cat_id)
                                         ->where('raiting', '<=', $object->raiting)->take($count_take)->pluck('id');
             $ar_simular = $ar_simular + $ar_simular_down;
         }
+        
 
         $events = Event::where('object_id', $object->id)->where('date_event' , '>', date('Y-m-d'))->orderBy('date_event', 'asc')->take(4)->get();
         $news = News::where('object_id', $object->id)->orderBy('id', 'asc')->take(2)->get();

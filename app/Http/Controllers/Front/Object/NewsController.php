@@ -20,7 +20,7 @@ class NewsController extends Controller{
         $ar_simular = Object::where('id', '!=', $object->id)
                             ->where('cat_id', $object->cat_id)
                             ->where('raiting', '>=', $object->raiting)->take(4)->pluck('id');
-        if (count($ar_simular) < 4){
+        if (count($ar_simular) < 4 && count($ar_simular) > 0){
             $count_take = 4 - count($ar_simular_up);
             $ar_simular_down = Object::where('id', '!=', $object->id)
                                         ->where('cat_id', $object->cat_id)
@@ -61,7 +61,7 @@ class NewsController extends Controller{
         $ar_simular = Object::where('id', '!=', $object->id)
                             ->where('cat_id', $object->cat_id)
                             ->where('raiting', '>=', $object->raiting)->take(4)->pluck('id');
-        if (count($ar_simular) < 4){
+        if (count($ar_simular) < 4 && count($ar_simular) > 0){
             $count_take = 4 - count($ar_simular_up);
             $ar_simular_down = Object::where('id', '!=', $object->id)
                                         ->where('cat_id', $object->cat_id)
