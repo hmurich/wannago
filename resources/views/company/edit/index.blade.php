@@ -97,6 +97,9 @@
                         </div>
                     @endif
                 </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Сохранить</button>
+                </div>
             </div>
         </div>
 
@@ -131,6 +134,9 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Сохранить</button>
+                </div>
             </div>
         </div>
         <div class='col-md-12'>
@@ -146,6 +152,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -173,6 +182,9 @@
                         <div id='map' style="width: 100%; height: 300px;"></div>
                     </div>
                 </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Сохранить</button>
+                </div>
             </div>
         </div>
 
@@ -184,6 +196,9 @@
                 <div class="box-body">
                     <textarea name='note' class="wysihtml5"
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $standart_data->note }}</textarea>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Сохранить</button>
                 </div>
             </div>
         </div>
