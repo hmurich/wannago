@@ -64,7 +64,7 @@ class CatalogController extends Controller{
         if ($request->has('on_map') && $request->input('on_map'))
             $ar['items'] = $items->with('relLocation', 'relStandartData')->get();
         else
-            $ar['items'] = $items->with('relStandartData')->paginate(12);
+            $ar['items'] = $items->with('relStandartData', 'relSpecialOption')->paginate(12);
 
         $ar['cat'] = $cat;
         $ar['menu_cat'] = $cat;

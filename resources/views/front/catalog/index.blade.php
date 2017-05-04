@@ -96,9 +96,15 @@
     					<div class="mini-info__row">
     						<span>Адрес:</span>{{ $i->relStandartData->address }}
     					</div>
-    					<div class="feauture">
-
-    					</div>
+						@if ($i->relSpecialOption->count() > 0)
+							<ul class="feature">
+								@foreach ($i->relSpecialOption as $s)
+									<li class="{{ $s->sys_key }}">
+										<span class="feature-text">{{ $s->name }}</span>
+									</li>
+								@endforeach
+							</ul>
+						@endif
     				</div>
     			</li>
             @endforeach

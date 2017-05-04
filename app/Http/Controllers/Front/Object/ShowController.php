@@ -29,7 +29,7 @@ class ShowController extends Controller{
                                         ->where('raiting', '<=', $object->raiting)->take($count_take)->pluck('id');
             $ar_simular = $ar_simular + $ar_simular_down;
         }
-        
+
 
         $events = Event::where('object_id', $object->id)->where('date_event' , '>', date('Y-m-d'))->orderBy('date_event', 'asc')->take(4)->get();
         $news = News::where('object_id', $object->id)->orderBy('id', 'asc')->take(2)->get();
@@ -42,6 +42,7 @@ class ShowController extends Controller{
         $ar = array();
         $ar['title'] = $object->name;
         $ar['object'] = $object;
+        $ar['special_option'] = $object->relSpecialOption;
         $ar['standart_data'] = $object->relStandartData;
         $ar['events'] = $events;
         $ar['news'] = $news;

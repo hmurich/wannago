@@ -87,8 +87,20 @@
 	                        </div>
 	                    </li>
 	                @endforeach
+					@if ($special_option->count() > 0)
+						<li>
+							<div class="character">
+								<span class="character__heading">Особенности</span>
+								<ul class="feature">
+									@foreach ($special_option as $i)
+										<li class="{{ $i->sys_key }}"></li>
+									@endforeach
+								</ul>
+							</div>
+						</li>
+					@endif
 				</ul>
-				<span class="btn more-btn">Подробная информация</span>
+				<a class="btn more-btn" href='#zav-des"'>Подробная информация</a>
 			</div>
 
 			@if ($events->count() > 0)
@@ -122,7 +134,7 @@
 				</div>
 			@endif
 
-			<div class="zav-des">
+			<div class="zav-des" id='zav-des"'>
 				<div class="zav-up">
 					<h3 class="zav-up__heading">{{ $object->name }}</span></h3>
 				</div>

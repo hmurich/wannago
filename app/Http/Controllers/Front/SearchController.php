@@ -27,7 +27,7 @@ class SearchController extends Controller{
 
         $ar = array();
         $ar['title'] = 'Вы искали по имени "'.$request->input('name').'"';
-        $ar['items'] = $items->with('relStandartData')->paginate(12);
+        $ar['items'] = $items->with('relStandartData', 'relSpecialOption')->paginate(12);
 
         $ar['name'] = $request->input('name');
         $ar['city_id'] = $city_id;
