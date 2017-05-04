@@ -5,7 +5,8 @@ use App\Model\SysDirectoryName;
 use App\Model\Reserve;
 use App\Model\Object;
 use App\Model\Event;
-
+use App\Model\Comment;
+use App\User;
 
 Route::get('get-city-ar', function () {
     $elems = SysDirectoryName::where('parent_id', 1)->select('id', 'name')->orderBy('id', 'asc')->get()->toJson();
@@ -139,6 +140,34 @@ Route::post('post-add-reserver', function(Request $request){
     $el->note       = $request->input('note');
     $el->enter_date = $request->input('enter_date');
     $el->enter_time = $request->input('enter_time');
+    $el->save();
+
+    echo '1';
+});
+
+Route::post('post-add-comment', function(Request $request){
+    if (!$request->has('object_id') || !$request->has('title') || !$request->has('note') || !$request->has('mobile_device'))
+        abort(400);
+
+    $object = Object::findOrFail($request->input('object_id'));
+    $user = User::where('login', $request->input('mobile_device'))->where('type_id', 5)->first();
+    if (!$user){
+        $user = new User();
+        $user->login = $request->input('mobile_device');
+        $user->type_id = 5;
+        $user->save();
+    }
+
+    if (Comment::where('object_id', $object->id)->where('mobile_user_id', $user->id)->count() > 0)
+        return '0';
+
+    $el = new Comment;
+    $el->mobile_user_id = $user->id;
+    $el->object_id  = $object->id;
+    $el->title      = $request->input('name');
+    $el->note       = $request->input('note');
+    $el->had_answer = 0;
+    $el->parent_id  = 0;
     $el->save();
 
     echo '1';
