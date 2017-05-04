@@ -12,11 +12,11 @@ class CompanyAuth {
     }
 
     public function handle($request, Closure $next){
-        if ($this->auth->guest())
-            return redirect()->action('Company\AuthController@getLogin')->with('error', 'Введите email и пароль, для доступа в админку');
+        if ($this->auth->guest() || $this->auth->user()->type_id != 3){
+            Auth::logout();
 
-        if ($this->auth->user()->type_id != 3)
-            return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
+            return redirect()->action('Company\AuthController@getLogin')->with('error', 'Введите email и пароль, для доступа в админку');
+        }
 
         return $next($request);
     }

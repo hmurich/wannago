@@ -33,8 +33,11 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
     else
         $items = Object::where('id', '>', 0);
 
-    if ($request->has('name'))
+    if ($request->has('name')){
+        //echo $request->input('name'); exit();
         $items = $items->where('name', 'like', '%'.$request->input('name').'%');
+    }
+
 
     if ($request->has('tag')){
         $items = $items->whereHas('relTag', function($q) use ($request){
@@ -76,10 +79,15 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
                 $q = $q->where('option_id', $request->input('specail_option_id'));
         });
     }
+    /*
+    print_r( $items->getBindings() );
+    $items = $items->toSql();
+    //
 
-    $items = $items->with('relMainOptions', 'relStandartData',
-                                                'relDopOption', 'relTag', 'relLocation', 'relScore',
-                                                'relSpecialOption', 'relUser')->get()->toJson();
+    dd($items); exit();
+    */
+    $items = $items->with('relMainOptions', 'relStandartData', 'relDopOption', 'relTag', 'relLocation', 'relScore',
+                            'relSpecialOption', 'relUser', 'relNews', 'relComment', 'relEvent', 'relSlider', 'relGelerea')->paginate(12)->toJson();
     echo $items;
 });
 
