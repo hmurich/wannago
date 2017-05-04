@@ -1,6 +1,12 @@
 <section class="sidebar">
     <ul class="sidebar-menu">
         <li>
+            <a href="{{ action('Admin\IndexController@getIndex') }}">
+                <i class="fa  fa-desktop "></i> <span>Главная</span>
+            </a>
+        </li>
+
+        <li>
             <a href="{{ action('Admin\NewObjectController@getIndex') }}">
                 <i class="fa fa-arrow-right "></i> <span>Заявки</span>
             </a>
