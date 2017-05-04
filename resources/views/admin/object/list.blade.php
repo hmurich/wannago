@@ -43,6 +43,12 @@
                                         <a href="{{ action('Admin\Object\EditController@getIndex', $i->id) }}">Изменить</a>
                                     </li>
                                     <li>
+                                        <a href="{{ action('Admin\Object\RaitingController@getIndex', $i->id) }}">
+                                            Рэйтинг
+                                        </a>
+                                    </li>
+
+                                    <li>
                                         <a href="{{ action('Admin\Object\ListController@getVip', $i->id) }}">
                                             {{ ($i->is_vip ? 'Отключить ВИП' : 'ВИП') }}
                                         </a>

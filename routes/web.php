@@ -131,6 +131,11 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/add/{id}', 'Admin\Object\AddController@getIndex');
     Route::post('adminka/object/add/{id}', 'Admin\Object\AddController@postSave');
 
+    //raiting objects
+    Route::get('adminka/object/raiting/{id}', 'Admin\Object\RaitingController@getIndex');
+    Route::post('adminka/object/raiting/save/{id}', 'Admin\Object\RaitingController@postSave');
+    Route::get('adminka/object/raiting/delete/{id}', 'Admin\Object\RaitingController@getDelete');
+
     //site setting
     Route::get('adminka/site-setting/', 'Admin\SiteSettingController@getIndex');
     Route::post('adminka/site-setting/save/', 'Admin\SiteSettingController@postSave');
