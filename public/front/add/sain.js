@@ -167,4 +167,10 @@ $(document).ready(function() {
 	$('.others a').click(function () {
 		location.href = this.rel;
 	});
+
+	$( "#datepicker" ).datepicker();
+
+	$( "body" ).on( "change", "#anim", function() {
+      $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
 });

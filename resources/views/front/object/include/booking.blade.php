@@ -20,23 +20,14 @@
     					<input class="book-left__input" name='name' placeholder="Ваше Имя..." type="text" required="">
     					<input class="book-left__input" name='email' placeholder="Ваш e-mail..." type="text" required="">
     					<input class="book-left__input" name='phone' placeholder="Номер телефона..." type="text" required="">
-    					<div class="book-row">
-    						<span class="book-row__text">Количество человек</span>
-    						<select class="book-row__select" name='count_person'  required="">
-    							<option>1</option>
-    							<option>2</option>
-    							<option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11-15</option>
-                                <option>15 +</option>
-    						</select>
-    					</div>
+                        <div class="book-row">
+							<span class="book-row__text">Количество человек</span>
+							<div class="pnumber">
+								<input value="1" type="text" class="pnumber__input" name='count_person'>
+								<div class="pnumber__add pnumber__add--plus">+</div>
+								<div class="pnumber__add pnumber__add--minus">-</div>
+							</div>
+						</div>
     				</div>
     			</div>
     			<div class="book-right"  >
@@ -48,7 +39,7 @@
                     <?php $unix_begin = $unix_begin - ($unix_begin % (60 * 30)); ?>
                     <div class="book-row">
     					<span class="book-row__text">Выберите дату</span>
-    					<input placeholder="28.04.17" class="book-row__date" type='date' name='enter_date'  required="">
+    					<input class="book-row__datepicker"  value="05/10/2017" type="text" id="datepicker" size="30">
     				</div>
     				<div class="book-time">
                         @for ($unix_begin; $unix_begin <= $unix_end; $unix_begin = $unix_begin + (60 * 30))
