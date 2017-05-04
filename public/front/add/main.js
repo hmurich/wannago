@@ -17,4 +17,7 @@ $(document).ready(function() {
         console.log(option.val());
     });
 
+	$('.js_send_event_data').change(function(){
+		console.log($(this).val());
+	});
 });

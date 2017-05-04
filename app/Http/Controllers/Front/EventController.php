@@ -8,6 +8,8 @@ use App\Model\Generators\City;
 use App\Model\SysDirectoryName;
 use App\Model\Event;
 
+use App\Model\Generators\ModelSnipet;
+
 class EventController extends Controller{
     function getIndex (Request $request){
         $city_id = City::getCityID();
@@ -23,6 +25,13 @@ class EventController extends Controller{
 
         if ($request->has('title') && $request->input('title'))
             $items = $items->where('title', 'like', '%'.$request->input('title').'%');
+
+        if ($request->has('event_data') && $request->input('event_data')){
+            $event_data = explode("/", $request->input('event_data'));
+            if (count($event_data) == 3)
+                $items = $items->where('date_event', $event_data[2].'-'.$event_data[0].'-'.$event_data[1]);
+        }
+
 
         $ar = array();
         $ar['title'] = 'События';

@@ -10,7 +10,10 @@
             </ul>
             <h1 class="search-heading">События</h1>
             <div class="events-filter">
-                <div class="events-filter__item">Календарь</div>
+                <form method="get" id='datepicker_event_form' >
+                    <input value="{{ (isset($ar_input['event_data']) ? $ar_input['event_data'] : 'Календарь') }}" type="text" id="datepicker_event" class="events-filter__item js_send_event_data" name='event_data'>
+                </form>
+
                 <a class="events-filter__item" href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('is_hot'=>$is_hot)) }}">Горячие события</a>
                 <div class="right-search">
                     <form method="get" >

@@ -170,6 +170,14 @@ $(document).ready(function() {
 
 	$( "#datepicker" ).datepicker();
 
+	$("#datepicker_event").datepicker({
+	    onSelect: function(dateText, inst) {
+			//console.log('asdasd');
+			$('#datepicker_event_form').submit();
+
+	    }
+	});
+
 	$( "body" ).on( "change", "#anim", function() {
       $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
     });
