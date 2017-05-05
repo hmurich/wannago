@@ -7,6 +7,7 @@ use App\Model\Object;
 use App\Model\Event;
 use App\Model\Comment;
 use App\User;
+use App\Model\ObjectScoreVote;
 
 Route::get('get-city-ar', function () {
     $elems = SysDirectoryName::where('parent_id', 1)->select('id', 'name')->orderBy('id', 'asc')->get()->toJson();
@@ -146,14 +147,14 @@ Route::post('post-add-reserver', function(Request $request){
 });
 
 Route::post('post-add-comment', function(Request $request){
-    if (!$request->has('object_id') || !$request->has('title') || !$request->has('note') || !$request->has('mobile_device'))
+    if (!$request->has('object_id') || !$request->has('title') || !$request->has('note') || !$request->has('mobile_device_id'))
         abort(400);
 
     $object = Object::findOrFail($request->input('object_id'));
-    $user = User::where('login', $request->input('mobile_device'))->where('type_id', 5)->first();
+    $user = User::where('login', $request->input('mobile_device_id'))->where('type_id', 5)->first();
     if (!$user){
         $user = new User();
-        $user->login = $request->input('mobile_device');
+        $user->login = $request->input('mobile_device_id');
         $user->type_id = 5;
         $user->save();
     }
@@ -169,6 +170,45 @@ Route::post('post-add-comment', function(Request $request){
     $el->had_answer = 0;
     $el->parent_id  = 0;
     $el->save();
+
+    echo '1';
+});
+
+Route::post('post-raiting', function(Request $request){
+    if (!$request->has('object_id') || !$request->has('score_val') || !$request->has('mobile_device_id'))
+        abort(400);
+
+    $object = Object::findOrFail($request->input('object_id'));
+    $score = $object->relScore;
+    if (!$score)
+        abort(404);
+
+    $user = User::where('login', $request->input('mobile_device_id'))->where('type_id', 5)->first();
+    if (!$user){
+        $user = new User();
+        $user->login = $request->input('mobile_device_id');
+        $user->type_id = 5;
+        $user->save();
+    }
+
+    if (ObjectScoreVote::where('object_id', $object->id)->where('mobile_user_id', $user->id)->count() > 0)
+        return '0';
+
+
+    $vote = new ObjectScoreVote();
+    $vote->object_id = $object->id;
+    $vote->score_id = $score->id;
+    $vote->is_admin = 1;
+    $vote->score_val = $request->input('score_val');
+    $vote->save();
+
+    $score->score_sum = $score->score_sum + $vote->score_val;
+    $score->score_count = $score->score_count + 1;
+    $score->score_avg = $score->score_sum / $score->score_count;
+    $score->save();
+
+    $object->raiting = round($score->score_avg, 2);
+    $object->save();
 
     echo '1';
 });
