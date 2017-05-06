@@ -13,27 +13,38 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="name" >Поиск по наименованию:</label>
-                        <input type="text" class="form-control" name='name' placeholder="Наименование" >
+                        <input type="text" class="form-control" name='name' placeholder="Наименование" value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
                     </div>
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-md-4'>
                             <div class="form-group">
                                 <label for="address" >Поиск по городу:</label>
                                 <select class="form-control select2" style="width: 100%;" name='city_id' >
                                     <option value="0">Все города</option>
                                     @foreach ($ar_city as $id=>$name)
-                                        <option value="{{ $id }}">{{ $name }}</option>
+                                        <option value="{{ $id }}" {{ (isset($ar_input['city_id']) && $ar_input['city_id'] == $id ? 'selected' : null) }}>{{ $name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class='col-md-6'>
+                        <div class='col-md-4'>
                             <div class="form-group">
                                 <label for="note" >Поиск по типу:</label>
                                 <select class="form-control select2" style="width: 100%;" name='cat_id' >
                                     <option value="0">Все типы</option>
                                     @foreach ($ar_object_type as $id=>$name)
-                                        <option value="{{ $id }}">{{ $name }}</option>
+                                        <option value="{{ $id }}" {{ (isset($ar_input['cat_id']) && $ar_input['cat_id'] == $id ? 'selected' : null) }}>{{ $name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-4'>
+                            <div class="form-group">
+                                <label for="note" >Заполнено:</label>
+                                <select class="form-control select2" style="width: 100%;" name='is_fill' >
+                                    <option value="0">Все </option>
+                                    @foreach ($ar_fill as $id=>$name)
+                                        <option value="{{ $id }}" {{ (isset($ar_input['is_fill']) && $ar_input['is_fill'] == $id ? 'selected' : null) }}>{{ $name }}</option>
                                     @endforeach
                                 </select>
                             </div>
