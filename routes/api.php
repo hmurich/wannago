@@ -165,7 +165,7 @@ Route::post('post-add-comment', function(Request $request){
     $el = new Comment;
     $el->mobile_user_id = $user->id;
     $el->object_id  = $object->id;
-    $el->title      = $request->input('name');
+    $el->title      = $request->input('title');
     $el->note       = $request->input('note');
     $el->had_answer = 0;
     $el->parent_id  = 0;
@@ -198,7 +198,8 @@ Route::post('post-raiting', function(Request $request){
     $vote = new ObjectScoreVote();
     $vote->object_id = $object->id;
     $vote->score_id = $score->id;
-    $vote->is_admin = 1;
+    $vote->is_admin = 0;
+    $vote->mobile_user_id = $user->id;
     $vote->score_val = $request->input('score_val');
     $vote->save();
 
