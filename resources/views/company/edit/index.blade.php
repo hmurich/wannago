@@ -19,6 +19,16 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($object->city_id == 1)
+                        <div class="form-group">
+                            <label for="name" >Район Астаны:</label>
+                            <select class="form-control select2" style="width: 100%;" name='city_area_id' required="">
+                                @foreach ($ar_ciry_area as $id=>$name)
+                                    <option value="{{ $id }}" {{ ($standart_data->city_area_id == $id ? 'selected' : null) }}>{{ $name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="name" >Наименование</label>
                         <input type="text" class="form-control" name='name' value='{{ $object->name }}' placeholder="Наименование"  required="">

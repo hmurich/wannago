@@ -61,6 +61,8 @@ class EditController extends Controller{
         $ar['ar_spec_option'] = $cat->getSpecialOption();
         $ar['ar_dop_option'] = $cat->getDopOption();
 
+        $ar['ar_ciry_area'] = SysDirectoryName::where('parent_id', 25)->pluck('name', 'id')->toArray();
+
         return view('company.edit.index', $ar);
     }
 
@@ -119,6 +121,8 @@ class EditController extends Controller{
             $standart_data->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 800, 800);
         if ($request->has('price_for_hout'))
             $standart_data->price_for_hout  = $request->input('price_for_hout');
+        
+        $standart_data->city_area_id  = $request->input('city_area_id');
         $standart_data->save();
 
         //save main option
