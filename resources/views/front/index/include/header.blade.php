@@ -14,13 +14,15 @@
 	</div>
 </div>
 
-<a class="logo" href="#"></a>
+<a class="logo" href="/"></a>
 <div class="mob-menu">
 	<span></span>
 	<span></span>
 	<span></span>
 </div>
 <div class="right-search">
-	<input class="right-search__input" type="search" placeholder="Название заведения...">
-	<input class="right-search__submit" type="submit">
+	<form action="{{ action('Front\SearchController@getIndex') }}">
+		<input class="right-search__input" name='name' type="search" placeholder="название заведения">
+		<input class="right-search__submit" type="submit">
+	</form>
 </div>
