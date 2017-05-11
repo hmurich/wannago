@@ -26,9 +26,13 @@ class CatalogController extends Controller{
                 $q->whereIn('option_id', $request->input('spec_option'));
             });
 
-        if ($request->has('avg_price') && $request->input('avg_price') > 0)
+        if (($request->has('avg_price') && $request->input('avg_price') > 0) || ($request->has('ciry_area') && $request->input('ciry_area') > 0))
             $items = $items->whereHas('relStandartData', function($q) use ($request){
-                $q->where('avg_price_id', $request->input('avg_price'));
+                if ($request->has('avg_price') && $request->input('avg_price') > 0)
+                    $q = $q->where('avg_price_id', $request->input('avg_price'));
+
+                if ($request->has('ciry_area') && $request->input('ciry_area') > 0)
+                    $q = $q->where('city_area_id', $request->input('ciry_area'));
             });
 
         if ($request->has('pub_id') && $request->input('pub_id') > 0)
@@ -89,6 +93,8 @@ class CatalogController extends Controller{
         $ar['ar_karaoke_id'] = SysDirectoryName::where('parent_id', 5)->pluck('id');
         $ar['ar_kitchen_id'] = SysDirectoryName::where('parent_id', 6)->pluck('id');
         $ar['ar_music_id'] = SysDirectoryName::where('parent_id', 7)->pluck('id');
+
+        $ar['ar_ciry_area'] = SysDirectoryName::where('parent_id', 25)->pluck('name', 'id')->toArray();
 
         return view('front.catalog.index', $ar);
     }

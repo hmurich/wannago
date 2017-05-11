@@ -178,6 +178,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::post('adminka/directory/moderator/password/{id?}', 'Admin\Directory\ModeratorController@postPassword');
     Route::get('adminka/directory/moderator/delete/{id}', 'Admin\Directory\ModeratorController@getDelete');
 
+    //AstanaAreaController
+    Route::get('adminka/directory/astana-area', 'Admin\Directory\AstanaAreaController@getIndex');
+    Route::get('adminka/directory/astana-area/item/{id?}', 'Admin\Directory\AstanaAreaController@getEdit');
+    Route::post('adminka/directory/astana-area/item/{id?}', 'Admin\Directory\AstanaAreaController@postEdit');
+    Route::get('adminka/directory/astana-area/delete/{id}', 'Admin\Directory\AstanaAreaController@getDelete');
+
     //CityController
     Route::get('adminka/directory/city', 'Admin\Directory\CityController@getIndex');
     Route::get('adminka/directory/city/item/{id?}', 'Admin\Directory\CityController@getEdit');

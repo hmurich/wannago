@@ -220,6 +220,11 @@
             </a>
             <ul class="treeview-menu">
                 <li>
+                    <a href="{{ action('Admin\Directory\AstanaAreaController@getIndex') }}">
+                        <i class="fa fa-circle-o text-aqua"></i> <span>Районы Астаны</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ action('Admin\Directory\CityController@getIndex') }}">
                         <i class="fa fa-circle-o text-aqua"></i> <span>Города</span>
                     </a>

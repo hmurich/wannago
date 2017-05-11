@@ -57,6 +57,18 @@
                     <input type='hidden' name='avg_price' value='{{ (isset($ar_input['avg_price']) ? $ar_input['avg_price'] : 0) }}' class='js_option_avg_price'>
                 </div>
             </div>
+            @if ($city_id == 1)
+                <div class="filtr-select">
+                    <span class='js_option_title' data-def='Местоположение'>{{ (isset($ar_input['ciry_area']) && isset($ar_ciry_area[$ar_input['ciry_area']]) ? $ar_ciry_area[$ar_input['ciry_area']] : 'Местоположение') }}</span>
+                    <div class="filtr-option">
+                        <div class="filtr-option__heading">Выберите местоположение:</div>
+                        @foreach ($ar_ciry_area as $k=>$v)
+                            <a class="filtr-option__item js_option_select" href="#ciry_area" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                        @endforeach
+                        <input type='hidden' name='ciry_area' value='{{ (isset($ar_input['ciry_area']) ? $ar_input['ciry_area'] : 0) }}' class='js_option_avg_price'>
+                    </div>
+    			</div>
+            @endif
         </div>
         <div class="select-area">
             <span class="select-area__heading">Особенности:</span>
