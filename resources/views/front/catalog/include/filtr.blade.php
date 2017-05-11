@@ -71,7 +71,7 @@
                 @endforeach
             </ul>
             <div class="fsearch">
-                <button class="fsearch__input" type="submit">Искать по каталогу</button>
+                <button class="btn fsearch__input" type="submit">Искать по каталогу</button>
                 <a class="fsearch__clear" href="?">Очистить параметры</a>
             </div>
         </div>

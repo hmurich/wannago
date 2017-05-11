@@ -9,12 +9,15 @@
 	<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 </head>
 <body>
-    <div class="header header--second">
-		@include('front.include.header')
+	<div class="header">
+		<div class="header-top">
+			<div class="inner">
+				@include('front.index.include.header')
+			</div>
+		</div>
+		@include('front.index.include.header_bot')
 	</div>
-	<div class="under-header">
-        @include('front.include.under_header')
-	</div>
+
 
     @yield('content')
 
