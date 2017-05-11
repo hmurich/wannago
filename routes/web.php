@@ -120,6 +120,9 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/company/delete/{id}', 'Admin\Company\ListController@getDelete');
     Route::get('adminka/company/item/{id?}', 'Admin\Company\EditController@getIndex');
     Route::post('adminka/company/item/{id?}', 'Admin\Company\EditController@postSave');
+    Route::get('adminka/company/password/{id?}', 'Admin\Company\EditController@getPassword');
+    Route::post('adminka/company/password/{id?}', 'Admin\Company\EditController@postPassword');
+
 
     //event routes
     Route::get('adminka/event/{id}', 'Admin\EventController@getIndex');
