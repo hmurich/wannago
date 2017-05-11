@@ -13,17 +13,14 @@
 		</ul>
 	</div>
 </div>
-<ul class="menu">
-	<li class="menu__li">
-		<a href="{{ action('Front\EventController@getIndex') }}">События</a>
-	</li>
-	<li class="menu__li">
-		<a href="{{ action('Front\NewsController@getIndex') }}">Новости</a>
-	</li>
-	<li class="menu__li">
-		<a href="{{ action('Front\WhereGoController@getIndex') }}">Подборки</a>
-	</li>
-	<li class="menu__li">
-		<a class="fancybox" href="#adding">Добавить заведение</a>
-	</li>
-</ul>
+
+<a class="logo" href="#"></a>
+<div class="mob-menu">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="right-search">
+	<input class="right-search__input" type="search" placeholder="Название заведения...">
+	<input class="right-search__submit" type="submit">
+</div>

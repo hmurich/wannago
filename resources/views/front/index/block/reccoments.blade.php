@@ -1,8 +1,5 @@
 <div class="top-up">
-        <div class="heading">
-            <span class="heading__mini">Рейтинговые заведения</span>
-            <h4 class="heading__text">Рекомендации</h4>
-        </div>
+    <h4 class="top-up__heading">Рекомендации</h4>
 </div>
 <ul class="new-ul">
     @foreach ($recomended as $r)

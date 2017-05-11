@@ -33,6 +33,11 @@ class IndexController extends Controller{
         $ar['ar_music_type'] = SysDirectoryName::where('parent_id', 7)->pluck('name', 'id');
         $ar['city_id'] = $city_id;
 
+        if ($request->has('cat_id'))
+            $ar['cat_id'] = $request->input('cat_id');
+        else
+            $ar['cat_id'] = 9;
+
         $ar['spec_option'][9] = SysDirectoryName::where('parent_id', 9)->pluck('name', 'id');
         $ar['spec_option'][23] = SysDirectoryName::where('parent_id', 10)->pluck('name', 'id');
         $ar['spec_option'][24] = SysDirectoryName::where('parent_id', 11)->pluck('name', 'id');
@@ -41,6 +46,8 @@ class IndexController extends Controller{
         $ar['spec_option'][27] = SysDirectoryName::where('parent_id', 14)->pluck('name', 'id');
         $ar['spec_option'][28] = SysDirectoryName::where('parent_id', 15)->pluck('name', 'id');
         $ar['spec_option'][29] = SysDirectoryName::where('parent_id', 16)->pluck('name', 'id');
+
+        $ar['request'] = $request;
 
         return view('front.index.index', $ar);
     }

@@ -9,41 +9,45 @@
 		<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 	</head>
 	<body class="main">
-		<div class="header">
-			<div class="inner">
-				@include('front.index.include.header')
+		<div class="main-page">
+			<div class="header">
+				<div class="header-top">
+					<div class="inner">
+						@include('front.index.include.header')
+					</div>
+				</div>
+				@include('front.index.include.header_bot')
 			</div>
-		</div>
-		<div class="inner top-part">
-            @include('front.index.include.top_part')
-		</div>
-		<div class="filtr inner">
-            @include('front.index.include.filtr')
+			<div class="inner top-part">
+	            @include('front.index.include.top_part')
+			</div>
+			<div class="bottom"></div>
 		</div>
 		<main>
 			<div class="inner">
+				<div class="reccoments">
+					@include('front.index.block.reccoments')
+				</div>
 				<div class="zaved-main">
+					<div class="zaved-main__banners">
+						@include('front.index.block.banners')
+					</div>
+					<div class="zaved-main__news">
+						 @include('front.index.block.news')
+					</div>
 					<div class="zaved-main__event">
 						@include('front.index.block.event')
 					</div>
-					<div class="zaved-main__news">
-                        @include('front.index.block.news')
-                    </div>
-					<div class="zaved-main__banners">
-                        @include('front.index.block.banners')
-					</div>
 				</div>
 				<div class="where">
-                    @include('front.index.block.where')
+					@include('front.index.block.where')
 				</div>
-				<div class="reccoments">
-                    @include('front.index.block.reccoments')
-                </div>
 				<div class="about-des">
-                    @include('front.include.about-des', ['sys_key' => 'about_main'])
+					@include('front.include.about-des', ['sys_key' => 'about_main'])
 				</div>
 			</div>
 		</main>
+
 		<footer class="footer">
             @include('front.include.footer')
         </footer>
@@ -59,7 +63,5 @@
 		<script type="text/javascript" src="{{ URL::asset('front/js/jquery.fancybox.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/sain.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/main.js') }}"></script>
-
-
 	</body>
 </html>

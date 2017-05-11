@@ -1,6 +1,6 @@
 <div class="zaved-news">
-    <div class="heading">
-        <h4 class="heading__text">Новости</h4>
+    <div class="top-up">
+        <h4 class="top-up__heading">Новости</h4>
     </div>
     <ul class="news-ul">
         @foreach ($news as $n)

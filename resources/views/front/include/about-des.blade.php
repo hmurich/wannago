@@ -3,10 +3,7 @@
 ?>
 @if ($about_text)
     <div class="top-up">
-        <div class="heading">
-            <span class="heading__mini">Чем мы занимаемся?</span>
-            <h4 class="heading__text">{{ $about_text->title }}</h4>
-        </div>
+        <h4 class="top-up__heading">{{ $about_text->title }}</h4>
     </div>
     {!! $about_text->note !!}
 @endif
