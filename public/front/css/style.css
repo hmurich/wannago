@@ -917,6 +917,7 @@ textarea,
 .w-slider {
   margin-left: 0px;
   margin-right: -16px;
+  overflow: hidden;
 }
 .w-slider .where-mini:last-child {
   margin-right: 0;
@@ -931,8 +932,9 @@ textarea,
   border: 1px solid #e0e7ee;
   padding: 28px 10px 22px 10px;
   margin-right: 14px;
+  margin-bottom: 12px;
   float: left;
-  width: 124px;
+  width: 16.6%;
   text-align: center;
   cursor: pointer;
   transition: background 0.3s linear;
@@ -942,10 +944,43 @@ textarea,
 }
 .where-mini__img {
   display: block;
-  margin: 0 auto 12px;
-  width: 62px;
-  height: 63px;
-  background-image: url(../img/where.png);
+  margin: 0 auto 10px;
+  width: 55px;
+  height: 55px;
+  background-image: url(../img/picks.png);
+}
+.where--dance {
+  background-position: 699px 112px;
+}
+.where--coffee {
+  background-position: -176px -56px;
+}
+.where--dr {
+  background-position: -57px 2px;
+}
+.where--svidanie {
+  background-position: -50px -59px;
+}
+.where--child {
+  background-position: -158px 1px;
+}
+.where--fish {
+  background-position: -114px -65px;
+}
+.where--vine {
+  background-position: -165px -120px;
+  width: 60px;
+}
+.where--city {
+  background-position: -119px -5px;
+  width: 40px;
+}
+.where--meat {
+  background-position: -102px -117px;
+}
+.where--hookah {
+  background-position: 2px -119px;
+  width: 48px;
 }
 .about-des {
   margin-bottom: 40px;
@@ -1321,30 +1356,114 @@ textarea,
   content: "";
   display: block;
 }
-.feature li {
+.feature div {
   height: 45px;
   width: 45px;
   float: left;
   margin-right: 10px;
-  background-image: url(../img/feature.jpg);
+  background-image: url(../img/feature.png);
 }
-.feature li:hover > .feature-text {
+.feature div:hover > .feature-text {
   opacity: 1;
 }
-.feature li:hover > .feature-text:after {
+.feature div:hover > .feature-text:after {
   opacity: 1;
+}
+.feature__item--ploshadka {
+  background-position: -5px -5px;
+}
+.feature__item--ploshadka span {
+  margin-left: -44px;
+}
+.feature__item--sports {
+  background-position: -60px -5px;
+}
+.feature__item--sports span {
+  margin-left: -58px;
+}
+.feature__item--dj {
+  background-position: -115px -5px;
+}
+.feature__item--dj span {
+  margin-left: 8px;
+}
+.feature__item--dance {
+  background-position: -170px -5px;
+}
+.feature__item--dance span {
+  margin-left: -32px;
 }
 .feature__item--vip {
-  background-position: top 0px left -50px;
+  background-position: -5px -60px;
 }
 .feature__item--vip span {
-  margin-left: -22px;
+  margin-left: -20px;
 }
-.feature__item--alc {
-  background-position: top 0px left -100px;
+.feature__item--show {
+  background-position: -60px -60px;
 }
-.feature__item--alc span {
-  margin-left: -68px;
+.feature__item--show span {
+  margin-left: -32px;
+}
+.feature__item--wifi {
+  background-position: -115px -60px;
+}
+.feature__item--wifi span {
+  margin-left: -2px;
+}
+.feature__item--wifi {
+  background-position: -115px -60px;
+}
+.feature__item--wifi span {
+  margin-left: -2px;
+}
+.feature__item--vid {
+  background-position: -170px -60px;
+}
+.feature__item--vid span {
+  margin-left: -39px;
+}
+.feature__item--live {
+  background-position: -5px -115px;
+}
+.feature__item--live span {
+  margin-left: -39px;
+}
+.feature__item--child {
+  background-position: -60px -115px;
+}
+.feature__item--child span {
+  margin-left: -39px;
+}
+.feature__item--topchan {
+  background-position: -115px -115px;
+}
+.feature__item--topchan span {
+  margin-left: -39px;
+}
+.feature__item--kamin {
+  background-position: -170px -115px;
+}
+.feature__item--kamin span {
+  margin-left: -39px;
+}
+.feature__item--kalyan {
+  background-position: -5px -170px;
+}
+.feature__item--kalyan span {
+  margin-left: -39px;
+}
+.feature__item--24 {
+  background-position: -60px -170px;
+}
+.feature__item--24 span {
+  margin-left: -39px;
+}
+.feature__item--panorama {
+  background-position: -115px -170px;
+}
+.feature__item--panorama span {
+  margin-left: -39px;
 }
 .feature-text {
   position: absolute;
@@ -1751,6 +1870,9 @@ textarea,
   position: relative;
   cursor: pointer;
 }
+.zaved-select:hover {
+  background-color: #f3f3f3;
+}
 .zaved-select:after {
   content: "";
   position: absolute;
@@ -1784,9 +1906,11 @@ textarea,
   margin-bottom: 5px;
 }
 .sel-zaved > li a {
-  text-decoration: underline;
-  color: #7b7b7b;
+  color: #494848;
   font-weight: normal;
+}
+.sel-zaved > li a:hover {
+  text-decoration: underline;
 }
 .nav-zaved {
   overflow: hidden;
@@ -1830,8 +1954,10 @@ textarea,
   display: block;
   width: 100%;
 }
-.zaved-rows {
-  overflow: hidden;
+.zaved-rows:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 .zaved-rows > li {
   float: left;
@@ -2024,9 +2150,12 @@ textarea,
   width: 100%;
 }
 /*Конец заведении*/
+.adding {
+  background-color: #fff;
+}
 .adding-part {
   display: block;
-  padding: 10px 14px;
+  padding: 25px;
 }
 .adding-part__heading {
   margin-bottom: 22px;
@@ -2169,6 +2298,12 @@ textarea,
   padding: 5px 15px;
   color: #494848;
 }
+.events-filter__item--calendar {
+  background-position: right 8px top 7px;
+  background-image: url(../img/calendar.svg);
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
 .events-filter__item:hover {
   background-color: #f3f3f3;
   cursor: pointer;
@@ -2254,8 +2389,12 @@ textarea,
 }
 /*события конец*/
 /*бронирование начало*/
+.booking {
+  width: 750px;
+  background-color: #fff;
+}
 .booking-part {
-  padding: 15px;
+  padding: 25px;
 }
 .book-up {
   overflow: hidden;
@@ -2302,10 +2441,10 @@ textarea,
 }
 .book-left {
   float: left;
-  width: 56%;
+  width: 55%;
 }
 .book-left__inner {
-  margin-right: 40px;
+  margin-right: 30px;
   margin-top: 22px;
 }
 .book-left__input {
@@ -2374,7 +2513,7 @@ textarea,
 }
 .book-right {
   float: left;
-  width: 44%;
+  width: 45%;
 }
 .book-time {
   overflow: hidden;
@@ -2425,6 +2564,8 @@ textarea,
   resize: none;
   padding: 5px;
   margin-bottom: 15px;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
 .booking-but {
   display: block;
@@ -2656,6 +2797,7 @@ textarea,
   }
   .character__heading {
     font-size: 20px;
+    line-height: 20px;
   }
   .zaved-center__inner {
     margin: 0 20px 0 18px;
@@ -2973,6 +3115,28 @@ textarea,
   .gallery-ul li {
     width: 33.3%;
   }
+  .booking {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .book-left__inner {
+    margin: 0;
+  }
+  .book-left,
+  .book-right {
+    width: 100%;
+    float: none;
+    position: relative;
+  }
+  .book-time {
+    margin-bottom: 5px;
+    margin-top: 18px;
+  }
+  .book-row--date {
+    position: absolute;
+    top: -72px;
+    left: 155px;
+  }
 }
 @media screen and (max-width: 650px) {
   .center-part {
@@ -3061,6 +3225,9 @@ textarea,
   }
   .zaved-book__map {
     display: none;
+  }
+  .zaved-book__map:hover {
+    color: #ed2026;
   }
   .event-date__time {
     font-size: 26px;
@@ -3195,6 +3362,9 @@ textarea,
   .add-comment {
     width: 100%;
   }
+  .book-tel {
+    display: none;
+  }
 }
 @media screen and (max-width: 500px) {
   .logo {
@@ -3302,6 +3472,22 @@ textarea,
   .footer {
     padding: 15px 0;
   }
+  .fancybox-skin {
+    padding: 0;
+  }
+  .booking-part {
+    padding: 15px;
+  }
+  .book-row__text {
+    font-size: 14px;
+  }
+  .book-row--date {
+    top: -71px;
+    left: 145px;
+  }
+  .book-up__heading {
+    font-size: 22px;
+  }
 }
 @media screen and (max-width: 420px) {
   .filtr-search {
@@ -3330,7 +3516,7 @@ textarea,
     height: auto;
   }
   .upzaved-ul {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
   .zaved-up {
     padding-bottom: 12px;
@@ -3338,16 +3524,19 @@ textarea,
   .zaved-book {
     position: static;
   }
-  .mini-event__img {
+  .mini-event__img,
+  .event-item__img {
     float: none;
     width: 100%;
     margin-bottom: 10px;
   }
-  .mini-event__img img {
+  .mini-event__img img,
+  .event-item__img img {
     margin: 0 auto;
   }
   .cab-event,
-  .event-right {
+  .event-rightm,
+  .big-event {
     text-align: center;
     margin-left: 0;
   }
@@ -3373,7 +3562,10 @@ textarea,
   }
   .events,
   .jspContainer {
-    height: auto;
+    height: auto !important;
+  }
+  .jspContainer .jspPane {
+    position: static;
   }
   .event-ul li {
     display: none;
@@ -3391,6 +3583,46 @@ textarea,
   }
   .gallery-ul li {
     width: 50%;
+  }
+  .book-row--date {
+    position: static;
+  }
+  .book-row__datepicker {
+    width: 100%;
+  }
+  .book-comment {
+    display: none;
+  }
+  .pnumber {
+    width: 100%;
+  }
+  .pnumber__input {
+    width: 80%;
+    margin-left: 10%;
+    border-left: none;
+    border-right: none;
+  }
+  .book-up__heading {
+    font-size: 18px;
+  }
+  .zaved-rows > li {
+    margin-bottom: 8px;
+  }
+  .events-filter__item--hot {
+    display: none;
+  }
+  .character__heading {
+    font-size: 18px;
+  }
+  .event-item__zaved,
+  .item-date__text {
+    text-align: center;
+  }
+  .item-date {
+    width: 100%;
+  }
+  .event-right {
+    margin-left: 0;
   }
 }
 @media screen and (max-width: 370px) {

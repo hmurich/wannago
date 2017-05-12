@@ -85,6 +85,8 @@ class CatalogController extends Controller{
         $ar['ar_karaoke_type'] = SysDirectoryName::where('parent_id', 5)->pluck('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 6)->pluck('name', 'id');
         $ar['ar_music_type'] = SysDirectoryName::where('parent_id', 7)->pluck('name', 'id');
+        $ar['ar_ciry_area'] = SysDirectoryName::where('parent_id', 25)->pluck('name', 'id')->toArray();
+
 
         if ($request->has('on_map') && $request->input('on_map'))
             return view('front.catalog.map', $ar);
@@ -94,7 +96,6 @@ class CatalogController extends Controller{
         $ar['ar_kitchen_id'] = SysDirectoryName::where('parent_id', 6)->pluck('id');
         $ar['ar_music_id'] = SysDirectoryName::where('parent_id', 7)->pluck('id');
 
-        $ar['ar_ciry_area'] = SysDirectoryName::where('parent_id', 25)->pluck('name', 'id')->toArray();
 
         return view('front.catalog.index', $ar);
     }

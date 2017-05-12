@@ -6,7 +6,7 @@
     @foreach ($where_go as $g)
         <div class="where-mini">
             <a href='{{ action("Front\WhereGoController@getList", $g->id) }}'>
-                <div class="where-mini__img w-dr"></div>
+                <div class="where-mini__img {{ $g->sys_key }}"></div>
                 <span class="w-slider__heading">
                     {{ $g->name }}
                 </span>
