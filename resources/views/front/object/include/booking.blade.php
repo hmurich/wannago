@@ -1,4 +1,4 @@
-<div id="booking" style="width:700px;display: block;">
+<div id="booking" style="width:700px;display: block;" class='booking'>
     <form action="{{ $action }}" method="post">
         <div class="booking-part">
     		<div class="book-up">

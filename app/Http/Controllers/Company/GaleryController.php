@@ -52,7 +52,7 @@ class GaleryController extends Controller{
         $item->object_id = $object->id;
         $item->type_id = $cat_id;
         if ($request->hasFile('image'))
-            $item->image = ModelSnipet::setImage($request->file('image'), 'galerea', 800, 350);
+            $item->image = ModelSnipet::setImage($request->file('image'), 'galerea', 800, 450);
 
         $item->save();
 
