@@ -89,7 +89,7 @@
                     <?php $check = true; ?>
             	    <tr>
             	        <td>
-                            <a href='{{ action('Front\Object\ShowController@getIndex', $i->alias) }}' target="_blank">
+                            <a href='' target="_blank">
                                 {{ $i->name }}
                             </a>
                         </td>
@@ -157,55 +157,6 @@
                             @else
                                 <span class='fa fa-remove text-red'></span>
                             @endif
-                        </td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default">Действие</button>
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ action('Admin\Object\EditController@getIndex', $i->id) }}">Изменить</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\RaitingController@getIndex', $i->id) }}">
-                                            Рэйтинг
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getVip', $i->id) }}">
-                                            {{ ($i->is_vip ? 'Отключить ВИП' : 'ВИП') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getSpecial', $i->id) }}">
-                                            {{ ($i->is_special ? 'Отключить Специальное' : 'Специальное') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getNew', $i->id) }}">
-                                            {{ ($i->is_new ? 'Отключить Новое' : 'Новое') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getRecomeded', $i->id) }}">
-                                            {{ ($i->is_recomded ? 'Отключить Рекомендовано' : 'Рекомендовано') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getModerate', $i->id) }}">
-                                            {{ ($i->is_moderate ? 'Возобновить' : 'Приостановить') }}
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="{{ action('Admin\Object\ListController@getDelete', $i->id) }}">Удалить</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </td>
             	    </tr>
                 @endforeach

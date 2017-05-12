@@ -14,19 +14,21 @@
 		</ul>
 		<h1 class="search-heading">{{ $cat->name }}</h1>
 		<div class="search-type">
-			<a class="search-type__item {{ (!isset($ar_input['sort']) || $ar_input['sort'] == 'raiting' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'raiting')) }}">
-				По рейтингу
-			</a>
-			<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'new' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'new')) }}">
-				Новые заведения
-			</a>
-			<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'cost' ? 'search-type__item--active' : null) }}"
-					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'cost')) }}">
-				По Стоимости
-			</a>
-			<a class="search-type__item"
+				<div class="search-type__left">
+				<a class="search-type__item {{ (!isset($ar_input['sort']) || $ar_input['sort'] == 'raiting' ? 'search-type__item--active' : null) }}"
+						href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'raiting')) }}">
+					По рейтингу
+				</a>
+				<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'new' ? 'search-type__item--active' : null) }}"
+						href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'new')) }}">
+					Новые заведения
+				</a>
+				<a class="search-type__item {{ (isset($ar_input['sort']) && $ar_input['sort'] == 'cost' ? 'search-type__item--active' : null) }}"
+						href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('sort'=>'cost')) }}">
+					По Стоимости
+				</a>
+			</div>
+			<a class="search-type__map"
 					href="{{ App\Model\Generators\ModelSnipet::getUrlParams(array('on_map'=>1)) }}">
 				На карте
 			</a>

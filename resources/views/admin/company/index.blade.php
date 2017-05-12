@@ -37,9 +37,6 @@
                         <td>{{ $i->relObjects()->count() }}</td>
                         <td>{{ $i->created_at }}</td>
             	        <td>
-                            <a href="{{ action("Admin\Company\EditController@getPassword", $i->id) }}" >
-                                <i class="fa fa-key"></i>
-            				</a>
             	        	<a href="{{ action("Admin\Company\EditController@getIndex", $i->id) }}" >
                                 <i class="glyphicon glyphicon-edit"></i>
             				</a>

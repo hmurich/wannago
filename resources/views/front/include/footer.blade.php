@@ -20,7 +20,7 @@
             <a href='{{ action("Front\CatalogController@getIndex", 29) }}'>Летние площадки</a>
         </div>
     </div>
-    <div class="f-row">
+    <div class="f-row f-row--third">
         <span class="f-row__heading">Публикации</span>
         <div class="f-ul">
             <a href='{{ action('Front\EventController@getIndex') }}'>События</a>

@@ -52,6 +52,7 @@
                     </div>
 				</div>
 				<button class="btn filtr-search" type="submit">Искать по каталогу</button>
+			</form>
 			</div>
 		</div>
 	</div>
