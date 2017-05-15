@@ -54,8 +54,8 @@ class DirectoryNameController extends Controller{
     }
 
     function postEdit(Request $request, $id = 0){
-        if ($request->has('sys_key') && SysDirectoryName::where('sys_key', $request->input('sys_key'))->where('id', '<>', $id)->count())
-            return redirect()->back()->with('error', 'Системный код уже существует');
+        //if ($request->has('sys_key') && SysDirectoryName::where('sys_key', $request->input('sys_key'))->where('id', '<>', $id)->count())
+        //    return redirect()->back()->with('error', 'Системный код уже существует');
 
         DB::beginTransaction();
 

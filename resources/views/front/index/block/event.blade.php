@@ -21,10 +21,10 @@
                             <span class="event-date__text">{{ $e->date_str }}</span>
                         </div>
                         <div class="mini-event__zaved">
-                            {{ $e->title }}
+                            {{ $e->relObject->name }}
                         </div>
                         <div class="mini-event__heading">
-                            {{ $e->relObject->name }}
+                            {{ $e->title }}
                         </div>
                     </div>
                 </a>
