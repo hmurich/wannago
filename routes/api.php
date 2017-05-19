@@ -73,12 +73,21 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
         });
     }
 
-    if ($request->has('specail_option_id')){
+    if ($request->has('specail_option_id') && $request->input('specail_option_id')!='all'){
         $items = $items->whereHas('relSpecialOption', function($q) use ($request) {
             if (is_array($request->input('specail_option_id')))
                 $q = $q->whereIn('option_id', $request->input('specail_option_id'));
             else
                 $q = $q->where('option_id', $request->input('specail_option_id'));
+        });
+    }
+
+    if ($request->has('specail_option_sys_key')){
+        $items = $items->whereHas('relSpecialOption', function($q) use ($request) {
+            if (is_array($request->input('specail_option_sys_key')))
+                $q = $q->whereIn('sys_key', $request->input('specail_option_sys_key'));
+            else
+                $q = $q->where('sys_key', $request->input('specail_option_sys_key'));
         });
     }
     /*
@@ -94,9 +103,12 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
 });
 
 Route::get('get-object-event', function () {
-    $items = Event::where('is_active', 1)->get()->toJson();
+    $items = Event::where('is_active', 1);
 
-    echo $items;
+    if ($request->has('city_id'))
+        $items = $items->where('city_id', $request->input('city_id'));
+
+    echo $items->get()->toJson();
 });
 
 Route::get('get-object-news/{id}', function ($id) {
