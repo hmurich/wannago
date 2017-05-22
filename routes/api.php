@@ -102,7 +102,7 @@ Route::get('get-ar-object/{id?}', function (Request $request, $id = 0) {
     echo $items;
 });
 
-Route::get('get-object-event', function () {
+Route::get('get-object-event', function (Request $request) {
     $items = Event::where('is_active', 1);
 
     if ($request->has('city_id'))
