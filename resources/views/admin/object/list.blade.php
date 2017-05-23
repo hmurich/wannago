@@ -40,6 +40,10 @@
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ action('Admin\Object\ListController@getAuth', $i->user_id) }}">Авторизоваться</a>
+                                    </li>
+
+                                    <li>
                                         <a href="{{ action('Admin\Object\EditController@getIndex', $i->id) }}">Изменить</a>
                                     </li>
                                     <li>

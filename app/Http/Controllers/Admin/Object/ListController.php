@@ -6,8 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Object;
 use App\Model\SysDirectoryName;
+use Auth;
 
 class ListController extends Controller{
+    function getAuth($user_id){
+        Auth::loginUsingId($user_id);
+
+        return redirect()->action('Company\IndexController@getIndex');
+    }
+
     function getIndex(Request $request, $type_id){
         $cat = SysDirectoryName::where('parent_id', 3)->where('id', $type_id)->first();
         if (!$cat)

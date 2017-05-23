@@ -148,6 +148,8 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka/object/list/new/{id}', 'Admin\Object\ListController@getNew');
     Route::get('adminka/object/list/recomded/{id}', 'Admin\Object\ListController@getRecomeded');
     Route::get('adminka/object/list/delete/{id}', 'Admin\Object\ListController@getDelete');
+    Route::get('adminka/object/list/auth/{id}', 'Admin\Object\ListController@getAuth');
+
 
     //edit objects
     Route::get('adminka/object/edit/{id}', 'Admin\Object\EditController@getIndex');
