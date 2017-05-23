@@ -11,7 +11,7 @@ use Auth;
 class ListController extends Controller{
     function getAuth($user_id){
         Auth::loginUsingId($user_id);
-
+        
         return redirect()->action('Company\IndexController@getIndex');
     }
 
