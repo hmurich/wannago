@@ -122,10 +122,10 @@ class EventController extends Controller{
             $item->object_id = $object->id;
         }
         if ($request->hasFile('image'))
-            $item->image = ModelSnipet::setImage($request->file('image'), 'image-event', 800, 350);
+            $item->image = ModelSnipet::setImage($request->file('image'), 'image-event', Event::IMAGE_W, Event::IMAGE_H);
 
         if ($request->hasFile('catalog_image'))
-            $item->catalog_image = ModelSnipet::setImage($request->file('catalog_image'), 'image-catalog-event', 112, 112, true);
+            $item->catalog_image = ModelSnipet::setImage($request->file('catalog_image'), 'image-catalog-event', Event::IMAGE_CATALOG_W, Event::IMAGE_CATALOG_H, true);
 
         $item->title = $request->input('title');
         $item->note = $request->input('note');
