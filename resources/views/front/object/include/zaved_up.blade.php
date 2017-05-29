@@ -18,7 +18,7 @@
             <span>{{ $object->relComment()->count() }} отзыва</span>
         </div>
     </div>
-    
+
     <div class="upzaved-text">
         <h1 class="upzaved-text__heading">
             {{ $object->name }}
