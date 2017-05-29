@@ -31,6 +31,14 @@ class ListController extends Controller{
         return view('admin.object.list', $ar);
     }
 
+    function getSlide(){
+        $object = Object::findOrFail($object_id);
+        $object->is_slide = ($object->is_slide ? 0 : 1);
+        $object->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
+    }
+
     function getRecomeded($object_id){
         $object = Object::findOrFail($object_id);
         $object->is_recomded = ($object->is_recomded ? 0 : 1);

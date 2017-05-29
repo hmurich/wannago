@@ -54,6 +54,11 @@
 
                                     <li>
                                         <a href="{{ action('Admin\Object\ListController@getVip', $i->id) }}">
+                                            {{ ($i->is_vip ? 'Отключить Слайд' : 'Слайд') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ action('Admin\Object\ListController@getVip', $i->id) }}">
                                             {{ ($i->is_vip ? 'Отключить ВИП' : 'ВИП') }}
                                         </a>
                                     </li>

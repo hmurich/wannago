@@ -145,6 +145,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
 
     //list of objects
     Route::get('adminka/object/list/{id}', 'Admin\Object\ListController@getIndex');
+    Route::get('adminka/object/list/slide/{id}', 'Admin\Object\ListController@getSlide');
     Route::get('adminka/object/list/vip/{id}', 'Admin\Object\ListController@getVip');
     Route::get('adminka/object/list/specail/{id}', 'Admin\Object\ListController@getSpecial');
     Route::get('adminka/object/list/moderate/{id}', 'Admin\Object\ListController@getModerate');
