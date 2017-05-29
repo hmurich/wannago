@@ -65,8 +65,6 @@ class CatalogController extends Controller{
         $ar = array();
         $ar['title'] = 'Каталог';
 
-        $ar['company_on_top'] = Object::where('city_id', $city_id)->where('cat_id', $cat->id)->get();
-
         if ($request->has('on_map') && $request->input('on_map'))
             $ar['items'] = $items->with('relLocation', 'relStandartData')->get();
         else

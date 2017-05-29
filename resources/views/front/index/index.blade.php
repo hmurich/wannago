@@ -61,7 +61,7 @@
 
 		<div class="instagram">
 			@include('front.include.instagram')
-			
+
 		</div>
 
 		@include('front.modal.new_object')
@@ -71,7 +71,6 @@
 		<script type="text/javascript" src="{{ URL::asset('front/js/script.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/slick.min.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/scrollbar.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('front/js/mousewheel.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/jquery.fancybox.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/sain.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/main.js') }}"></script>

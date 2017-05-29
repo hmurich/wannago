@@ -23,6 +23,7 @@ class IndexController extends Controller{
 
         $ar['where_go'] = SysDirectoryName::where('parent_id', 8)->get();
         $ar['recomended'] = Object::where('city_id', $city_id)->where('is_moderate', 1)->where('is_recomded', 1)->with('relStandartData', 'relSlider')->take(8)->get();
+        $ar['object_on_slide'] = Object::where('city_id', $city_id)->where('is_slide', 0)->get();
 
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');

@@ -3,39 +3,41 @@
         Поиск заведений по параметрам
     </div>
     <div class="filtr-bot">
-        <div class="filtr-select">
-            Вид заведения
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите Вид заведения:</div>
-                <a class="filtr-option__item" href="#">Паб</a>
-                <a class="filtr-option__item" href="#">Бар</a>
-                <a class="filtr-option__item" href="#">Лаундж бар</a>
-                <a class="filtr-option__item" href="#">Спорт бар</a>
-                <a class="filtr-option__item" href="#">Суши бар</a>
+        <form action='{{ action("Front\CatalogController@getIndex", $cat_id) }}' method="get" data-action='{{ action("Front\CatalogController@getIndex", 0) }}'>
+            <div class="filtr-select">
+                <span class='js_option_title' data-def='Вид заведения'>{{ ($request->has('cat_id') ? $ar_object_type[$request->input('cat_id')] : 'Вид заведения') }}</span>
+                <div class="filtr-option">
+                    <div class="filtr-option__heading">Выберите вид заведения:</div>
+                    @foreach ($ar_object_type as $k=>$v)
+                        <a class="filtr-option__item js_option_select js_select_type" href="#cat_id" data-id='{{ $k }}' data-type='pub_id'>{{ $v }}</a>
+                    @endforeach
+                    <input type='hidden' name='cat_id' value='{{ $cat_id }}' class='js_option_pub_id'>
+                </div>
             </div>
-        </div>
-        <div class="filtr-select">
-            Особенности
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите особенности:</div>
-                <a class="filtr-option__item" href="#">Отдельный кабинет</a>
-                <a class="filtr-option__item" href="#">У воды</a>
-                <a class="filtr-option__item" href="#">Камин </a>
-                <a class="filtr-option__item" href="#">Круглосуточно</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">Бесплатная парковка</a>
+            <div class="filtr-select js_special_block">
+                <span class='js_option_title js_special_title' data-def='Особенности'>Особенности</span>
+                <div class="filtr-option">
+                    <div class="filtr-option__heading">Выберите особенности:</div>
+                    @foreach ($ar_object_type as $type_id=>$v)
+                        @foreach ($spec_option[$type_id] as $k=>$v)
+                            <a class="filtr-option__item js_option_select js_special_all js_special_{{ $type_id }}"
+                                href="#spec_option" data-id='{{ $k }}' data-type='spec_option' style="{{ ($type_id == $cat_id ? '' : 'display:none') }}">{{ $v }}</a>
+                        @endforeach
+                    @endforeach
+                    <input type='hidden' name='spec_option[]' value='0' class='js_option_spec_option'>
+                </div>
             </div>
-        </div>
-        <div class="filtr-select">
-            Средний счет
-            <div class="filtr-option">
-                <div class="filtr-option__heading">Выберите средний счет:</div>
-                <a class="filtr-option__item" href="#">до 2000 тг</a>
-                <a class="filtr-option__item" href="#">2000 - 3000 тг</a>
-                <a class="filtr-option__item" href="#">3000 - 5000 тг</a>
-                <a class="filtr-option__item" href="#">5000 - 10000 тг</a>
-                <a class="filtr-option__item filtr-option__item--full" href="#">более 10000 тг</a>
+            <div class="filtr-select">
+                <span class='js_option_title' data-def='Средний счет'>Средний счет</span>
+                <div class="filtr-option">
+                    <div class="filtr-option__heading">Выберите средний счет:</div>
+                    @foreach ($ar_avg_pice as $k=>$v)
+                        <a class="filtr-option__item js_option_select" href="#avg_price" data-id='{{ $k }}' data-type='avg_price'>{{ $v }}</a>
+                    @endforeach
+                    <input type='hidden' name='avg_price' value='0' class='js_option_avg_price'>
+                </div>
             </div>
-        </div>
-        <button class="btn filtr-search">Искать по каталогу</button>
+            <button class="btn filtr-search">Искать по каталогу</button>
+        </form>
     </div>
 </div>

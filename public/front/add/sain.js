@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	console.log('asdas');
 	$('.scroll-pane').jScrollPane();
 
 	$('.fancybox').fancybox();
