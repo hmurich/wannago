@@ -1,5 +1,5 @@
 <div class="inner">
-    <div class="f-row">
+    <div class="f-row f-row--first">
         <span class="f-row__heading">Портал</span>
         <div class="f-ul">
             <a href="/company/">Вход в личный кабинет</a>

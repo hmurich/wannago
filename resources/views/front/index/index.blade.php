@@ -17,30 +17,39 @@
 			</div>
 			@include('front.index.include.header_bot')
 		</div>
-		<div class="inner top-part">
-            @include('front.index.include.top_part')
+		<div class="main-part">
+			<div class="main-slider">
+				@include('front.index.include.main_slider')
+			</div>
+			<div class="main-filtr">
+				@include('front.index.include.main_filter')
+			</div>
 		</div>
-		<div class="bottom"></div>
-		<main>
+
+		<main role="main">
 			<div class="inner">
 				<div class="reccoments">
 					@include('front.index.block.reccoments')
 				</div>
-				<div class="zaved-main">
-					<div class="zaved-main__banners">
-						@include('front.index.block.banners')
-					</div>
-					<div class="zaved-main__news">
-						 @include('front.index.block.news')
-					</div>
-					<div class="zaved-main__event">
-						@include('front.index.block.event')
-					</div>
+			</div>
+			<div class="events">
+				<div class="inner">
+					@include('front.index.block.event')
 				</div>
-				<div class="where">
+			</div>
+			<div class="where">
+				<div class="inner">
 					@include('front.index.block.where')
 				</div>
-				<div class="about-des">
+			</div>
+			<div class="news">
+				<div class="inner">
+					@include('front.index.block.news')
+				</div>
+			</div>
+
+			<div class="about-des">
+				<div class="inner">
 					@include('front.include.about-des', ['sys_key' => 'about_main'])
 				</div>
 			</div>
@@ -49,6 +58,11 @@
 		<footer class="footer">
             @include('front.include.footer')
         </footer>
+
+		<div class="instagram">
+			@include('front.include.instagram')
+			
+		</div>
 
 		@include('front.modal.new_object')
 

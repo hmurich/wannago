@@ -9,7 +9,7 @@
                     @if ($r->relSlider()->first())
                         <img src="{{ $r->relSlider()->first()->image }}">
                     @else
-                        <img src="/front/img/zaved2.jpg">
+                        <img src="/front/img/zaved.jpg">
                     @endif
                 </div>
                 <div class="t-zaved">
@@ -19,7 +19,7 @@
                     <span class="t-zaved__heading" href="#">
                         {{ $r->name }}
                     </span>
-                    <div class="stars {{ $r->raiting_full_round }}-star"></div>
+                    <span class="btn btn--second" href="#">Подробнее</span>
                 </div>
             </a>
         </li>

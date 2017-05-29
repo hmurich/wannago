@@ -17,4 +17,8 @@ class News extends Model{
     function getCreatedAttribute(){
         return ModelSnipet::formatDate($this->created_at, 'd.m.Y');
     }
+
+    function getDateStrAttribute(){
+        return ModelSnipet::modifyDateToStr($this->created_at);
+    }
 }

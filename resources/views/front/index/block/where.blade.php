@@ -1,16 +1,21 @@
 <div class="top-up">
-        <h4 class="top-up__heading">Куда сходить?</h4>
-        <a class="link" href="{{ action('Front\WhereGoController@getIndex') }}">Смотреть все подборки</a>
+    <h4 class="top-up__heading">ПОДБОРКИ ЗАВЕДЕНИЙ</h4>
 </div>
-<div class="w-slider">
+<ul class="w-slider">
     @foreach ($where_go as $g)
-        <div class="where-mini">
-            <a href='{{ action("Front\WhereGoController@getList", $g->id) }}'>
-                <div class="where-mini__img {{ $g->sys_key }}"></div>
-                <span class="w-slider__heading">
+        <li class="w-slider__li">
+            <a href="{{ action("Front\WhereGoController@getList", $g->id) }}" class="where-item {{ $g->sys_key }}">
+                @if ($g->note)
+                    <img src="{{ $g->note }}">
+                @else
+                    <img src="/front/img/where-dr.jpg">
+                @endif
+                <span class="where-item__icon "></span>
+                <span class="where-item__text">
                     {{ $g->name }}
                 </span>
+                <span class="btn" href="#">Подробнее</span>
             </a>
-        </div>
+        </li>
     @endforeach
-</div>
+</ul>

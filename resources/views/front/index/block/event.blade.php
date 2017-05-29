@@ -1,34 +1,32 @@
 <div class="top-up">
     <h4 class="top-up__heading">Ближайшие события</h4>
-    <a class="link link--event" href="{{ action('Front\EventController@getIndex') }}">Все события</a>
+    <div class="arrows">
+		<span class="arrows__item"><-</span>
+		<span class="arrows__item">-></span>
+	</div>
 </div>
 
-<div class="events scroll-pane">
-    <ul class="event-ul">
-        @foreach ($events as $e)
-            <li>
-                <a href="{{ action('Front\Object\EventController@getShow', array($e->relObject->alias, $e->id)) }}" class="mini-event">
-                    <div class="mini-event__img">
-                        @if ($e->catalog_image)
-                            <img src="{{ $e->catalog_image }}" style="max-width: 112px;" />
-                        @else
-                            <img src="/front/img/event.png" />
-                        @endif
-                    </div>
-                    <div class="event-right">
-                        <div class="event-date">
-                            <span class="event-date__time">{{ $e->time_str}}</span>
-                            <span class="event-date__text">{{ $e->date_str }}</span>
-                        </div>
-                        <div class="mini-event__zaved">
-                            {{ $e->relObject->name }}
-                        </div>
-                        <div class="mini-event__heading">
-                            {{ $e->title }}
-                        </div>
-                    </div>
-                </a>
-            </li>
-        @endforeach
-    </ul>
-</div>
+<ul class="new-ul">
+    @foreach ($events as $e)
+        <li>
+            <a href="{{ action('Front\Object\EventController@getShow', array($e->relObject->alias, $e->id)) }}" class="new-zaved">
+                <div class="new-zaved__img">
+                    @if ($e->image)
+                        <img src="{{ $e->image }}"  />
+                    @else
+                        <img src="/front/img/event.png" />
+                    @endif
+                </div>
+                <div class="t-zaved event-part">
+                    <span class="event-part__heading">
+						{{ $e->relObject->name }}
+					</span>
+                    <span class="event-part__date">
+						{{ $e->date_str }}
+					</span>
+					<span class="btn btn--second" href="#">Подробнее</span>
+                </div>
+            </a>
+        </li>
+    @endforeach
+</ul>

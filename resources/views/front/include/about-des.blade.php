@@ -5,5 +5,10 @@
     <div class="top-up">
         <h4 class="top-up__heading">{{ $about_text->title }}</h4>
     </div>
-    {!! $about_text->note !!}
+    <div class="about-text">
+		<img class="about-text__img" src="/front/img/about-img.jpg">
+		<div class="about-text__info">
+            {!! $about_text->note !!}
+        </div>
+    </div>
 @endif

@@ -1,14 +1,28 @@
-<div class="zaved-news">
-    <div class="top-up">
-        <h4 class="top-up__heading">Новости</h4>
-    </div>
-    <ul class="news-ul">
-        @foreach ($news as $n)
-            <li class="news-ul__li">
-                <span>Новости</span>
-                <a href="{{ action('Front\Object\NewsController@getShow', array($n->relObject->alias, $n->id)) }}">{{ $n->title }}</a>
-            </li>
-        @endforeach
-    </ul>
-    <a class="news-link" href="{{ action('Front\NewsController@getIndex') }}">Смотреть все новости</a>
+<div class="top-up">
+	<h4 class="top-up__heading">Новости и Акции</h4>
 </div>
+
+<ul class="new-ul">
+    @foreach ($news as $n)
+        <li>
+            <a href="{{ action('Front\Object\NewsController@getShow', array($n->relObject->alias, $n->id)) }}" class="new-zaved">
+                <div class="new-zaved__img">
+                    @if ($n->image)
+                        <img src="{{ $n->image }}"/>
+                    @else
+                        <img src="/front/img/zaved.jpg"/>
+                    @endif
+                </div>
+                <div class="t-zaved">
+                    <span class="t-zaved__type">
+                        {{ $n->date_str }}
+                    </span>
+                    <span class="t-zaved__heading">
+                        {{ $n->title }}
+                    </span>
+                    <span class="btn btn--second" href="#">Подробнее</span>
+                </div>
+            </a>
+        </li>
+    @endforeach
+</ul>
