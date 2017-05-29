@@ -6,6 +6,9 @@ use App\Model\Generators\ModelSnipet;
 class Object extends Model{
     protected $table = 'objetcs';
 
+    const LOGO_W = 800;
+    const LOGO_H = 800;
+
     function setNameAttribute($value) {
 		$this->attributes['name'] = $value;
         if (!$this->alias){
