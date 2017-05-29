@@ -54,8 +54,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="reccoments">
+
+	<div class="reccoments">
+		<div class="inner">
 			@include('front.object.include.simular_object')
 		</div>
 	</div>
