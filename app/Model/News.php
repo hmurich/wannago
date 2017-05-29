@@ -6,6 +6,9 @@ use App\Model\Generators\ModelSnipet;
 class News extends Model{
     protected $table = 'news';
 
+    const IMAGE_W = 800;
+    const IMAGE_H = 350;
+
     function relComments(){
         return $this->hasMany('App\Model\NewsComment', 'news_id');
     }
