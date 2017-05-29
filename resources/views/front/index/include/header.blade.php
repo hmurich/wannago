@@ -1,3 +1,8 @@
+
+<a class="logo" href="/">
+	<img src="/front/img/logo.jpg" />
+</a>
+<span class="slogan">Каталог заведении по Казахстану</span>
 <div class="city-select">
 	<div class="city-select__left">Город:</div>
 	<div class="city-select__part">
@@ -13,16 +18,25 @@
 		</ul>
 	</div>
 </div>
-
-<a class="logo" href="/"></a>
+<ul class="right-nav">
+	<li>
+		<a href="#">
+			События
+		</a>
+	</li>
+	<li>
+		<a href="#">
+			Новости
+		</a>
+	</li>
+	<li>
+		<a href="#">
+			Рекомендации
+		</a>
+	</li>
+</ul>
 <div class="mob-menu">
 	<span></span>
 	<span></span>
 	<span></span>
-</div>
-<div class="right-search">
-	<form action="{{ action('Front\SearchController@getIndex') }}">
-		<input class="right-search__input" name='name' type="search" placeholder="название заведения">
-		<input class="right-search__submit" type="submit">
-	</form>
 </div>

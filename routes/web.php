@@ -38,6 +38,9 @@ Route::get('logout', 'Company\AuthController@getLogout');
 Route::get('company/login', 'Company\AuthController@getLogin');
 Route::post('company/login', 'Company\AuthController@postLogin');
 
+Route::get('company/registr', 'Company\RegistrController@getIndex');
+Route::post('company/registr', 'Company\RegistrController@postIndex');
+
 Route::group(['middleware' => ['auth.company']], function () {
     Route::get('company', 'Company\IndexController@getIndex');
 

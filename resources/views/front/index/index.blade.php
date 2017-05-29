@@ -9,20 +9,18 @@
 		<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 	</head>
 	<body class="main">
-		<div class="main-page">
-			<div class="header">
-				<div class="header-top">
-					<div class="inner">
-						@include('front.index.include.header')
-					</div>
+		<div class="header">
+			<div class="header-top">
+				<div class="inner">
+					@include('front.index.include.header')
 				</div>
-				@include('front.index.include.header_bot')
 			</div>
-			<div class="inner top-part">
-	            @include('front.index.include.top_part')
-			</div>
-			<div class="bottom"></div>
+			@include('front.index.include.header_bot')
 		</div>
+		<div class="inner top-part">
+            @include('front.index.include.top_part')
+		</div>
+		<div class="bottom"></div>
 		<main>
 			<div class="inner">
 				<div class="reccoments">
