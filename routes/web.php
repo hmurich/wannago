@@ -116,6 +116,10 @@ Route::post('adminka/login', 'Admin\AuthController@postLogin');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
+    //anketa routes
+    Route::get('adminka/anketa/', 'Admin\AnketaController@getIndex');
+    Route::get('adminka/anketa/show/{id}', 'Admin\AnketaController@getShow');
+
     //new object routes
     Route::get('adminka/new-object/', 'Admin\NewObjectController@getIndex');
     Route::get('adminka/new-object/active/{id}/{status_id}', 'Admin\NewObjectController@getActive');

@@ -9,7 +9,7 @@
     <span class="form-row__text">Фотографии:</span>
     <div class="photo-load">
         <div class="photo-load__file">
-            <input type="file" multiple name='ar_photo'>
+            <input type="file" multiple name='ar_photo[]'>
             <span>Загрузить фото</span>
         </div>
         <div class="photo-load__zakas">

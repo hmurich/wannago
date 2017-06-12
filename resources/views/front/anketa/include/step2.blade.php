@@ -3,9 +3,9 @@
 </span>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="cat_id">
-        <option value="0">Выберите категорию</option>
+        <option value="">Выберите категорию</option>
         @foreach ($ar_object_type as $k=>$v)
-            <option value="{{ $k }}">{{ $v }}</option>
+            <option>{{ $v }}</option>
         @endforeach
     </select>
 </div>
@@ -19,9 +19,9 @@
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="kitchen_id">
-        <option value="0">Кухня</option>
+        <option value="">Кухня</option>
         @foreach ($ar_kitchen as $k=>$v)
-            <option value="{{ $k }}">{{ $v }}</option>
+            <option>{{ $v }}</option>
         @endforeach
     </select>
 </div>
@@ -80,9 +80,9 @@
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select"  name="musik">
-        <option value="0">Музыка</option>
+        <option value="">Музыка</option>
         @foreach ($ar_musik as $k=>$v)
-            <option value="{{ $k }}">{{ $v }}</option>
+            <option >{{ $v }}</option>
         @endforeach
     </select>
 </div>
@@ -90,7 +90,7 @@
     <span class="form-row__text">Особенности:</span>
     @foreach ($ar_special as $k=>$v)
         <div class="check-row">
-            <input type="checkbox"  name="ar_specail" value="{{ $k }}">
+            <input type="checkbox"  name="ar_specail[]" value="{{ $v }}">
             <label>{{ $v }}</label>
         </div>
     @endforeach

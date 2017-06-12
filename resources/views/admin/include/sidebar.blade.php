@@ -11,6 +11,12 @@
                 <i class="fa fa-arrow-right "></i> <span>Заявки</span>
             </a>
         </li>
+        
+        <li>
+            <a href="{{ action('Admin\AnketaController@getIndex') }}">
+                <i class="fa fa-arrow-right "></i> <span>Анкеты</span>
+            </a>
+        </li>
 
         <li>
             <a href="{{ action('Admin\Company\ListController@getIndex') }}">
