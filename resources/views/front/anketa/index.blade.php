@@ -14,7 +14,7 @@
 
 @section('content')
 
-<form action='{{ action("Front\NewObjectController@postSave") }}' method="post">
+<form action='{{ action("Front\AnketaController@postIndex") }}' method="post" enctype="multipart/form-data">
     <main>
     	<div id="anketa" class="anketa">
     		<div class="anketa-center">

@@ -18,15 +18,21 @@ class AnketaController extends Controller{
 
         $ar = array();
         $ar['title'] = 'Анкета';
+
         $ar['city_id'] = $city_id;
         $ar['city'] = $city;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
+
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
+        $ar['ar_special'] = SysDirectoryName::where('parent_id', 9)->pluck('name', 'id');
+        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 6)->pluck('name', 'id');
+        $ar['ar_musik'] = SysDirectoryName::where('parent_id', 6)->pluck('name', 'id');
 
         return view('front.anketa.index', $ar);
     }
 
     function postIndex(Request $request){
+        echo '<pre>'; print_r($request->all()); echo '</pre>';
 
     }
 }

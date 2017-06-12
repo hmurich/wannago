@@ -3,8 +3,10 @@
 </span>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="cat_id">
-        <option>Выберите категорию</option>
-        <option>Выберите категорию</option>
+        <option value="0">Выберите категорию</option>
+        @foreach ($ar_object_type as $k=>$v)
+            <option value="{{ $k }}">{{ $v }}</option>
+        @endforeach
     </select>
 </div>
 <div class="form-row">
@@ -17,15 +19,14 @@
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="kitchen_id">
-        <option>Кухня</option>
-        <option>Выберите категорию</option>
-        <option>Выберите категорию</option>
-        <option>Выберите категорию</option>
-        <option>Выберите категорию</option>
-        <option>Выберите категорию</option>
+        <option value="0">Кухня</option>
+        @foreach ($ar_kitchen as $k=>$v)
+            <option value="{{ $k }}">{{ $v }}</option>
+        @endforeach
     </select>
 </div>
 <div class="form-row">
+    <!--
     <span class="form-row__text">Рабочие дни:</span>
     <ul class="week-ul">
         <li>Пн</li>
@@ -36,6 +37,7 @@
         <li>Сб</li>
         <li>Вс</li>
     </ul>
+    -->
     <span class="form-row__text">Время работы:</span>
     <div class="form-clock">
         <span>С</span>
@@ -56,46 +58,42 @@
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="kredit_cart">
-        <option>Кредитные карты</option>
-        <option>Выберите категорию</option>
+        <option value="">Кредитные карты</option>
+        <option>Есть</option>
+        <option>Нету</option>
     </select>
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select" name="park">
-        <option>Парковка</option>
-        <option>Выберите категорию</option>
+        <option value="">Парковка</option>
+        <option>Есть</option>
+        <option>Нету</option>
     </select>
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select"  name="children">
-        <option>Детям</option>
-        <option>Выберите категорию</option>
+        <option value="">Детям</option>
+        <option>Мороженное</option>
+        <option>Вафля</option>
+        <option>Косяк</option>
     </select>
 </div>
 <div class="form-row form-row--sel">
     <select class="form-row__select"  name="musik">
-        <option>Музыка</option>
-        <option>Выберите категорию</option>
+        <option value="0">Музыка</option>
+        @foreach ($ar_musik as $k=>$v)
+            <option value="{{ $k }}">{{ $v }}</option>
+        @endforeach
     </select>
 </div>
 <div class="form-row">
     <span class="form-row__text">Особенности:</span>
-    <div class="check-row">
-        <input type="checkbox"  name="name">
-        <label>Кальяны</label>
-    </div>
-    <div class="check-row">
-        <input type="checkbox">
-        <label>Спортивные площадки</label>
-    </div>
-    <div class="check-row">
-        <input type="checkbox">
-        <label>Кальяны</label>
-    </div>
-    <div class="check-row">
-        <input type="checkbox">
-        <label>Спортивные площадки</label>
-    </div>
+    @foreach ($ar_special as $k=>$v)
+        <div class="check-row">
+            <input type="checkbox"  name="ar_specail" value="{{ $k }}">
+            <label>{{ $v }}</label>
+        </div>
+    @endforeach
 </div>
 <div class="form-bot">
     <span class="btn form-bot__left step1">Назад</span>

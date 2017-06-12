@@ -9,7 +9,7 @@
     <span class="form-row__text">Фотографии:</span>
     <div class="photo-load">
         <div class="photo-load__file">
-            <input type="file"  name='ar_photo'>
+            <input type="file" multiple name='ar_photo'>
             <span>Загрузить фото</span>
         </div>
         <div class="photo-load__zakas">
@@ -20,6 +20,7 @@
     </div>
     <div class="photo-time">
         <span class="form-row__text">Время фотосессии:</span>
+        <!--
         <ul class="week-ul">
             <li>Пн</li>
             <li>Вт</li>
@@ -29,6 +30,7 @@
             <li>Сб</li>
             <li>Вс</li>
         </ul>
+        -->
         <div class="form-clock">
             <span>С</span>
             <input class="form-clock__input form-clock__input--left" type="text"  name='photo_service_time_from'>
