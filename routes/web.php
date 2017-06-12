@@ -10,6 +10,9 @@ Route::get('search/{name?}', 'Front\SearchController@getIndex');
 Route::get('where', 'Front\WhereGoController@getIndex');
 Route::get('where/list/{id}', 'Front\WhereGoController@getList');
 
+Route::get('anketa', 'Front\AnketaController@getIndex');
+Route::post('anketa', 'Front\AnketaController@postIndex');
+
 //show company controller
 Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
 
