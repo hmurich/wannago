@@ -10,6 +10,8 @@ use App\Model\SysDirectoryName;
 use App\Model\Company;
 use App\User;
 
+use App\Model\MailSend;
+
 class EditController extends Controller{
     function getIndex(Request $request, $id = 0){
         $item = Company::find($id);
@@ -44,6 +46,11 @@ class EditController extends Controller{
 
             $item = new Company();
             $item->user_id = $user->id;
+
+            $text = '<p>Ваш пароль - '.$request->input('password').'</p>';
+            $text .= '<p>Ваше логин - '.$user->email.'</p>';
+
+            MailSend::send($user->email, 'Ваш пароль для входа в weekends.kz', $text);
         }
 
         $item->name =  $request->input('name');
