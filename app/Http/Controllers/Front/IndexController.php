@@ -16,14 +16,14 @@ class IndexController extends Controller{
         $city_id = City::getCityID();
 
         $ar = array();
-        $ar['title'] = 'WannaGo';
+        $ar['title'] = 'Weekends.kz - гид #1 по заведениям в Астане';
         $ar['events'] = Event::where('city_id', $city_id)->where('date_event' , '>', date('Y-m-d'))->where('is_active', 1)->orderBy('date_event', 'asc')->take(5)->get();
         $ar['news'] = News::where('city_id', $city_id)->orderBy('id', 'desc')->take(9)->get();
         $ar['banners'] = Banner::getTwoEl();
 
         $ar['where_go'] = SysDirectoryName::where('parent_id', 8)->get();
-        $ar['recomended'] = Object::where('city_id', $city_id)->where('is_moderate', 1)->where('is_recomded', 1)->with('relStandartData', 'relSlider')->take(8)->get();
-        $ar['object_on_slide'] = Object::where('city_id', $city_id)->where('is_slide', 0)->get();
+        $ar['recomended'] = Object::where('city_id', $city_id)->where('is_recomded', 1)->with('relStandartData', 'relSlider')->take(8)->get();
+        $ar['object_on_slide'] = Object::where('city_id', $city_id)->where('is_slide', 1)->get();
 
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');

@@ -4,9 +4,8 @@
 		<meta charset="utf-8">
 		<title>{{ $title }}</title>
 		<link href="{{ URL::asset('front/css/style.css') }}" rel="stylesheet" type="text/css">
-		<link href="{{ URL::asset('front/css/scrollbar.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ URL::asset('front/css/jquery.fancybox.css') }}" rel="stylesheet" type="text/css">
-		<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+		<meta name="viewport" content="width=1300, initial-scale=0">		
 	</head>
 	<body class="main">
 		<div class="header">
@@ -27,26 +26,30 @@
 		</div>
 
 		<main role="main">
-			<div class="inner">
-				<div class="reccoments">
-					@include('front.index.block.reccoments')
-				</div>
-			</div>
-			<div class="events">
+			@if ($recomended->count() > 0)
 				<div class="inner">
-					@include('front.index.block.event')
+					@include('front.index.block.reccoments')				
 				</div>
-			</div>
+			@endif
+			@if ($events->count() > 0)
+				<div class="events">
+					<div class="inner">
+						@include('front.index.block.event')
+					</div>
+				</div>
+			@endif
 			<div class="where">
 				<div class="inner">
 					@include('front.index.block.where')
 				</div>
 			</div>
-			<div class="news">
-				<div class="inner">
-					@include('front.index.block.news')
+			@if ($news->count() > 0)
+				<div class="news">
+					<div class="inner">
+						@include('front.index.block.news')
+					</div>
 				</div>
-			</div>
+			@endif
 
 			<div class="about-des">
 				<div class="inner">
@@ -70,9 +73,7 @@
 		<script type="text/javascript" src="{{ URL::asset('https://code.jquery.com/ui/1.12.1/jquery-ui.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/script.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/slick.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('front/js/scrollbar.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/js/jquery.fancybox.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('front/add/sain.js') }}"></script>
 		<script type="text/javascript" src="{{ URL::asset('front/add/main.js') }}"></script>
 	</body>
 </html>

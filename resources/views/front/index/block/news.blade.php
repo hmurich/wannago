@@ -1,5 +1,5 @@
 <div class="top-up">
-	<h4 class="top-up__heading">Новости и Акции</h4>
+	<h4 class="top-up__heading">Акции и Скидки</h4>
 </div>
 
 <ul class="new-ul">

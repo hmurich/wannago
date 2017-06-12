@@ -3,7 +3,7 @@
     <ul class="sidebar-menu">
         <li>
             <a href="{{ action('Company\NewObjectController@getIndex') }}">
-                <i class="fa fa-plus"></i> <span>Заявки </span>
+                <i class="fa fa-plus"></i> <span>Добавить Заведение </span>
             </a>
         </li>
         @if (count($ar_object_id) > 0)
@@ -27,19 +27,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ action('Company\MenuController@getIndex') }}">
-                    <i class="fa fa-coffee "></i> <span>Меню</span>
-                </a>
-            </li>
-
-            <li>
                 <a href="{{ action('Company\SliderController@getIndex') }}">
-                    <i class="fa fa-file-photo-o "></i> <span>Слайдер</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ action('Company\GaleryTypeController@getIndex') }}">
-                    <i class="fa fa-file-photo-o "></i> <span>Галерея</span>
+                    <i class="fa fa-file-photo-o "></i> <span>Фотографии</span>
                 </a>
             </li>
             <li>

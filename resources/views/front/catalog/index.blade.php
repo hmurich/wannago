@@ -39,7 +39,7 @@
 					<div class="zaved-slider">
 						@forelse($i->relSlider as $s)
                             <div>
-                                <img alt="{{ $i->title }}" src="{{ $s->image }}">
+                                <img alt="{{ $i->title }}" src="{{ $s->small_image }}">
                             </div>
                         @empty
                             <div>
@@ -104,13 +104,13 @@
 	    					</div>
 
 							@if ($i->relSpecialOption->count() > 0)
-								<ul class="feature">
+								<div class="feature">
 									@foreach ($i->relSpecialOption as $s)
-										<li class="{{ $s->sys_key }}">
+										<div class="{{ $s->sys_key }}">
 											<span class="feature-text">{{ $s->name }}</span>
-										</li>
+										</div>
 									@endforeach
-								</ul>
+								</div>
 							@endif
 						</div>
 					</div>

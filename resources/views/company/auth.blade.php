@@ -18,7 +18,7 @@
         @include('admin.include.message')
 
         <div class="login-logo">
-            <a href="#"><b>Creative</b>CMS</a>
+            Вход в личный кабинет заведения
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Введите email и пароль</p>

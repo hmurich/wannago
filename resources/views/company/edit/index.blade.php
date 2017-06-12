@@ -95,17 +95,16 @@
                                 @endforeach
                             </select>
                         </div>
-                    @else
-                        <div class="form-group">
-                            <label for="name" >Кухня:</label>
-                            <select class="form-control select2" name='main_option[]'
-                                    multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
-                                @foreach ($ar_kitchen as $id=>$name)
-                                    <option value="{{ $id }}" {{ (isset($main_option[$id]) ? 'selected' : null) }}>{{ $name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                     @endif
+					<div class="form-group">
+						<label for="name" >Кухня:</label>
+						<select class="form-control select2" name='main_option[]'
+								multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
+							@foreach ($ar_kitchen as $id=>$name)
+								<option value="{{ $id }}" {{ (isset($main_option[$id]) ? 'selected' : null) }}>{{ $name }}</option>
+							@endforeach
+						</select>
+					</div>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-info pull-right">Сохранить</button>
@@ -116,31 +115,13 @@
         <div class='col-md-6'>
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Логитип</h3>
-                </div>
-                <div class="box-body">
-                    @if ($standart_data->logo)
-                        <div class="form-group">
-                            <label for="name" >Логотип</label> <br />
-                            <img src="{{ $standart_data->logo }}"  class="img-thumbnail"><br />
-                            <a href="{{ action('Company\EditController@getDeleteLogo') }}" class="btn  btn-danger">Удалить</a>
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <label for="name" >Загрузить лого</label>
-                        <input type="file" name='logo' class='form-control' />
-                    </div>
-                </div>
-            </div>
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Дополнительные свойтсва</h3>
+                    <h3 class="box-title">Характеристики заведения</h3>
                 </div>
                 <div class="box-body">
                     @foreach ($ar_dop_option as $id =>$name)
                         <div class="form-group">
                             <label for="lng" >{{ $name }}:</label>
-                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' value='{{ (isset($dop_option[$id]) ? $dop_option[$id] : null) }}' placeholder="{{ $name }}"  required="">
+                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' value='{{ (isset($dop_option[$id]) ? $dop_option[$id] : null) }}' placeholder="{{ $name }}"  >
                         </div>
                     @endforeach
                 </div>
@@ -175,6 +156,7 @@
                 </div>
                 <div class="box-body">
                     <div class="row">
+                        <div style="display:none">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lng" >Широта:</label>
@@ -186,6 +168,7 @@
                                 <label for="lat" >Долгота:</label>
                                 <input type="text" class="form-control" name='lat' id='lat' value='{{ $location->lat }}' placeholder="Телефон"  required="">
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="form-group">

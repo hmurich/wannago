@@ -36,7 +36,7 @@
                         <input type="text" class="form-control" name='phone' placeholder="Телефон"  required="">
                     </div>
                     <div class="form-group">
-                        <label for="address" >Адресс:</label>
+                        <label for="address" >Адрес:</label>
                         <input type="text" class="form-control" name='address' placeholder="Адресс"  required="">
                     </div>
                     <div class="form-group">
@@ -85,33 +85,32 @@
                                 @endforeach
                             </select>
                         </div>
-                    @else
-                        <div class="form-group">
-                            <label for="name" >Кухня:</label>
-                            <select class="form-control select2" name='main_option[]'
-                                    multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
-                                @foreach ($ar_kitchen as $id=>$name)
-                                    <option value="{{ $id }}">{{ $name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                     @endif
+					<div class="form-group">
+						<label for="name" >Кухня:</label>
+						<select class="form-control select2" name='main_option[]'
+								multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
+							@foreach ($ar_kitchen as $id=>$name)
+								<option value="{{ $id }}">{{ $name }}</option>
+							@endforeach
+						</select>
+					</div>
                 </div>
             </div>
         </div>
 
         <div class='col-md-6'>
-            <div class="box box-primary">
+            <!-- <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Логитип</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
                         <label for="name" >Загрузить лого</label>
-                        <input type="file" name='logo' class='form-control' required=""/>
+                        <input type="file" name='logo' class='form-control'/>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Дополнительные свойтсва</h3>
@@ -120,7 +119,7 @@
                     @foreach ($ar_dop_option as $id =>$name)
                         <div class="form-group">
                             <label for="lng" >{{ $name }}:</label>
-                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' placeholder="{{ $name }}"  required="">
+                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' placeholder="{{ $name }}"  >
                         </div>
                     @endforeach
                 </div>
@@ -148,6 +147,7 @@
                     <h3 class="box-title">Карта</h3>
                 </div>
                 <div class="box-body">
+                    <div style="display:none">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -161,6 +161,7 @@
                                 <input type="text" class="form-control" name='lat' id='lat' placeholder="Телефон"  required="">
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div class="form-group">
                         <div id='map' style="width: 100%; height: 300px;"></div>

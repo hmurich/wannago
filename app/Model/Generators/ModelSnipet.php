@@ -142,7 +142,7 @@ class ModelSnipet {
 		return str_replace(array_keys($ar),array_values($ar), $string);
 	}
 
-	public static function setImage ($file, $path = 'images', $image_wight = false, $image_height = false) { // функция по до
+	public static function setImage ($file, $path = 'images', $image_wight = false, $image_height = false, $small_wight = false, $small_height = false) { // функция по до
         $cirle = false;
 
         $path = 'upload/'.$path;
@@ -152,10 +152,15 @@ class ModelSnipet {
 		$file_name = $file->getClientOriginalName();
 		$file_name = pathinfo($file_name, PATHINFO_FILENAME);
 		$file_name = static::translitString($file_name);
-
-		//$new_file = time().'_'.$file_name.'_crop.'.$file_extension;
-		$file_name = time().'_'.$file_name.'.'.$file_extension;
-
+		
+		$time = time();
+		if ($small_wight && $small_height){
+			$small_image = $time.'_'.$file_name.'_small.'.$file_extension;
+			//$file->move($path, $small_image);
+		}
+			
+		
+		$file_name = $time.'_'.$file_name.'.'.$file_extension;
 		$file->move($path, $file_name);
 
         if ($image_wight && $image_height){
@@ -163,13 +168,14 @@ class ModelSnipet {
             $img->resize($image_wight, $image_height);
             $img->save();
         }
+		
+		if ($small_wight && $small_height){
+			$img = \Intervention\Image\Facades\Image::make(public_path().'/'.$path.'/'.$file_name);
+            $img->resize($small_wight, $small_height);
+            $img->save($path.'/'.$small_image);
+		}
 
-        if ($cirle && $image_wight && $image_height){
-            $img->circle($image_wight/2, $image_wight/2, $image_wight/2, function ($draw) {
-                    $draw->background('#0000ff');
-            });
-            $img->save();
-        }
+      
 
 
 		return  '/'.$path.'/'.$file_name;

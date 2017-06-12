@@ -11,12 +11,6 @@
         <div class="zaved-rating__ocenka">
             <span>Рейтинг: {{ $object->raiting_view }}</span>
         </div>
-        <div class="zaved-rating__numbers">
-            <span>{{ $object->relScore()->count() }} оценок</span>
-        </div>
-        <div class="zaved-rating__otzyv">
-            <span>{{ $object->relComment()->count() }} отзыва</span>
-        </div>
     </div>
 
     <div class="upzaved-text">

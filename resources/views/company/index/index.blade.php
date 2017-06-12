@@ -7,62 +7,36 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="box">
-      <div class="box-header">
-        <h3 class="box-title">Responsive Hover Table</h3>
-
-        <div class="box-tools">
-          <div class="input-group input-group-sm" style="width: 150px;">
-            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-            <div class="input-group-btn">
-              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /.box-header -->
       <div class="box-body table-responsive no-padding">
-        <table class="table table-hover">
-          <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Reason</th>
-          </tr>
-          <tr>
-            <td>183</td>
-            <td>John Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="label label-success">Approved</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-          <tr>
-            <td>219</td>
-            <td>Alexander Pierce</td>
-            <td>11-7-2014</td>
-            <td><span class="label label-warning">Pending</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-          <tr>
-            <td>657</td>
-            <td>Bob Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="label label-primary">Approved</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-          <tr>
-            <td>175</td>
-            <td>Mike Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="label label-danger">Denied</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-        </table>
+      		<div class="pad">
+      			<span class="pad__heading">Приветствуем Вас ! Рады видеть Вас в числе клиентов weekends.kz</span> 
+      			<p>Мы сконструктурировали Ваш ЛИЧНЫЙ КАБИНЕТ так, чтобы Вы могли воспользоваться и получить максимальную выгоду от использования сервиса weekends.kz. </p>
+						<ul class="pad-ul">
+							<li>В личном кабинете Вы можете:</li> 
+							<li>- Редактировать данные о Вашем заведений </li>
+							<li>- Редактировать, добавлять информаций об акция, новостях, событиях, о новом меню и много другое </li>
+							<li>- Редактировать, добавлять фото Вашего интерьера и экстерьера, блюд, прошедших событий, персонала и т.д.</li>
+						</ul>
+				</div>
+				<style>
+					.pad{
+						padding:25px;
+					}
+					.pad__heading{
+						font-size:24px;
+						display:block;
+						font-weight:bold;
+						margin-bottom:10px;
+					}
+					.pad-ul{
+						list-style:none;
+					}
+					.pad-ul li{
+						margin-bottom:4px;
+					}
+				</style>	
       </div>
-      <!-- /.box-body -->
     </div>
-    <!-- /.box -->
   </div>
 </div>
 

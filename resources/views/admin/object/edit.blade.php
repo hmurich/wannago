@@ -77,23 +77,22 @@
                                 @endforeach
                             </select>
                         </div>
-                    @else
-                        <div class="form-group">
-                            <label for="name" >Кухня:</label>
-                            <select class="form-control select2" name='main_option[]'
-                                    multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
-                                @foreach ($ar_kitchen as $id=>$name)
-                                    <option value="{{ $id }}" {{ (isset($main_option[$id]) ? 'selected' : null) }}>{{ $name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                     @endif
+					<div class="form-group">
+						<label for="name" >Кухня:</label>
+						<select class="form-control select2" name='main_option[]'
+								multiple="multiple" data-placeholder="Кухня" style="width: 100%;" required="">
+							@foreach ($ar_kitchen as $id=>$name)
+								<option value="{{ $id }}" {{ (isset($main_option[$id]) ? 'selected' : null) }}>{{ $name }}</option>
+							@endforeach
+						</select>
+					</div>
                 </div>
             </div>
         </div>
 
         <div class='col-md-6'>
-            <div class="box box-primary">
+<!--             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Логитип</h3>
                 </div>
@@ -110,7 +109,7 @@
                         <input type="file" name='logo' class='form-control' />
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Дополнительные свойтсва</h3>
@@ -119,7 +118,7 @@
                     @foreach ($ar_dop_option as $id =>$name)
                         <div class="form-group">
                             <label for="lng" >{{ $name }}:</label>
-                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' value='{{ (isset($dop_option[$id]) ? $dop_option[$id] : null) }}' placeholder="{{ $name }}"  required="">
+                            <input type="text" class="form-control" name='dop_option[{{ $id }}]' value='{{ (isset($dop_option[$id]) ? $dop_option[$id] : null) }}' placeholder="{{ $name }}" >
                         </div>
                     @endforeach
                 </div>

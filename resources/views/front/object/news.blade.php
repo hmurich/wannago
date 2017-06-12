@@ -11,9 +11,6 @@
 			<div class="zaved-up">
                 @include('front.object.include.zaved_up')
 			</div>
-			<div class="zaved-menu">
-                @include('front.object.include.zaved_menu')
-			</div>
             <div class="other-part other-part--news">
 				<div class="zav-news">
 					<div class="zav-up">

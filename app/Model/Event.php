@@ -6,11 +6,11 @@ use App\Model\Generators\ModelSnipet;
 class Event extends Model{
     protected $table = 'events';
 
-    const IMAGE_W = 800;
-    const IMAGE_H = 350;
+    const IMAGE_W = 710;
+    const IMAGE_H = 440;
 
-    const IMAGE_CATALOG_W = 112;
-    const IMAGE_CATALOG_H = 112;
+    const IMAGE_CATALOG_W = 250;
+    const IMAGE_CATALOG_H = 270;
 
     function relObject(){
         return $this->belongsTo('App\Model\Object', 'object_id');

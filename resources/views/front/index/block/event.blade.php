@@ -6,27 +6,27 @@
 	</div>
 </div>
 
-<ul class="new-ul">
+<div class="event-c">
     @foreach ($events as $e)
-        <li>
-            <a href="{{ action('Front\Object\EventController@getShow', array($e->relObject->alias, $e->id)) }}" class="new-zaved">
-                <div class="new-zaved__img">
-                    @if ($e->image)
-                        <img src="{{ $e->image }}"  />
+        <div>
+            <a href="{{ action('Front\Object\EventController@getShow', array($e->relObject->alias, $e->id)) }}" class="event-part">
+                    @if ($e->catalog_image)
+                        <img src="{{ $e->catalog_image }}"  />
                     @else
-                        <img src="/front/img/event.png" />
+                        <img src="/front/img/event.jpg" />
                     @endif
-                </div>
-                <div class="t-zaved event-part">
-                    <span class="event-part__heading">
-						{{ $e->relObject->name }}
-					</span>
-                    <span class="event-part__date">
-						{{ $e->date_str }}
-					</span>
-					<span class="btn btn--second" href="#">Подробнее</span>
-                </div>
+                <div class="event-part__inside"></div>
+            
+                    <div class="event-text">
+                        <span class="event-text__date">
+                            {{ $e->date_str }}
+                        </span>
+                        <span class="event-text__heading">
+                            {{ $e->title }}
+                        </span>
+                        <span class="btn">Подробнее</span>
+                    </div>
             </a>
-        </li>
+        </div>
     @endforeach
-</ul>
+</div>

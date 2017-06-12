@@ -1,7 +1,7 @@
 <!-- Logo -->
 <a href="/adminka/" class="logo">
-    <span class="logo-mini"><b>C</b>MS</span>
-    <span class="logo-lg"><b>Creative</b>CMS</span>
+    <span class="logo-mini">Wkz</span>
+    <span class="logo-lg"><b>Weekends</b>.KZ</span>
 </a>
 
 <nav class="navbar navbar-static-top">

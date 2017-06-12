@@ -53,8 +53,8 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ action('Admin\Object\ListController@getVip', $i->id) }}">
-                                            {{ ($i->is_vip ? 'Отключить Слайд' : 'Слайд') }}
+                                        <a href="{{ action('Admin\Object\ListController@getSlide', $i->id) }}">
+                                            {{ ($i->is_slide ? 'Отключить Слайд' : 'Слайд') }}
                                         </a>
                                     </li>
                                     <li>

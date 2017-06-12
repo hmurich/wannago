@@ -31,13 +31,32 @@ class ListController extends Controller{
         return view('admin.object.list', $ar);
     }
 
-    function getSlide(){
+    function getSlide(Request $request, $object_id){
         $object = Object::findOrFail($object_id);
-        $object->is_slide = ($object->is_slide ? 0 : 1);
-        $object->save();
+		if ($object->is_slide){
+			$object->is_slide = 0;
+			$object->save();
 
-        return redirect()->back()->with('success', 'Сохранено');
+			return redirect()->back()->with('success', 'Сохранено');
+		}
+		
+        $ar = array();
+        $ar['title'] = 'Указать организацию на слайде';
+		$ar['action'] = action('Admin\Object\ListController@postSlide', $object->id);
+		$ar['item'] = $object;
+		
+		
+		return view('admin.object.slide', $ar);
     }
+	
+	function postSlide(Request $request, $object_id){
+		$object = Object::findOrFail($object_id);
+		$object->is_slide = 1;
+		$object->slide_css = $request->input('slide_css');
+		$object->save();
+		
+		return redirect()->action('Admin\Object\ListController@getIndex', $object->cat_id)->with('success', 'Сохранено');
+	}
 
     function getRecomeded($object_id){
         $object = Object::findOrFail($object_id);

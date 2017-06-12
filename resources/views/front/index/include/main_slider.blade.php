@@ -1,5 +1,5 @@
 @foreach ($object_on_slide as $o)
-    <div class="main-slider__part">
+    <div class="main-slider__part {{ $o->slide_css }}">
         <div class="inner">
             <div class="m-arrow m-arrow--left">
                 Назад

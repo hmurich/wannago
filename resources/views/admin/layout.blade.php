@@ -34,9 +34,7 @@
             </section>
         </div>
 
-        <footer class="main-footer">
-            @include('admin.include.footer')
-        </footer>
+
     </div>
 
     <script type="text/javascript" src="{{ URL::asset('//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU') }}" ></script>

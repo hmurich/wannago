@@ -38,6 +38,31 @@
         </div>
     </li>
 @endif
+@if ($object->relStandartData->phone)
+	<li>
+        <div class="character">
+            <span class="character__heading">ТЕЛЕФОН</span>
+            <p class="character__text">{{ $object->relStandartData->phone }}</p>
+        </div>
+    </li>
+@endif
+@if ($object->relStandartData->address)
+	<li>
+        <div class="character">
+            <span class="character__heading">АДРЕС</span>
+            <p class="character__text">{{ $object->relStandartData->address }}</p>
+        </div>
+    </li>
+@endif
+@if ($object->relStandartData->work_time)
+	<li>
+        <div class="character">
+            <span class="character__heading">ВРЕМЯ РАБОТЫ</span>
+            <p class="character__text">{{ $object->relStandartData->work_time }}</p>
+        </div>
+    </li>
+@endif
+
 @if ($object->relStandartData->price_for_hout > 0)
     <li>
         <div class="character">
@@ -47,6 +72,9 @@
     </li>
 @endif
 @foreach ($object->relDopOption as $o)
+	@if (!$o->option_value)
+		<?php continue; ?>
+	@endif
     <li>
         <div class="character">
             <span class="character__heading">{{ $o->option_name }}</span>

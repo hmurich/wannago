@@ -12,13 +12,14 @@
                 <img alt="{{ $n->title }}" src="/front/img/news-zaved.jpg">
             @endif
         </div>
-        <div class="t-zaved event-part">
-            <span class="event-part__heading">
+        <div class="t-zaved">
+            <span class="t-zaved__type">
+                {{ $n->created_at }}
+            </span>            
+            <span class="t-zaved__heading">
                 {{ $n->title }}
             </span>
-            <span class="event-part__date">
-                {{ $n->created_at }}
-            </span>
+
             <span class="btn btn--second" href="#">Подробнее</span>
         </div>
     </a>

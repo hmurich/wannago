@@ -2,7 +2,7 @@
 <a class="logo" href="/">
 	<img src="/front/img/logo.jpg" />
 </a>
-<span class="slogan">Каталог заведении по Казахстану</span>
+<span class="slogan">Каталог заведений по Казахстану</span>
 <div class="city-select">
 	<div class="city-select__left">Город:</div>
 	<div class="city-select__part">

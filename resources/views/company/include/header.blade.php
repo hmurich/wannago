@@ -1,7 +1,7 @@
 <!-- Logo -->
 <a href="/company/" class="logo">
-    <span class="logo-mini"><b>C</b>MS</span>
-    <span class="logo-lg"><b>Creative</b>CMS</span>
+    <span class="logo-mini"></span>
+    <span class="logo-lg">Личный кабинет</span>
 </a>
 
 <nav class="navbar navbar-static-top">

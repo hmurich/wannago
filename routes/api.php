@@ -19,8 +19,24 @@ Route::get('get-ar-directory', function () {
     echo $elems;
 });
 
+Route::get('get-ar-directory-by-key', function () {
+    $elems = SysDirectory::select('id', 'sys_key')->orderBy('id', 'asc')->get()->toJson();
+    echo $elems;
+});
+
 Route::get('get-ar-directory-elem/{id?}', function ($id = 0) {
     $elems = SysDirectoryName::select('id', 'name');
+
+    if ($id)
+        $elems = $elems->where('parent_id', $id);
+
+    $elems = $elems->orderBy('id', 'asc')->get()->toJson();
+    echo $elems;
+});
+
+
+Route::get('get-ar-directory-elem-by-key/{id?}', function ($id = 0) {
+    $elems = SysDirectoryName::select('sys_key', 'name');
 
     if ($id)
         $elems = $elems->where('parent_id', $id);

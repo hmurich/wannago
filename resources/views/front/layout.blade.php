@@ -4,9 +4,8 @@
 	<meta charset="utf-8">
 	<title>{{ $title }}</title>
 	<link href="{{ URL::asset('front/css/style.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{ URL::asset('front/css/scrollbar.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('front/css/jquery.fancybox.css') }}" rel="stylesheet" type="text/css">
-	<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+	<meta name="viewport" content="width=2500, initial-scale=1">
 </head>
 <body>
 	<div class="header">
@@ -33,12 +32,10 @@
     <script type="text/javascript" src="{{ URL::asset('https://code.jquery.com/ui/1.12.1/jquery-ui.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('front/js/script.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('front/js/slick.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('front/js/scrollbar.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('front/js/mousewheel.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('front/js/jquery.fancybox.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('front/add/sain.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('front/add/map.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('front/add/main.js') }}"></script>
-	@yield('js')
+	@yield('js')	
 </body>
 </html>

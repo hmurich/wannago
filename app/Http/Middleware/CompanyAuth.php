@@ -16,7 +16,7 @@ class CompanyAuth {
         if ($this->auth->guest() || $this->auth->user()->type_id != 3){
             Auth::logout();
 
-            return redirect()->action('Company\AuthController@getLogin')->with('error', 'Введите email и пароль, для доступа в админку');
+            return redirect()->action('Company\AuthController@getLogin');
         }
 
         return $next($request);

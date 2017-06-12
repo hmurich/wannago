@@ -7,7 +7,7 @@
             <a href="{{ action('Front\Object\ShowController@getIndex', $r->alias) }}" class="new-zaved">
                 <div class="new-zaved__img">
                     @if ($r->relSlider()->first())
-                        <img src="{{ $r->relSlider()->first()->image }}">
+                        <img src="{{ $r->relSlider()->first()->small_image }}">
                     @else
                         <img src="/front/img/zaved.jpg">
                     @endif
