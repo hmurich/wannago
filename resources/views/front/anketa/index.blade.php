@@ -14,7 +14,7 @@
 
 @section('content')
 
-<form action='{{ action("Front\AnketaController@postIndex") }}' method="post" enctype="multipart/form-data">
+<form action='{{ action("Front\AnketaController@postIndex") }}' method="post" enctype="multipart/form-data" class='js_anketa_form'>
     <main>
     	<div id="anketa" class="anketa">
     		<div class="anketa-center">
@@ -53,4 +53,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 </form>
 
+<div class='pre_loader'>
+	
+</div>
 @endsection

@@ -1,4 +1,41 @@
 $(document).ready(function() {
+	$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+	
+	$('.js_upload_file').change(function(){
+		var data = new FormData();
+		data.append('image', $('.js_upload_file')[0].files[0]);
+			
+		$.ajax({
+			url: "/anketa/img",
+			type: "POST",            
+			data: data, 
+			contentType: false,       
+			enctype: 'multipart/form-data',
+			cache: false,             
+			processData:false,  
+			beforeSend: function(){
+				$('.pre_loader').addClass('pre_loader--active');
+			},
+			success: function(data)   
+			{	
+				$('.pre_loader').removeClass('pre_loader--active');
+				if (data != '0'){
+					$('.js_img_blocks').append("<div class='js_img_block'>"+
+													"<img src='" + data + "' style='width: 100%'>"+
+													"<input type='hidden' name='ar_photo_img[]' value='" + data + "'>"+
+												"</div>");
+					console.log(data);
+				}
+				console.log(data);
+			}
+		});
+	});
+	
+	
     $('.js_option_select').click(function(){
         var id = $(this).data('id');
         var option = $(this).parent().children('.js_option_' + $(this).data('type'));

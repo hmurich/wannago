@@ -31,6 +31,13 @@ class AnketaController extends Controller{
 
         return view('front.anketa.index', $ar);
     }
+	
+	function postImage(Request $request){
+		if (!$request->hasFile('image'))
+			return '0';
+	
+		return ModelSnipet::setImage($request->file('image'), 'anketa');
+	}
 
     function postIndex(Request $request){
         //echo '<pre>'; print_r($request->all()); echo '</pre>'; exit();
@@ -78,6 +85,15 @@ class AnketaController extends Controller{
                 //echo '111111 <br/>'; exit();
             }
         }
+		
+		if ($request->has('ar_photo_img')){
+			foreach ($request->input('ar_photo_img') as $img){
+				$image = new AnketePhoto();
+				$image->anketa_id = $anketa->id;
+				$image->photo = $img;
+				$image->save();
+			}
+		}
 
         return redirect()->back()->with('success', 'Сохранено');
     }

@@ -1,4 +1,4 @@
-<div class="filtr inner">
+<div class="filtr">
     <div class="filtr-up">
         Поиск заведений по параметрам
     </div>

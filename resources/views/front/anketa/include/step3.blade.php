@@ -9,14 +9,18 @@
     <span class="form-row__text">Фотографии:</span>
     <div class="photo-load">
         <div class="photo-load__file">
-            <input type="file" multiple name='ar_photo[]'>
+            <input type="file" multiple name='image' class='js_upload_file'>
             <span>Загрузить фото</span>
         </div>
         <div class="photo-load__zakas">
             <input type="checkbox"  name='photo_service_true'>
-            <span>Заказать фотосессию</span>
             <div class="check"></div>
+            <span>Заказать фотосессию</span>
+            
         </div>
+		<div class='js_img_blocks'>
+			
+		</div>
     </div>
     <div class="photo-time">
         <span class="form-row__text">Время фотосессии:</span>

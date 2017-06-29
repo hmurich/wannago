@@ -1,5 +1,5 @@
 <div class="cont-zaved__map">
-    <div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 170px;"></div>
+    <div id='map' data-lng='{{ $object->relLocation->lng }}' data-lat='{{ $object->relLocation->lat }}' style="width: 100%; height: 100%;"></div>
 </div>
 <div class="cont-info">
     <span class="cont-info__row cont-info__row--adress">

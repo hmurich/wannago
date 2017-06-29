@@ -12,6 +12,7 @@ Route::get('where/list/{id}', 'Front\WhereGoController@getList');
 
 Route::get('anketa', 'Front\AnketaController@getIndex');
 Route::post('anketa', 'Front\AnketaController@postIndex');
+Route::post('anketa/img', 'Front\AnketaController@postImage');
 
 //show company controller
 Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');

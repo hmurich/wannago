@@ -18,8 +18,8 @@
                     </span>
                     <span class="t-zaved__heading" href="#">
                         {{ $r->name }}
-                    </span>
-                    <div class="stars {{ $r->raiting_full_round }}-star"></div>
+                    </span>                    
+                    <span class="btn btn--second">Подробнее</span>
                 </div>
             </a>
         </li>

@@ -1,6 +1,5 @@
 
 <a class="logo" href="/">
-	<img src="/front/img/logo.jpg" />
 </a>
 <span class="slogan">Каталог заведений по Казахстану</span>
 <div class="city-select">
@@ -18,23 +17,6 @@
 		</ul>
 	</div>
 </div>
-<ul class="right-nav">
-	<li>
-		<a href="#">
-			События
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			Новости
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			Рекомендации
-		</a>
-	</li>
-</ul>
 <div class="mob-menu">
 	<span></span>
 	<span></span>
