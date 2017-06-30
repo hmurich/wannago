@@ -14,8 +14,10 @@ Route::get('anketa', 'Front\AnketaController@getIndex');
 Route::post('anketa', 'Front\AnketaController@postIndex');
 Route::post('anketa/img', 'Front\AnketaController@postImage');
 
+Route::get('sitemap', 'Front\PageController@getMap');
+
 //show company controller
-Route::get('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
+Route::any('zaved/show/{alias}', 'Front\Object\ShowController@getIndex');
 
 Route::get('zaved/show/{alias}/menu', 'Front\Object\MenuController@getIndex');
 

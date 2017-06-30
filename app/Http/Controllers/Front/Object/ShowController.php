@@ -12,8 +12,15 @@ use App\Model\Event;
 use App\Model\News;
 use App\Model\Comment;
 
+use App\Model\Visitor;
+use App\User;
+use Auth;
+
 class ShowController extends Controller{
     function getIndex (Request $request, $alias){
+        if ($request->has('token'))
+            $this->socialAuth($request);
+
         $city_id = City::getCityID();
 
         $object = Object::where('alias', $alias)->first();
@@ -70,6 +77,44 @@ class ShowController extends Controller{
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
 
         return view('front.object.show', $ar);
+    }
+
+    private function socialAuth(Request $request){
+        $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+        $user_data = json_decode($s, true);
+        if (!isset($user_data['network']) || !isset($user_data['uid']))
+            abort(404);
+
+
+        $visitor = Visitor::where('network', $user_data['network'])->where('uid', $user_data['uid'])->first();
+        if (!$visitor){
+            $user = new User();
+            $user->type_id = 4;
+            $user->email = time().'@rand.rand';
+            $user->password = time();
+            $user->save();
+
+            $visitor = new Visitor();
+            $visitor->user_id = $user->id;
+            if (isset($user_data['network']))
+                $visitor->network = $user_data['network'];
+            if (isset($user_data['identity']))
+                $visitor->identity = $user_data['identity'];
+            if (isset($user_data['uid']))
+                $visitor->uid = $user_data['uid'];
+            if (isset($user_data['first_name']))
+                $visitor->first_name = $user_data['first_name'];
+            if (isset($user_data['last_name']))
+                $visitor->last_name = $user_data['last_name'];
+            if (isset($user_data['profile']))
+                $visitor->profile = $user_data['profile'];
+
+            $visitor->save();
+        }
+
+        Auth::loginUsingId($visitor->user_id);
+
+        return back()->with('success', 'Сохранено');
     }
 
 }

@@ -9,6 +9,8 @@ use App\Model\SysDirectoryName;
 use App\Model\Object;
 use App\Model\Comment;
 use App\Model\Visitor;
+use App\Model\ObjectScoreVote;
+
 use App\User;
 use Auth;
 
@@ -61,6 +63,7 @@ class CommentController extends Controller{
         if (!isset($user_data['network']) || !isset($user_data['uid']))
             abort(404);
 
+
         $visitor = Visitor::where('network', $user_data['network'])->where('uid', $user_data['uid'])->first();
         if (!$visitor){
             $user = new User();
@@ -109,6 +112,37 @@ class CommentController extends Controller{
         $item->parent_id = 0;
         $item->save();
 
+        if ($request->has('score_val'))
+            $this->addRaiting($request, $object);
+
         return back()->with('success', 'Сохранено');
+    }
+
+    function addRaiting(Request $request, $object){
+        $score = $object->relScore;
+        if (!$score)
+            return false;
+
+        $user_id = 0;
+        if ($request->user())
+            $user_id = $request->user()->id;
+
+        $vote = new ObjectScoreVote();
+        $vote->object_id = $object->id;
+        $vote->score_id = $score->id;
+        $vote->is_admin = 0;
+        $vote->mobile_user_id = $user_id;
+        $vote->score_val = $request->input('score_val');
+        $vote->save();
+
+        $score->score_sum = $score->score_sum + $vote->score_val;
+        $score->score_count = $score->score_count + 1;
+        $score->score_avg = $score->score_sum / $score->score_count;
+        $score->save();
+
+        $object->raiting = round($score->score_avg, 2);
+        $object->save();
+
+        return true;
     }
 }

@@ -1,6 +1,13 @@
 @if (Auth::check())
     <div class="add-comment">
         <form action="{{ action('Front\Object\CommentController@postSave', $object->alias) }}" method="post">
+            <span class="add-comment__heading">Ваша оценка</span>
+            <input type="radio" name="score_val" value="5"> 5
+            <input type="radio" name="score_val" value="4"> 4
+            <input type="radio" name="score_val" value="3"> 3
+            <input type="radio" name="score_val" value="2"> 2
+            <input type="radio" name="score_val" value="1"> 1
+
             <span class="add-comment__heading">Ваш комментарий</span>
             <input class="add-comment__input" name='title' placeholder="Представьтесь пожалуйста..." type="text" required="">
             <textarea class="add-comment__textarea" name='note' placeholder="Текст отзыва..." required=""></textarea>
