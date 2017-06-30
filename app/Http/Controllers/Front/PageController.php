@@ -20,8 +20,8 @@ class PageController extends Controller{
         $ar['ar_object_type'] = SysDirectoryName::where('parent_id', 3)->pluck('name', 'id');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 1)->pluck('name', 'id');
 
-        $ar['objects'] = Object::all();
-        
+        $ar['objects'] = Object::all()->keyBy('cat_id');
+
 
         return view('front.sitemap', $ar);
     }
